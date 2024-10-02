@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/baseline_home_24"
+        android:icon="@drawable/house"
         android:title="Home" />
     <item
         android:id="@+id/search"
@@ -10,6 +10,6 @@
         android:title="Search" />
     <item
         android:id="@+id/profile"
-        android:icon="@drawable/baseline_person_outline_24"
+        android:icon="@drawable/avatar"
         android:title="Profile" />
 </menu>
