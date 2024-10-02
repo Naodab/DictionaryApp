@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainFragment"
+    tools:context=".view.MainFragment"
     android:orientation="vertical">
 
     <LinearLayout
@@ -42,6 +42,7 @@
                 android:layout_marginRight="8dp"/>
 
             <EditText
+                android:id="@+id/search"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Search"
@@ -49,18 +50,21 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-    </LinearLayout>
+        android:layout_weight="1">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="wrap_content"
         app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>
