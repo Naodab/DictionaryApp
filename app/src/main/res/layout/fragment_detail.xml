@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.DetailFragment">
+<!--TODO: chỉnh lại giao diện cho đẹp-->
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
+    <data>
+        <variable
+            name="word"
+            type="com.midterm.testdictionary.model.Word" />
+    </data>
+
+    <LinearLayout android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical"
+        tools:context=".view.DetailFragment">
+<!--        quay lại và tìm kiếm thêm ở đây-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:orientation="horizontal">
 
-</FrameLayout>
+<!--        TODO:    làm cái nút back-->
+            <TextView
+                android:id="@+id/word_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="@{word.word}"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="bold"/>
+
+<!--        TODO: làm thêm nút tìm kiếm thêm    -->
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/meaning_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+</layout>

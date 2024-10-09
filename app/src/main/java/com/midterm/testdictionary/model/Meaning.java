@@ -1,5 +1,6 @@
 package com.midterm.testdictionary.model;
 
+
 import java.util.List;
 
 public class Meaning {

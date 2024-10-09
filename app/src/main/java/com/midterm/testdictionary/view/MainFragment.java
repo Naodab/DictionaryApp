@@ -5,15 +5,19 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentMainBinding;
@@ -23,6 +27,7 @@ import com.midterm.testdictionary.viewmodel.WordApiService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
@@ -34,6 +39,7 @@ public class MainFragment extends Fragment {
     private MainItemAdapter  itemsAdapter;
 
     private WordApiService apiService;
+    private Word searchedWord;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,13 +67,24 @@ public class MainFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String word = binding.search.getText().toString();
-//                Log.d("DEBUG", word);
                 setWordItems(word);
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
 
+            }
+        });
+
+        binding.search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEARCH) {
+                    String word = binding.search.getText().toString();
+                    performSearch(word);
+                    return true;
+                }
+                return false;
             }
         });
     }
@@ -89,27 +106,52 @@ public class MainFragment extends Fragment {
         itemList.add("Cài đặt");
         itemsAdapter.notifyDataSetChanged();
     }
-    public void setWordItems(String word){
-        apiService.getWordDefinition(word)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<Word>>() {
-                    @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
-                        Log.d("DEBUG", "Success");
-//
-//                        dogsList.addAll(dogBreeds);
-//                        dogsAdapter.notifyDataSetChanged();
-                        for(Word word1: words){
-                            Log.d("DEBUG", word1.getMeanings().get(0).getDefinitions().get(0).getDefinition());
-                        }
-                    }
 
-                    @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                        Log.d("DEBUG", "Fail" + e.getMessage());
-                        e.printStackTrace();
+    public Word performSearch(String word) {
+        final Word[] result = {null};
+        DisposableSingleObserver<List<Word>> disposableSingleObserver = apiService.getWordDefinition(word)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new DisposableSingleObserver<List<Word>>() {
+                @Override
+                public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
+                    Log.d("DEBUG", "Success");
+                    searchedWord = words.get(0);
+                    if (searchedWord != null) {
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("word", searchedWord);
+                        Navigation.findNavController(MainFragment.this.requireView()).navigate(R.id.detailFragment, bundle);
                     }
-                });
+                }
+
+                @Override
+                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    Log.d("DEBUG", "Fail" + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
+        return result[0];
+    }
+
+    public void setWordItems(String word){
+        DisposableSingleObserver<List<Word>> disposableSingleObserver = apiService.getWordDefinition(word)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new DisposableSingleObserver<List<Word>>() {
+                @Override
+                public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
+                    Log.d("DEBUG", "Success");
+
+                    for (Word word1 : words) {
+                        Log.d("DEBUG", word1.getMeanings().get(0).getDefinitions().get(0).getDefinition());
+                    }
+                }
+
+                @Override
+                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                    Log.d("DEBUG", "Fail" + e.getMessage());
+                    e.printStackTrace();
+                }
+            });
     }
 }

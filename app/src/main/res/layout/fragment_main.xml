@@ -10,8 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
         android:orientation="vertical"
         android:background="@color/primary"
         android:paddingLeft="16dp"
@@ -46,7 +46,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Search"
-                android:background="@null"/>
+                android:background="@null"
+                android:inputType="text"
+                android:maxLines="1"
+                android:imeOptions="actionSearch"/>
         </LinearLayout>
     </LinearLayout>
 

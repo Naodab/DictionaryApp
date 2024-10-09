@@ -1,8 +1,9 @@
 package com.midterm.testdictionary.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Word {
+public class Word implements Serializable {
     private String word;
     private List<Phonetic> phonetics;
     private List<Meaning> meanings;
