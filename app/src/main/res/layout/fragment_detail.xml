@@ -14,7 +14,7 @@
         android:orientation="vertical"
         tools:context=".view.DetailFragment">
 <!--        quay lại và tìm kiếm thêm ở đây-->
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary"
@@ -23,21 +23,80 @@
             android:orientation="horizontal">
 
 <!--        TODO:    làm cái nút back-->
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/baseline_arrow_back_24"
+                />
+
+            <EditText
+                android:id="@+id/search_input"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/back_btn"
+                android:background="@drawable/search_border"
+                android:hint="Search word here"
+                android:padding="12dp" />
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_toLeftOf="@id/save_btn"
+                android:background="@drawable/baseline_search_24_white"
+                android:layout_marginStart="8dp"
+                android:layout_marginRight="8dp" />
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/baseline_star_outline_24"
+                android:layout_alignParentEnd="true"/>
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                android:layout_width="100dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/primary"
+                android:visibility="gone"/>
+
+<!--        TODO: làm thêm nút tìm kiếm thêm    -->
+        </RelativeLayout>
+        <!--@{word.word}-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp">
             <TextView
                 android:id="@+id/word_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="8dp"
                 android:layout_marginLeft="8dp"
-                android:text="@{word.word}"
-                android:textColor="@color/white"
-                android:textSize="32sp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:text="hello"
+                android:textColor="@color/primary"
+                android:textSize="40dp"
+                android:textStyle="italic|bold" />
 
-<!--        TODO: làm thêm nút tìm kiếm thêm    -->
-        </LinearLayout>
 
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/phonetic_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:textSize="20dp"
+            android:text="/t e s t/"
+            android:textColor="@color/grey"/>
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="10dp"
             android:id="@+id/meaning_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>

@@ -7,7 +7,7 @@
     <solid android:color="#FFFFFF" />
 
     <!-- Bo góc cho 4 góc của LinearLayout -->
-    <corners android:radius="32dp" />
+    <corners android:radius="10dp" />
 
     <!-- Định nghĩa đường viền (border) -->
     <stroke
