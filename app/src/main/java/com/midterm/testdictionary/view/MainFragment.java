@@ -21,7 +21,9 @@ import android.widget.TextView;
 
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentMainBinding;
+import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Word;
+import com.midterm.testdictionary.model.WordObjectBox;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 
@@ -29,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import io.objectbox.Box;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -41,6 +44,8 @@ public class MainFragment extends Fragment {
     private WordApiService apiService;
     private Word searchedWord;
 
+    private Box<WordObjectBox> wordBox;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,10 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         apiService = new WordApiService();
+
+        wordBox = ObjectBox.get().boxFor(WordObjectBox.class);
+
+        getWordBox();
 
         binding.rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         itemList = new ArrayList<>();
@@ -122,8 +131,13 @@ public class MainFragment extends Fragment {
                         bundle.putSerializable("word", searchedWord);
                         View view = getView();
                         if (view != null) {
+//                            insertWord(searchedWord);
+
                             Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                         }
+
+
+
 //                        Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                     }
                 }
@@ -157,5 +171,20 @@ public class MainFragment extends Fragment {
                     e.printStackTrace();
                 }
             });
+    }
+
+    public void insertWord(Word word){
+        WordObjectBox wordObjectBox = new WordObjectBox();
+        wordObjectBox.setWord(word.getWord());
+
+        wordBox.put(wordObjectBox);
+    }
+
+    public void getWordBox(){
+        List<WordObjectBox> words = wordBox.getAll();
+
+        for (WordObjectBox word: words) {
+            Log.d("DEBUG", word.getWord());
+        }
     }
 }
