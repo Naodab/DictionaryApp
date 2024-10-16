@@ -9,9 +9,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.midterm.testdictionary" />
-                  <option name="mobileSdkAppId" value="1:762984593791:android:9a0005a17ef1d5e987824a" />
-                  <option name="projectId" value="diaryapp-7e4b4" />
-                  <option name="projectNumber" value="762984593791" />
+                  <option name="mobileSdkAppId" value="1:715338815454:android:55753b028600d0466baf4f" />
+                  <option name="projectId" value="firstwebrtc-28e0c" />
+                  <option name="projectNumber" value="715338815454" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
