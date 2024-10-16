@@ -120,7 +120,11 @@ public class MainFragment extends Fragment {
                     if (searchedWord != null) {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("word", searchedWord);
-                        Navigation.findNavController(MainFragment.this.requireView()).navigate(R.id.detailFragment, bundle);
+                        View view = getView();
+                        if (view != null) {
+                            Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
+                        }
+//                        Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                     }
                 }
 
