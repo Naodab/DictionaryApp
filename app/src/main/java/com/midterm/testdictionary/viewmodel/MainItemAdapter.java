@@ -1,6 +1,7 @@
 package com.midterm.testdictionary.viewmodel;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +13,14 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.midterm.testdictionary.R;
+import com.midterm.testdictionary.repository.CallRepository;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHolder>{
     private ArrayList<String> itemsList;
+    private CallRepository callRepository = CallRepository.getInstance();
 
     public MainItemAdapter(ArrayList<String> itemsList){
         this.itemsList = itemsList;
@@ -77,6 +80,15 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
 
             ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (tvContent.getText().toString().equals("Thực hành Tiếng Anh")) {
+                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                    }
+                }
+            });
 
 //            view.setOnClickListener(new View.OnClickListener() {
 //                @Override
