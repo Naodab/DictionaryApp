@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -107,11 +108,15 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
 
     @Override
     public void webrtcConnected() {
-
+        mHandler.post(()->{
+            binding.incomingCallLayout.setVisibility(View.GONE);
+            binding.whoToCallLayout.setVisibility(View.GONE);
+            binding.callLayout.setVisibility(View.VISIBLE);
+        });
     }
 
     @Override
     public void webrtcClosed() {
-
+        mHandler.post(() -> Navigation.findNavController(this.getView()).navigate(R.id.action_callFragment_to_mainFragment));
     }
 }
