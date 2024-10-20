@@ -9,4 +9,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="title_color">#E792A4</color>
+    <color name="title_thame_color">#161B58</color>
+    <color name="search_thame_color">#EFF2F5</color>
 </resources>

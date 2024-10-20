@@ -71,14 +71,12 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public ImageView ivIcon;
         public TextView tvContent;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            ivIcon = (ImageView) view.findViewById(R.id.iv_icon);
             tvContent = (TextView) view.findViewById(R.id.tv_content);
 
             view.setOnClickListener(new View.OnClickListener() {
