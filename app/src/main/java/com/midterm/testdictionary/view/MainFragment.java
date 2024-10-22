@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.Editable;
@@ -29,7 +28,6 @@ import com.midterm.testdictionary.viewmodel.WordApiService;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import io.objectbox.Box;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -95,6 +93,10 @@ public class MainFragment extends Fragment {
                 }
                 return false;
             }
+        });
+
+        binding.listItem.setOnClickListener(v ->{
+
         });
     }
     @Override
@@ -187,4 +189,14 @@ public class MainFragment extends Fragment {
             Log.d("DEBUG", word.getWord());
         }
     }
+
+//     Tạo và thêm SettingFragment đè lên MainFragment
+//    private void showSettingFragment() {
+//        SettingFragment settingFragment = new SettingFragment();
+//        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+//
+//        transaction.replace(R.id.mainFragment, settingFragment);
+//        transaction.addToBackStack(null);
+//        transaction.commit();
+//    }
 }
