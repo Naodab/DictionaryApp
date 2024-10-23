@@ -30,7 +30,7 @@
                 android:id="@+id/btn_volume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/baseline_volume_up_24"
+                android:src="@drawable/baseline_volume_up_24ver1"
                 android:background="@drawable/background_volume_circle"
                 android:padding="6dp"
                 android:tag="@{phonetic.audio}"/>
