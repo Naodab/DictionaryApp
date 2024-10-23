@@ -101,5 +101,12 @@
         tools:layout="@layout/fragment_practice" >
     </fragment>
 
+    <fragment
+        android:id="@+id/wordOfTheDayFragment"
+        android:name="com.midterm.testdictionary.view.WordOfTheDayFragment"
+        android:label="fragment_word_of_the_day"
+        tools:layout="@layout/fragment_word_of_the_day" >
+    </fragment>
+
 
 </navigation>

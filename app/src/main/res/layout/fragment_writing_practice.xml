@@ -77,7 +77,7 @@
                     />
 
 
-
+<!--                Viết logic thêm FrameLayout phụ thuộc vào số từ của từ vựng-->
                 <GridLayout
                     android:id="@+id/wordGrid"
                     android:layout_width="wrap_content"
