@@ -1,9 +1,15 @@
 package com.midterm.testdictionary.view;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
@@ -22,7 +28,7 @@ import java.util.List;
 
 public class DetailFragment extends Fragment {
     private Word word;
-    private FragmentDetailBinding binding;
+    public FragmentDetailBinding binding;
     private List<Meaning> meaningList;
     private MeaningAdapter meaningAdapter;
 
@@ -47,5 +53,17 @@ public class DetailFragment extends Fragment {
         meaningAdapter = new MeaningAdapter(meaningList);
         binding.meaningList.setAdapter(meaningAdapter);
         return viewRoot;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(getParentFragment()).popBackStack();
+            }
+        });
     }
 }

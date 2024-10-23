@@ -78,7 +78,7 @@
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
-                android:text="hello"
+                android:text="@{word.word}"
                 android:textColor="@color/primary"
                 android:textSize="40dp"
                 android:textStyle="italic|bold" />
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
             android:textSize="20dp"
-            android:text="/t e s t/"
+            android:text="@{word.phonetic}"
             android:textColor="@color/grey"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="10dp"

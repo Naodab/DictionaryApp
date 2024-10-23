@@ -1,10 +1,12 @@
 package com.midterm.testdictionary.view;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -27,6 +29,7 @@ import com.midterm.testdictionary.model.WordObjectBox;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -45,6 +48,8 @@ public class MainFragment extends Fragment {
     private Word searchedWord;
 
     private Box<WordObjectBox> wordBox;
+
+    private MediaPlayer mediaPlayer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -126,6 +131,8 @@ public class MainFragment extends Fragment {
                 public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
                     Log.d("DEBUG", "Success");
                     searchedWord = words.get(0);
+                    playAudio(searchedWord.getPhonetics().get(0).getAudio());
+
                     if (searchedWord != null) {
                         Bundle bundle = new Bundle();
                         bundle.putSerializable("word", searchedWord);
@@ -187,4 +194,38 @@ public class MainFragment extends Fragment {
             Log.d("DEBUG", word.getWord());
         }
     }
+
+    private void playAudio(String audioUrl) {
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(audioUrl);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mp.start();
+                }
+            });
+
+            // Stop the audio automatically once it's completed
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    stopAudio();
+                }
+            });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void stopAudio() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+    }
+
 }

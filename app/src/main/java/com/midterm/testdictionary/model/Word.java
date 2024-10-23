@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Word implements Serializable {
     private String word;
+    private String phonetic;
     private List<Phonetic> phonetics;
     private List<Meaning> meanings;
     private License license;
@@ -17,6 +18,10 @@ public class Word implements Serializable {
     public void setWord(String word) {
         this.word = word;
     }
+
+    public String getPhonetic(){ return phonetic; }
+
+    public void setPhonetic(String phonetic) { this.phonetic = phonetic; }
 
     public List<Phonetic> getPhonetics() {
         return phonetics;
