@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.text.Editable;
@@ -63,7 +64,7 @@ public class MainFragment extends Fragment {
 
         getWordBox();
 
-        binding.rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
+        binding.rvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
         itemList = new ArrayList<>();
         itemsAdapter = new MainItemAdapter(itemList);
         binding.rvItems.setAdapter(itemsAdapter);
@@ -117,7 +118,7 @@ public class MainFragment extends Fragment {
         itemList.add("Từ của bạn");
         itemList.add("Dịch văn bản");
         itemList.add("Thực hành Tiếng Anh");
-        itemList.add("Cài đặt");
+//        itemList.add("Cài đặt");
         itemsAdapter.notifyDataSetChanged();
     }
 
