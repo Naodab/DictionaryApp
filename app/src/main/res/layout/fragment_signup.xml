@@ -1,0 +1,236 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/page_sign_up__ek1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="0dp"
+    android:layout_marginTop="0dp"
+    android:background="@drawable/_bg__sign_up__ek2_shape">
+    <!--
+    /*
+     *	This content is generated from the API File Info.
+     *	(Alt+Shift+Ctrl+I).
+     *
+     *	@desc
+     *	@file 		sign_up_
+     *	@date 		Friday 18th of October 2024 06:51:47 AM
+     *	@title 		Login App UI Kit
+     *	@author
+     *	@keywords
+     *	@generator 	Export Kit v1.3.figma
+     *
+     */
+    -->
+
+    <TextView
+        android:layout_width="326dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/agbalumo"
+        android:text="@string/welcome_redflat__string"
+        android:textColor="@color/welcome_redflat__color"
+        android:textSize="36sp" />
+
+    <TextView
+        android:layout_width="268.5dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/sign_up_or_login_to_your_account_string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="192.5dp"
+        android:layout_height="34.5dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="224dp"
+        android:text="@string/full_name_string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="192.5dp"
+        android:layout_height="34.5dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="330dp"
+        android:text="@string/email_address_string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="159.5dp"
+        android:layout_height="34.5dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="554dp"
+        android:text="@string/or_sign_up_using__string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginTop="558dp"
+        android:contentDescription="vector_4"
+        android:src="@drawable/vector_4" />
+
+
+    <TextView
+        android:layout_width="192.5dp"
+        android:layout_height="34.5dp"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="437dp"
+        android:text="@string/create_password_string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="375dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="134dp"
+        android:background="@drawable/rectangle_1210_shape" />
+
+    <View
+        android:id="@+id/to_login"
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="151dp"
+        android:background="@drawable/rectangle_1211_shape"
+        android:clickable="true" />
+
+    <View
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="151dp"
+        android:background="@drawable/rectangle_1206_shape" />
+
+    <TextView
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="151dp"
+        android:gravity="center"
+        android:text="@string/login_string"
+        android:textColor="@color/login_color"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="141dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal|center"
+        android:layout_marginStart="228dp"
+        android:layout_marginTop="151dp"
+        android:gravity="center"
+        android:text="@string/sign_up_string"
+        android:textColor="@color/login_color"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="348dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="373dp"
+        android:background="@drawable/rectangle_1213_shape" />
+
+    <EditText
+        android:id="@+id/enter_email"
+        android:layout_width="336dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="373dp"
+        android:clickable="true"
+        android:hint="@string/enter_your_email_string"
+        android:textColor="@color/enter_your_email_color"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="348dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="473dp"
+        android:background="@drawable/rectangle_1215_shape" />
+
+    <EditText
+        android:id="@+id/enter_password"
+        android:layout_width="336dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="473dp"
+        android:hint="@string/enter_your_password_string"
+        android:textColor="@color/enter_your_email_color"
+        android:textSize="17sp" />
+
+    <View
+        android:layout_width="348dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="260dp"
+        android:background="@drawable/rectangle_1214_shape" />
+
+    <EditText
+        android:id="@+id/enter_name"
+        android:layout_width="336dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="260dp"
+        android:hint="@string/enter_your_name_string"
+        android:textColor="@color/enter_your_email_color"
+        android:textSize="17sp" />
+
+    <View
+        android:id="@+id/sign_up"
+        android:layout_width="250dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="721dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1213_ek1_shape" />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="721dp"
+        android:gravity="center"
+        android:text="@string/sign_up_ek1_string"
+        android:textColor="@color/login_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <ImageView
+        android:id="@+id/google"
+        android:layout_width="75.35dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="597dp"
+        android:clickable="true"
+        android:contentDescription="google_2"
+        android:src="@drawable/google_2" />
+
+    <ImageView
+        android:id="@+id/facebook"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="597dp"
+        android:contentDescription="fb_2"
+        android:clickable="true"
+        android:src="@drawable/fb_2" />
+
+    <ImageView
+        android:id="@+id/twitter"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="597dp"
+        android:clickable="true"
+        android:contentDescription="twitter_2"
+        android:src="@drawable/twitter_2" />
+
+</RelativeLayout>

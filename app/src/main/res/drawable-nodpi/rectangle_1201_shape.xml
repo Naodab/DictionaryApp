@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- rectangle_1201 from your XD file. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+	android:shape="rectangle" >
+	<corners android:radius="14dp" />
+	<solid android:color="@color/browse_through_an_extensive_collection_of_words__their_meanings__synonyms__and_antonyms__a_powerful_tool_to_enhance_your_vocabulary__color" />
+</shape>
+
