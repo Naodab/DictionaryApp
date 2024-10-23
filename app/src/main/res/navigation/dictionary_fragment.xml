@@ -44,4 +44,40 @@
             android:id="@+id/action_loginFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.midterm.testdictionary.view.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.midterm.testdictionary.view.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/wordManagerFragment"
+        android:name="com.midterm.testdictionary.view.WordManagerFragment"
+        android:label="fragment_word_manager"
+        tools:layout="@layout/fragment_word_manager" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/writingPracticeFragment"
+        android:name="com.midterm.testdictionary.view.WritingPracticeFragment"
+        android:label="fragment_writing_practice"
+        tools:layout="@layout/fragment_writing_practice" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/yourWordFragment"
+        android:name="com.midterm.testdictionary.view.YourWordFragment"
+        android:label="fragment_your_word"
+        tools:layout="@layout/fragment_your_word" >
+    </fragment>
+
 </navigation>

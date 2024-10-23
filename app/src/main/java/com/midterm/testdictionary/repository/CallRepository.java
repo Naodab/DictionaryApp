@@ -10,6 +10,7 @@ import com.midterm.testdictionary.utils.DataModelType;
 import com.midterm.testdictionary.utils.ErrorCallBack;
 import com.midterm.testdictionary.utils.NewEventCallback;
 import com.midterm.testdictionary.utils.SuccessCallBack;
+import com.midterm.testdictionary.utils.FailureCallBack;
 import com.midterm.testdictionary.webrtc.MyPeerConnectionObserver;
 import com.midterm.testdictionary.webrtc.WebRTCClient;
 
@@ -47,46 +48,63 @@ public class CallRepository  implements WebRTCClient.Listener {
         return instance;
     }
 
-    public void login(String username, Context context, SuccessCallBack callBack){
-        callClient.login(username,()->{
-            updateCurrentUsername(username);
-            this.webRTCClient = new WebRTCClient(context,new MyPeerConnectionObserver(){
-                @Override
-                public void onAddStream(MediaStream mediaStream) {
-                    super.onAddStream(mediaStream);
-                    try{
-                        mediaStream.videoTracks.get(0).addSink(remoteView);
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }
+    public void login(String username, Context context, SuccessCallBack callBack, FailureCallBack failureCallBack) {
+        if (username == null || username.isEmpty()) {
+            // Kiểm tra username rỗng
+            if (failureCallBack != null) {
+                failureCallBack.onFailure("Username không được để trống");
+            }
+            return;
+        }
 
-                @Override
-                public void onConnectionChange(PeerConnection.PeerConnectionState newState) {
-                    Log.d("TAG", "onConnectionChange: "+newState);
-                    super.onConnectionChange(newState);
-                    if (newState == PeerConnection.PeerConnectionState.CONNECTED && listener!=null){
-                        listener.webrtcConnected();
-                    }
-
-                    if (newState == PeerConnection.PeerConnectionState.CLOSED ||
-                            newState == PeerConnection.PeerConnectionState.DISCONNECTED ){
-                        if (listener!=null){
-                            listener.webrtcClosed();
+        try {
+            callClient.login(username, () -> {
+                updateCurrentUsername(username);
+                this.webRTCClient = new WebRTCClient(context, new MyPeerConnectionObserver() {
+                    @Override
+                    public void onAddStream(MediaStream mediaStream) {
+                        super.onAddStream(mediaStream);
+                        try {
+                            mediaStream.videoTracks.get(0).addSink(remoteView);
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
-                }
 
-                @Override
-                public void onIceCandidate(IceCandidate iceCandidate) {
-                    super.onIceCandidate(iceCandidate);
-                    webRTCClient.sendIceCandidate(iceCandidate,target);
-                }
-            },username);
-            webRTCClient.listener = this;
-            callBack.onSuccess();
-        });
+                    @Override
+                    public void onConnectionChange(PeerConnection.PeerConnectionState newState) {
+                        Log.d("TAG", "onConnectionChange: " + newState);
+                        super.onConnectionChange(newState);
+                        if (newState == PeerConnection.PeerConnectionState.CONNECTED && listener != null) {
+                            listener.webrtcConnected();
+                        }
+
+                        if (newState == PeerConnection.PeerConnectionState.CLOSED ||
+                                newState == PeerConnection.PeerConnectionState.DISCONNECTED) {
+                            if (listener != null) {
+                                listener.webrtcClosed();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onIceCandidate(IceCandidate iceCandidate) {
+                        super.onIceCandidate(iceCandidate);
+                        webRTCClient.sendIceCandidate(iceCandidate, target);
+                    }
+                }, username);
+                webRTCClient.listener = this;
+                callBack.onSuccess();
+            });
+        } catch (Exception e) {
+            // Xử lý lỗi trong quá trình gọi login
+            if (failureCallBack != null) {
+                failureCallBack.onFailure("Đăng nhập thất bại: " + e.getMessage());
+            }
+        }
     }
+
+
 
     public void initLocalView(SurfaceViewRenderer view){
         webRTCClient.initLocalSurfaceView(view);

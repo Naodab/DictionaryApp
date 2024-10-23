@@ -1,7 +1,6 @@
 package com.midterm.testdictionary.view;
 
 import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentLoginBinding;
@@ -45,17 +45,25 @@ public class LoginFragment extends Fragment {
                     .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
                     .request((allGranted, grantedList, deniedList)  -> {
                         if (allGranted) {
-                            callRepository.login(binding.username.getText().toString(), this.getContext(), () -> {
-                                // If success then call
-                                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
-                            });
+                            callRepository.login(binding.username.getText().toString(), this.getContext(),
+                                    () -> {
+                                        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
+                                    },
+                                    (errorMessage) -> {
+                                        Log.e("Login Error", errorMessage);
+                                        Toast.makeText(getContext(), "Đăng nhập thất bại: " + errorMessage, Toast.LENGTH_SHORT).show();
+                                    }
+                            );
+                        } else {
+                            Log.e("Permissions", "Quyền truy cập bị từ chối.");
                         }
                     });
         });
     }
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
         return binding.getRoot();
