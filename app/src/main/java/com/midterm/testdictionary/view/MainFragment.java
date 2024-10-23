@@ -131,7 +131,6 @@ public class MainFragment extends Fragment {
                 public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
                     Log.d("DEBUG", "Success");
                     searchedWord = words.get(0);
-                    playAudio(searchedWord.getPhonetics().get(0).getAudio());
 
                     if (searchedWord != null) {
                         Bundle bundle = new Bundle();
@@ -187,44 +186,11 @@ public class MainFragment extends Fragment {
         wordBox.put(wordObjectBox);
     }
 
-    public void getWordBox(){
+    public void getWordBox() {
         List<WordObjectBox> words = wordBox.getAll();
 
-        for (WordObjectBox word: words) {
+        for (WordObjectBox word : words) {
             Log.d("DEBUG", word.getWord());
-        }
-    }
-
-    private void playAudio(String audioUrl) {
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource(audioUrl);
-            mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    mp.start();
-                }
-            });
-
-            // Stop the audio automatically once it's completed
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopAudio();
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void stopAudio() {
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
         }
     }
 }
