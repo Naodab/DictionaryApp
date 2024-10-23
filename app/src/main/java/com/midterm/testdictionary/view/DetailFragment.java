@@ -20,7 +20,9 @@ import android.view.ViewGroup;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentDetailBinding;
 import com.midterm.testdictionary.model.Meaning;
+import com.midterm.testdictionary.model.Phonetic;
 import com.midterm.testdictionary.model.Word;
+import com.midterm.testdictionary.viewmodel.AudioAdapter;
 import com.midterm.testdictionary.viewmodel.MeaningAdapter;
 
 import java.util.ArrayList;
@@ -31,6 +33,8 @@ public class DetailFragment extends Fragment {
     public FragmentDetailBinding binding;
     private List<Meaning> meaningList;
     private MeaningAdapter meaningAdapter;
+    private ArrayList<Phonetic>  phoneticList;
+    private AudioAdapter audioAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,16 @@ public class DetailFragment extends Fragment {
         meaningList = new ArrayList<>(word.getMeanings());
         meaningAdapter = new MeaningAdapter(meaningList);
         binding.meaningList.setAdapter(meaningAdapter);
+
+        binding.audioRv.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
+        phoneticList = new ArrayList<>();
+        for (Phonetic phonetic: word.getPhonetics()) {
+            Log.d("DEBUG", phonetic.getAudio());
+            if(!phonetic.getAudio().equals("")) phoneticList.add(phonetic);
+        }
+        audioAdapter = new AudioAdapter(phoneticList);
+        binding.audioRv.setAdapter(audioAdapter);
+
         return viewRoot;
     }
 
@@ -62,6 +76,9 @@ public class DetailFragment extends Fragment {
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int backStackCount = getFragmentManager().getBackStackEntryCount();
+                Log.d("BackStack", "BackStack count: " + backStackCount);
+
                 NavHostFragment.findNavController(getParentFragment()).popBackStack();
             }
         });

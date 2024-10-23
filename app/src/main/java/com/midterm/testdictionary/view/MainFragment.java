@@ -47,8 +47,6 @@ public class MainFragment extends Fragment {
 
     private Box<WordObjectBox> wordBox;
 
-    private MediaPlayer mediaPlayer;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -77,7 +77,7 @@
                     android:layout_height="50dp"
                     android:layout_marginStart="105dp"
                     android:background="@drawable/baseline_toggle_off_50"
-                    android:clickable="true" />
+                    android:clickable="true"/>
 
             </LinearLayout>
 
