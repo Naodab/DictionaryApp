@@ -1,6 +1,8 @@
 package com.midterm.testdictionary.model;
 
-public class Phonetic {
+import java.io.Serializable;
+
+public class Phonetic implements Serializable {
     private String text;
     private String audio;
     private String sourceUrl;

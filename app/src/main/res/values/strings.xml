@@ -1,6 +1,178 @@
 <resources>
-    <string name="app_name">TestDictionary</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title">Dictionary</string>
+    <string name="title">RedFlat</string>
+    <string name="profile">Profile</string>
+    <string name="underlined_text"><u>Underlined Text</u></string>
+
+    <!-- sign_up_ strings -->
+
+    <string name="app_name">Login App UI Kit</string>
+    <string name="ek_img_content">ExportKit Image</string>
+    <string name="welcome_redflat__string">Welcome RedFlat!</string>
+    <string name="sign_up_or_login_to_your_account_string">Sign up or Login to your Account</string>
+    <string name="full_name_string">Full Name</string>
+    <string name="email_address_string">Email Address</string>
+    <string name="or_sign_up_using__string">Or Sign Up Using:</string>
+    <string name="create_password_string">Create Password</string>
+    <string name="login_string">Login</string>
+    <string name="sign_up_string">Sign up</string>
+    <string name="enter_your_email_string">Enter your Email</string>
+    <string name="sign_up_ek1_string">SIGN UP</string>
+    <string name="enter_your_name_string">Enter your name</string>
+
+    <!--  login strings  -->
+
+    <string name="password_string">Password</string>
+    <string name="forgot_password__string">
+<u>Forgot Password?</u>
+</string>
+    <string name="or_login_using__string">Or Login Using:</string>
+
+    <string name="login_ek3_string">Login</string>
+
+    <string name="enter_your_password_string">Enter your Password</string>
+
+    <string name="login_ek4_string">LOGIN</string>
+
+
+    <!--  forgot_password strings  -->
+
+    <string name="send_string">Send</string>
+
+
+    <!--  introduce1 strings  -->
+
+    <string name="h_nh__nh_minh_h_a_string">Hnh nh minh ha</string>
+    <string name="browse_through_an_extensive_collection_of_words__their_meanings__synonyms__and_antonyms__a_powerful_tool_to_enhance_your_vocabulary__string">Browse through an extensive collection of words, their meanings, synonyms, and antonyms. A powerful tool to enhance your vocabulary!</string>
+    <string name="explore_thousands_of_words___definitions_string">Explore Thousands of Words and Definitions</string>
+    <string name="skip_string">Skip</string>
+    <string name="next_string">Next</string>
+
+    <!--  introduce2 strings  -->
+
+    <string name="instant_translations_at_your_fingertips_string">Instant Translations at Your Fingertips</string>
+    <string name="quickly_translate_words_between_languages_with_our_integrated_translation_feature__get_definitions_and_examples_on_the_go__string">Quickly translate words between languages with our integrated translation feature. Get definitions and examples on the go!</string>
+
+
+    <!--  introduce3 strings  -->
+
+    <string name="save_and_learn_at_your_own_pace_string">Save and Learn at Your Own Pace</string>
+    <string name="bookmark_words_to_review_later__and_track_your_progress_with_personalized_word_lists__learning_has_never_been_this_easy__string">Bookmark words to review later, and track your progress with personalized word lists. Learning has never been this easy!</string>
+
+    <!--  home strings  -->
+
+    <string name="redflat_string">RedFlat</string>
+    <string name="tra_t___i_n_anh_vi_t_anh_string">Tra từ điển Anh Việt Anh</string>
+    <string name="t__v_ng_trong_ng_y_string">Từ vựng trong ngày</string>
+    <string name="endurance_string">Endurance</string>
+    <string name="en_dur_ance_string">en-dur-ance </string>
+    <string name="__asdasd__string">[asdasd]</string>
+    <string name="danh_t__string">Danh từ</string>
+    <string name="m_t_tr_ng_th_i_s_ng_s_t__s_c_s_ng_string">một trạng thái sống sót; sức sống</string>
+    <string name="v__d__string">Ví dụ</string>
+    <string name="cu_c__ua_marathon_th__th_ch_s_c_b_n_c_a_v_n___ng_vi_n_string">Cuộc đua marathon thử thách sức bền của vận động viên</string>
+    <string name="chi_ti_t_string">Chi tiết</string>
+    <string name="t__c_a_b_n_string">Từ của bạn</string>
+    <string name="th_c_h_nh_ti_ng_anh_string">Thực hành tiếng anh</string>
+    <string name="d_ch_v_n_b_n_string">Dịch văn bản</string>
+    <string name="t_____tra_string">Từ đã tra</string>
+
+
+    <!--  word_of_the_day strings  -->
+
+    <string name="edurance_string">Edurance</string>
+
+    <string name="t_nh_t__string">Tính từ</string>
+    <string name="__nh_ngh_a_string">Định nghĩa</string>
+
+    <string name="t____ng_ngh_a_string">Từ đồng nghĩa</string>
+    <string name="kh__n_ng_ch_u___ng_m_t_qu__tr_nh_ho_c_t_nh_hu_ng_kh__kh_n_m__kh_ng_b__cu_c__string">Khả năng chịu đựng một quá trình hoặc tình huống khó khăn
+mà không bỏ cuộc.</string>
+    <string name="__she_was_close_to_the_limit_of_her_endurance__string">"She was close to the limit of her endurance"</string>
+    <string name="__nh_ngh_a_ek1_string">Định nghĩa</string>
+    <string name="v__d__ek1_string">Ví dụ</string>
+    <string name="ch__m_t_cu_c__ua_ho_c_s__ki_n_th__thao_kh_c_di_n_ra_tr_n_qu_ng____ng_d_i_ho_c___i_h_i_s_c_b_n_th__ch_t_l_n_string">Chỉ một cuộc đua hoặc sự kiện thể thao khác diễn ra trên
+quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string>
+    <string name="__the_annual_24_hour_endurance_race__string">"The annual 24-hour endurance race"</string>
+    <string name="toleration_string">toleration</string>
+    <string name="acceptance_string">acceptance</string>
+    <string name="fortitude_string">fortitude</string>
+    <string name="sufferance_string">sufferance</string>
+    <string name="tolerance_string">tolerance</string>
+    <string name="bearing_string">bearing</string>
+    <string name="patience_string">Patience</string>
+
+
+    <!--  search_word strings  -->
+
+    <string name="trang_ch__string">Trang chủ</string>
+
+
+    <string name="ng_y_mai_string">ngày mai</string>
+    <string name="tomorrow_string">tomorrow</string>
+    <string name="t_i_string">tối</string>
+    <string name="tomorrow_ek1_string">night; evening</string>
+    <string name="kh_a_string">khóa</string>
+    <string name="tomorrow_ek2_string">lock; padlock</string>
+    <string name="t___i_n_string">từ điển</string>
+    <string name="tomorrow_ek3_string">lexicon; dictionary; glossary</string>
+    <string name="_n_t_p_string">Ôn tập</string>
+    <string name="t_p_vi_t_string">Tập viết</string>
+    <string name="luy_n_t_p_string">Luyện tập</string>
+
+
+    <!--  your_word strings  -->
+
+    <string name="t_____l_u__4__string">Từ đã lưu (4)</string>
+
+
+    <!--  parasal_search strings  -->
+
+    <string name="nh_p_c_m_t___c_u_v_n__ho_c__o_n_v_n____d_ch_string">Nhập cụm từ, câu văn, hoặc
+đoạn văn để dịch</string>
+    <string name="anh___vi_t_string">Anh - Việt</string>
+    <string name="vi_t___anh_string">Việt - Anh</string>
+
+
+    <!--  practice strings  -->
+
+    <string name="__ng___8_string">Đúng : 8</string>
+    <string name="sai___2_string">Sai : 2</string>
+
+    <string name="ti_ng_anh_string"> tiếng anh</string>
+    <string name="h_m_nay_string">hôm nay</string>
+    <string name="h_m_qua_string">hôm qua</string>
+
+
+    <!--  review strings  -->
+
+    <string name="_1_7_string">1/7</string>
+
+
+    <!--  write strings  -->
+
+    <string name="hello_string">hello</string>
+    <string name="l_string">l</string>
+    <string name="h_string">h</string>
+    <string name="o_string">o</string>
+    <string name="l_ek1_string">l</string>
+    <string name="e_string">e</string>
+
+
+    <!--  callvideo strings  -->
+
+    <string name="th_c_h_nh_string">Thực hành</string>
+    <string name="nh_p_t_n_c_a_b_n_string">Nhập tên của bạn</string>
+    <string name="tham_gia_cu_c_h_n_string">Tham gia cuộc hẹn</string>
+    <string name="nh_p_t_n_c_a_b_n_ek1_string">Nhập tên của bạn</string>
+
+
+    <!--  callvideo1 strings  -->
+
+    <string name="g_i__i_n_string">Gọi điện</string>
+    <string name="nh_p_t_n_ng__i_li_n_h__string">Nhập tên người liên hệ</string>
+    <string name="g_i_string">Gọi</string>
+    <string name="nh_p_t_n_ng__i_c_n_li_n_h__string">Nhập tên người liên hệ</string>
+
 </resources>

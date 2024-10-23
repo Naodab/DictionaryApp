@@ -1,0 +1,169 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="420dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="31dp"
+        android:background="@drawable/rectangle_1171_shape" />
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="97.5dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginLeft="26dp"
+        android:gravity="center_vertical"
+        android:text="@string/trang_ch__string"
+        android:clickable="true"
+        android:textColor="@color/_bg__your_word_ek2_color"
+        android:textSize="15sp" />
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="46dp"
+        android:contentDescription="vector"
+        android:src="@drawable/vectorback" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="28dp"
+        android:gravity="center"
+        android:fontFamily="@font/agbalumo"
+        android:text="@string/t_____tra_string"
+        android:textColor="@color/luy_n_t_p_color"
+        android:textSize="36sp" />
+
+    <EditText
+        android:id="@+id/input_search"
+        android:layout_width="280dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="90dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:hint="@string/tra_t___i_n_anh_vi_t_anh_string"
+        android:textColor="@color/tra_t___i_n_anh_vi_t_anh_color"
+        android:textSize="17sp" />
+
+
+    <RelativeLayout
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="90dp">
+
+        <ImageView
+            android:id="@+id/mic"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:clickable="true"
+            android:contentDescription="vector_ek1"
+            android:src="@drawable/baseline_mic_24" />
+
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="528dp"
+        android:layout_marginTop="150dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_View"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <View
+        android:id="@+id/relearn"
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="13dp"
+        android:clickable="true"
+        android:layout_marginTop="733dp"
+        android:clipToOutline="true"
+        android:background="@drawable/rectangle_1202_shape" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="733dp"
+        android:gravity="center"
+        android:text="@string/_n_t_p_string"
+        android:textColor="@color/_bg__search_word_ek2_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/writing_practice"
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="733dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1202_shape" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="279dp"
+        android:layout_marginTop="733dp"
+        android:gravity="center"
+        android:text="@string/t_p_vi_t_string"
+        android:textColor="@color/_bg__search_word_ek2_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/practice"
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="734dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1202_shape" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="734dp"
+        android:gravity="center"
+        android:text="@string/luy_n_t_p_string"
+        android:textColor="@color/_bg__search_word_ek2_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+
+    <RelativeLayout
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="90dp">
+
+        <ImageView
+            android:id="@+id/search_btn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:contentDescription="vector_ek15"
+            android:src="@drawable/baseline_search_24" />
+
+    </RelativeLayout>
+</RelativeLayout>

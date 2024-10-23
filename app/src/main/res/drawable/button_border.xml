@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- File: res/drawable/button_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Nền trong suốt để chỉ có viền -->
+    <solid android:color="@android:color/transparent" />
+
+    <!-- Đường viền của nút -->
+    <stroke
+        android:width="2dp"
+    android:color="#FF0000"/>
+
+    <!-- Bo tròn góc nút -->
+    <corners android:radius="10dp" />
+</shape>

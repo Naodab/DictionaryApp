@@ -2,52 +2,121 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainFragment"
-    android:orientation="vertical">
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".view.MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="8dp"
-        android:orientation="vertical"
-        android:background="@color/primary"
-        android:paddingLeft="16dp"
-        android:paddingRight="16dp">
+        android:gravity="center_vertical"
+        android:background="@color/title_thame_color"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/list_item"
+            android:layout_width="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_height="40dp"
+            android:background="@drawable/baseline_list_50" />
+
+        <!-- View tạo khoảng cách giữa Button và TextView -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
             android:text="@string/title"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/white"
-            android:gravity="center"/>
+            android:textColor="@color/title_color"
+            android:textSize="36dp"
+            android:textStyle="bold" />
+
+        <!-- View tạo khoảng cách giữa Button và TextView -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/profile_btn"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="end"
+            android:background="@drawable/baseline_person_outline_50" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="2dp"
+        android:paddingTop="5dp"
+        android:paddingRight="2dp"
+        android:paddingBottom="2dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
+            android:background="@drawable/search_border"
             android:orientation="horizontal"
-            android:background="@drawable/rounded_border">
+            android:padding="2dp">
 
             <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:src="@drawable/baseline_search_24"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="8dp"
                 android:clickable="true"
-                android:layout_marginRight="8dp"/>
+                android:focusable="true"
+                android:src="@drawable/baseline_search_24" />
 
             <EditText
                 android:id="@+id/search"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="match_parent"
+                android:background="@null"
                 android:hint="Search"
-                android:background="@null"/>
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:maxLines="1" />
+
+            <ImageButton
+                android:id="@+id/mic_btn"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/baseline_mic_none_40"
+                android:clickable="true" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/camera_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/baseline_camera_50"
+                android:clickable="true" />
+            <ImageButton
+                android:id="@+id/insert_photo_btn"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/baseline_insert_photo_50"
+                android:clickable="true" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <FrameLayout
@@ -55,16 +124,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_items"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu" />
 
 </LinearLayout>

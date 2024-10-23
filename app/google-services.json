@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "715338815454",
+    "firebase_url": "https://firstwebrtc-28e0c-default-rtdb.firebaseio.com",
+    "project_id": "firstwebrtc-28e0c",
+    "storage_bucket": "firstwebrtc-28e0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715338815454:android:55753b028600d0466baf4f",
+        "android_client_info": {
+          "package_name": "com.midterm.testdictionary"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzQqk1ay5hrOj-TdFXdGTJtOpd70EUkCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

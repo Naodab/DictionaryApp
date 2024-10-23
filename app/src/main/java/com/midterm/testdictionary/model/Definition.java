@@ -1,8 +1,9 @@
 package com.midterm.testdictionary.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Definition {
+public class Definition implements Serializable {
     private String definition;
     private String example;
     private List<String> synonyms;

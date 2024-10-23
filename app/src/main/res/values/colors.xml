@@ -3,4 +3,156 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FB8B23</color>
+    <color name="grey">#898989</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="title_color">#E792A4</color>
+    <color name="title_thame_color">#161B58</color>
+    <color name="search_thame_color">#EFF2F5</color>
+
+    <!-- sign_up_ colors -->
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="purple_200">#FFBB86FC</color>
+
+    <color name="_bg__sign_up__ek2_color">#161B58</color>
+    <color name="welcome_redflat__color">#E792A4</color>
+    <color name="sign_up_or_login_to_your_account_color">#FFFFFF</color>
+    <color name="rectangle_1210_color">#FFCCCC</color>
+    <color name="rectangle_1212_color">#CC99CC</color>
+    <color name="login_color">#000000</color>
+    <color name="rectangle_1213_color">#D9D9D9</color>
+    <color name="enter_your_email_color">#B3BFCB</color>
+
+
+    <!--  login colors  -->
+
+    <color name="_bg__login_ek2_color">#161B58</color>
+
+    <color name="rectangle_1204_color">#FFCCCC</color>
+    <color name="rectangle_1206_color">#CC99CC</color>
+    <color name="login_ek3_color">#000000</color>
+    <color name="rectangle_1207_color">#D9D9D9</color>
+    <color name="enter_your_password_color">#B3BFCB</color>
+
+
+
+    <!--  forgot_password colors  -->
+
+    <color name="_bg__forgot_password_ek2_color">#161B58</color>
+
+    <color name="rectangle_1210_ek1_color">#D9D9D9</color>
+
+
+    <!--  introduce1 colors  -->
+
+    <color name="_bg__introduce1_ek2_color">#161B58</color>
+    <color name="rectangle_1179_color">#EFF2F5</color>
+    <color name="h_nh__nh_minh_h_a_color">#6A788A</color>
+    <color name="browse_through_an_extensive_collection_of_words__their_meanings__synonyms__and_antonyms__a_powerful_tool_to_enhance_your_vocabulary__color">#FFFFFF</color>
+    <color name="rectangle_1176_color">#E792A4</color>
+    <color name="rectangle_1177_color">#D4DDE7</color>
+    <color name="skip_color">#000000</color>
+
+
+    <!--  introduce2 colors  -->
+
+    <color name="_bg__introduce2_ek2_color">#161B58</color>
+
+    <color name="rectangle_1178_color">#D4DDE7</color>
+
+    <color name="instant_translations_at_your_fingertips_color">#FFFFFF</color>
+    <!--  introduce3 colors  -->
+
+    <color name="_bg__introduce3_ek2_color">#161B58</color>
+
+    <color name="save_and_learn_at_your_own_pace_color">#FFFFFF</color>
+    <!--  home colors  -->
+
+    <color name="_bg__home_ek2_color">#FFFFFF</color>
+    <color name="rectangle_1171_color">#161B58</color>
+    <color name="redflat_color">#E792A4</color>
+    <color name="tra_t___i_n_anh_vi_t_anh_color">#B3BFCB</color>
+    <color name="__asdasd__color">#45B8E9</color>
+    <color name="v__d__color">#45B7E8</color>
+    <color name="chi_ti_t_color">#F3739E</color>
+    <color name="t__c_a_b_n_color">#000000</color>
+
+
+    <!--  word_of_the_day colors  -->
+
+    <color name="_bg__word_of_the_day_ek2_color">#FFFFFF</color>
+
+    <color name="t__v_ng_trong_ng_y_color">#000000</color>
+    <color name="en_dur_ance_color">#FF47E6</color>
+    <color name="__nh_ngh_a_color">#45B7E8</color>
+
+    <!--  search_word colors  -->
+
+    <color name="_bg__search_word_ek2_color">#FFFFFF</color>
+
+    <color name="t_____tra_color">#E792A4</color>
+
+    <color name="ng_y_mai_color">#000000</color>
+    <color name="tomorrow_color">#292D32</color>
+
+
+
+    <!--  your_word colors  -->
+
+    <color name="_bg__your_word_ek2_color">#FFFFFF</color>
+
+    <!--  parasal_search colors  -->
+
+    <color name="_bg__parasal_search_ek2_color">#FFFFFF</color>
+
+    <color name="d_ch_v_n_b_n_color">#E792A4</color>
+
+    <color name="rectangle_1226_color">#D9D9D9</color>
+
+
+    <!--  practice colors  -->
+
+    <color name="_bg__practice_ek2_color">#FFFFFF</color>
+
+    <color name="luy_n_t_p_color">#E792A4</color>
+    <color name="rectangle_1197_color">#93DE9E</color>
+    <color name="__ng___8_color">#000000</color>
+
+    <!--  review colors  -->
+
+    <color name="_bg__review_ek2_color">#FFFFFF</color>
+
+    <color name="_n_t_p_color">#E792A4</color>
+    <color name="rectangle_1180_color">#D9D9D9</color>
+    <color name="_1_7_color">#000000</color>
+
+    <!--  write colors  -->
+
+    <color name="_bg__write_ek2_color">#FFFFFF</color>
+
+    <color name="t_p_vi_t_color">#E792A4</color>
+    <color name="rectangle_1181_color">#E0E0E0</color>
+    <color name="hello_color">#14AF00</color>
+    <color name="l_color">#000000</color>
+
+    <!--  callvideo colors  -->
+
+    <color name="_bg__callvideo_ek2_color">#FFFFFF</color>
+
+    <color name="th_c_h_nh_color">#E792A4</color>
+    <color name="nh_p_t_n_c_a_b_n_ek1_color">#B3BFCB</color>
+
+
+
+    <!--  callvideo1 colors  -->
+
+    <color name="_bg__callvideo1_ek2_color">#FFFFFF</color>
+
+    <color name="g_i__i_n_color">#E792A4</color>
+    <color name="nh_p_t_n_ng__i_c_n_li_n_h__color">#B3BFCB</color>
 </resources>
