@@ -42,15 +42,15 @@ public class LoginFragment extends Fragment {
         binding.enterBtn.setOnClickListener(view -> {
             // login to firebase database
             PermissionX.init(this)
-                    .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
-                    .request((allGranted, grantedList, deniedList)  -> {
-                        if (allGranted) {
-                            callRepository.login(binding.username.getText().toString(), this.getContext(), () -> {
-                                // If success then call
-                                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
-                            });
-                        }
-                    });
+                .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                .request((allGranted, grantedList, deniedList)  -> {
+                    if (allGranted) {
+                        callRepository.login(binding.username.getText().toString(), this.getContext(), () -> {
+                            // If success then call
+                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
+                        });
+                    }
+                });
         });
     }
 

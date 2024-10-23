@@ -53,9 +53,9 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
         callRepository.listener = this;
 
         callRepository.subscribeForLatestEvent(data->{
-            if (data.getType()== DataModelType.StartCall) {
+            if (data.getType() == DataModelType.StartCall) {
                 mHandler.post(()->{
-                    binding.incomingNameTV.setText(data.getSender()+" is Calling you");
+                    binding.incomingNameTV.setText(data.getSender() + " is Calling you");
                     binding.incomingCallLayout.setVisibility(View.VISIBLE);
                     binding.acceptButton.setOnClickListener(v->{
                         //star the call here
@@ -76,7 +76,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
         binding.micButton.setOnClickListener(v->{
             if (isMicrophoneMuted){
                 binding.micButton.setImageResource(R.drawable.mic_off);
-            }else {
+            } else {
                 binding.micButton.setImageResource(R.drawable.mic);
             }
             callRepository.toggleAudio(isMicrophoneMuted);
@@ -86,7 +86,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
         binding.videoButton.setOnClickListener(v->{
             if (isCameraMuted){
                 binding.videoButton.setImageResource(R.drawable.cam_recorder_off);
-            }else {
+            } else {
                 binding.videoButton.setImageResource(R.drawable.cam_recorder);
             }
             callRepository.toggleVideo(isCameraMuted);
