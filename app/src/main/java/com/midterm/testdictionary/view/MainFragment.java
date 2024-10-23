@@ -227,5 +227,4 @@ public class MainFragment extends Fragment {
             mediaPlayer = null;
         }
     }
-
 }
