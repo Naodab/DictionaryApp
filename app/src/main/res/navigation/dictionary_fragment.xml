@@ -80,4 +80,26 @@
         tools:layout="@layout/fragment_your_word" >
     </fragment>
 
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.midterm.testdictionary.view.SignupFragment"
+        android:label="fragment_your_word"
+        tools:layout="@layout/fragment_signup" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchedWordFragment"
+        android:name="com.midterm.testdictionary.view.SearchedWordFragment"
+        android:label="fragment_your_word"
+        tools:layout="@layout/fragment_searched_word" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/practiceFragment"
+        android:name="com.midterm.testdictionary.view.PracticeFragment"
+        android:label="fragment_your_word"
+        tools:layout="@layout/fragment_practice" >
+    </fragment>
+
+
 </navigation>

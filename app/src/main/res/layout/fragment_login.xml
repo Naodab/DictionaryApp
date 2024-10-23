@@ -180,14 +180,15 @@
         android:layout_height="53dp"
         android:layout_marginStart="76dp"
         android:layout_marginTop="737dp"
-        android:clickable="true"
-        android:background="@drawable/rectangle_1209_shape" />
+        android:background="@drawable/rectangle_1209_shape"
+        android:clickable="true" />
 
     <TextView
-        android:layout_width="69dp"
-        android:layout_height="31dp"
-        android:layout_marginLeft="177dp"
-        android:layout_marginTop="752dp"
+        android:layout_width="250dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="737dp"
+        android:gravity="center"
         android:text="@string/login_ek4_string"
         android:textColor="@color/white"
         android:textSize="18sp"

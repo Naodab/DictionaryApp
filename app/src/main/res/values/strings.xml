@@ -18,10 +18,8 @@
     <string name="login_string">Login</string>
     <string name="sign_up_string">Sign up</string>
     <string name="enter_your_email_string">Enter your Email</string>
-    <string name="enter_your_email_ek1_string">Enter your Email</string>
-    <string name="enter_your_email_ek2_string">Enter your Email</string>
-    <string name="sign_up_ek1_string">Sign up</string>
-
+    <string name="sign_up_ek1_string">SIGN UP</string>
+    <string name="enter_your_name_string">Enter your name</string>
 
     <!--  login strings  -->
 
