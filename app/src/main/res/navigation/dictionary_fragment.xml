@@ -108,5 +108,58 @@
         tools:layout="@layout/fragment_word_of_the_day" >
     </fragment>
 
+    <fragment
+        android:id="@+id/relearnFragment"
+        android:name="com.midterm.testdictionary.view.RelearnFragment"
+        android:label="fragment_relearn"
+        tools:layout="@layout/fragment_relearn" >
+    </fragment>
+    <fragment
+        android:id="@+id/intro1Fragment"
+        android:name="com.midterm.testdictionary.view.Intro1Fragment"
+        android:label="fragment_intro1"
+        tools:layout="@layout/fragment_intro1" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/intro2Fragment"
+        android:name="com.midterm.testdictionary.view.Intro2Fragment"
+        android:label="fragment_intro2"
+        tools:layout="@layout/fragment_intro2" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/intro3Fragment"
+        android:name="com.midterm.testdictionary.view.Intro3Fragment"
+        android:label="fragment_intro3"
+        tools:layout="@layout/fragment_intro3" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.midterm.testdictionary.view.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/callMenuFragment"
+        android:name="com.midterm.testdictionary.view.CallMenuFragment"
+        android:label="fragment_call_menu"
+        tools:layout="@layout/fragment_call_menu" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/parasalSearchFragment"
+        android:name="com.midterm.testdictionary.view.ParasalSearchFragment"
+        android:label="fragment_parasal_search"
+        tools:layout="@layout/fragment_parasal_search" >
+    </fragment>
+
+
+
+
+
+
 
 </navigation>

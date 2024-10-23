@@ -17,7 +17,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
+            android:background="@drawable/rectangle_1171_shape"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
             android:orientation="horizontal">
@@ -79,7 +79,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="8dp"
                 android:text="hello"
-                android:textColor="@color/primary"
+                android:textColor="@color/black"
                 android:textSize="40dp"
                 android:textStyle="italic|bold" />
 
