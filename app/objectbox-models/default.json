@@ -5,7 +5,7 @@
   "entities": [
     {
       "id": "1:3539234069321821467",
-      "lastPropertyId": "2:4501879997906381213",
+      "lastPropertyId": "4:3998222063405754465",
       "name": "WordObjectBox",
       "properties": [
         {
@@ -17,6 +17,16 @@
         {
           "id": "2:4501879997906381213",
           "name": "word",
+          "type": 9
+        },
+        {
+          "id": "3:1678572296101907292",
+          "name": "phonetic",
+          "type": 9
+        },
+        {
+          "id": "4:3998222063405754465",
+          "name": "audio",
           "type": 9
         }
       ],

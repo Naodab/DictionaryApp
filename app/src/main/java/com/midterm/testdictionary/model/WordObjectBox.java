@@ -8,6 +8,8 @@ public class WordObjectBox {
     @Id
     private long id;
     private String word;
+    private String phonetic;
+    private String audio;
 
     public WordObjectBox() {
     }
@@ -26,5 +28,21 @@ public class WordObjectBox {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public String getPhonetic() {
+        return phonetic;
+    }
+
+    public void setPhonetic(String phonetic) {
+        this.phonetic = phonetic;
+    }
+
+    public String getAudio() {
+        return audio;
+    }
+
+    public void setAudio(String audio) {
+        this.audio = audio;
     }
 }

@@ -28,6 +28,7 @@ import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
+import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +47,7 @@ public class MainFragment extends Fragment {
     private WordApiService apiService;
     private Word searchedWord;
 
-    private Box<WordObjectBox> wordBox;
+    private WordObjectBoxService wordObjectBoxService;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -59,10 +60,7 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         apiService = new WordApiService();
-
-        wordBox = ObjectBox.get().boxFor(WordObjectBox.class);
-
-        getWordBox();
+        wordObjectBoxService = new WordObjectBoxService();
 
         binding.rvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
         itemList = new ArrayList<>();
@@ -138,12 +136,10 @@ public class MainFragment extends Fragment {
                         bundle.putSerializable("word", searchedWord);
                         View view = getView();
                         if (view != null) {
-//                            insertWord(searchedWord);
+                            wordObjectBoxService.insertWord(searchedWord);
 
                             Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                         }
-
-
 
 //                        Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                     }
@@ -178,21 +174,6 @@ public class MainFragment extends Fragment {
                     e.printStackTrace();
                 }
             });
-    }
-
-    public void insertWord(Word word){
-        WordObjectBox wordObjectBox = new WordObjectBox();
-        wordObjectBox.setWord(word.getWord());
-
-        wordBox.put(wordObjectBox);
-    }
-
-    public void getWordBox() {
-        List<WordObjectBox> words = wordBox.getAll();
-
-        for (WordObjectBox word : words) {
-            Log.d("DEBUG", word.getWord());
-        }
     }
 
 //     Tạo và thêm SettingFragment đè lên MainFragment

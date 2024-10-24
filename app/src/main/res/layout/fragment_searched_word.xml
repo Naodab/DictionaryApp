@@ -23,6 +23,7 @@
         android:textSize="15sp" />
 
     <ImageView
+        android:id="@+id/back_arrow"
         android:layout_width="12dp"
         android:layout_height="20dp"
         android:layout_marginStart="7dp"
@@ -41,36 +42,6 @@
         android:textColor="@color/luy_n_t_p_color"
         android:textSize="36sp" />
 
-    <EditText
-        android:id="@+id/input_search"
-        android:layout_width="280dp"
-        android:layout_height="45dp"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="90dp"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:hint="@string/tra_t___i_n_anh_vi_t_anh_string"
-        android:textColor="@color/tra_t___i_n_anh_vi_t_anh_color"
-        android:textSize="17sp" />
-
-
-    <RelativeLayout
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="360dp"
-        android:layout_marginTop="90dp">
-
-        <ImageView
-            android:id="@+id/mic"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:clickable="true"
-            android:contentDescription="vector_ek1"
-            android:src="@drawable/baseline_mic_24" />
-
-
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="528dp"
@@ -81,7 +52,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_View"
+                android:id="@+id/rv_searched_word"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
@@ -150,20 +121,4 @@
         android:textSize="18sp"
         android:textStyle="italic" />
 
-
-    <RelativeLayout
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="90dp">
-
-        <ImageView
-            android:id="@+id/search_btn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clickable="true"
-            android:contentDescription="vector_ek15"
-            android:src="@drawable/baseline_search_24" />
-
-    </RelativeLayout>
 </RelativeLayout>
