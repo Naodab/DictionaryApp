@@ -6,9 +6,15 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.flexbox.AlignItems;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
+import com.google.android.flexbox.FlexboxLayoutManager;
+import com.google.android.flexbox.JustifyContent;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.MeaningItemBinding;
 import com.midterm.testdictionary.model.Meaning;
@@ -64,6 +70,34 @@ public class MeaningAdapter extends RecyclerView.Adapter<MeaningAdapter.ViewHold
             DefinitionAdapter definitionAdapter = new DefinitionAdapter(meaning.getDefinitions());
             binding.definitionList.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
             binding.definitionList.setAdapter(definitionAdapter);
+
+            if (meaning.getSynonyms() != null && meaning.getSynonyms().size() > 0) {
+                SynoAntonymAdapter synonymAdapter = new SynoAntonymAdapter(meaning.getSynonyms());
+                binding.rvSynonym.setAdapter(synonymAdapter);
+                FlexboxLayoutManager flexbox = new FlexboxLayoutManager(this.itemView.getContext());
+                flexbox.setFlexDirection(FlexDirection.ROW);
+                flexbox.setFlexWrap(FlexWrap.WRAP);
+                flexbox.setJustifyContent(JustifyContent.FLEX_START);
+                flexbox.setAlignItems(AlignItems.CENTER);
+                binding.rvSynonym.setLayoutManager(flexbox);
+            } else {
+                binding.lbSynonym.setVisibility(View.GONE);
+                binding.rvSynonym.setVisibility(View.GONE);
+            }
+
+            if (meaning.getAntonyms() != null && meaning.getAntonyms().size() > 0) {
+                SynoAntonymAdapter antonymAdapter = new SynoAntonymAdapter(meaning.getAntonyms());
+                binding.rvAntonym.setAdapter(antonymAdapter);
+                FlexboxLayoutManager flexbox = new FlexboxLayoutManager(this.itemView.getContext());
+                flexbox.setFlexDirection(FlexDirection.ROW);
+                flexbox.setFlexWrap(FlexWrap.WRAP);
+                flexbox.setJustifyContent(JustifyContent.FLEX_START);
+                flexbox.setAlignItems(AlignItems.CENTER);
+                binding.rvAntonym.setLayoutManager(flexbox);
+            } else {
+                binding.lbAntonym.setVisibility(View.GONE);
+                binding.rvAntonym.setVisibility(View.GONE);
+            }
         }
     }
 }

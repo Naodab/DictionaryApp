@@ -35,7 +35,7 @@ public class DefinitionAdapter extends RecyclerView.Adapter<DefinitionAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull DefinitionAdapter.ViewHolder holder, int position) {
         Definition definition = diDefinitionList.get(position);
-        holder.binding.setDefinition(definition);
+        holder.bind(definition);
     }
 
     @Override
@@ -49,6 +49,16 @@ public class DefinitionAdapter extends RecyclerView.Adapter<DefinitionAdapter.Vi
         public ViewHolder(DefinitionItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+        }
+
+        public void bind(Definition definition) {
+            binding.setDefinition(definition);
+            binding.executePendingBindings();
+
+            if (definition.getExample() == null) {
+                binding.lbExample.setVisibility(View.GONE);
+                binding.tvExample.setVisibility(View.GONE);
+            }
         }
     }
 }
