@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -13,11 +15,14 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentMainBinding;
 import com.midterm.testdictionary.model.ObjectBox;
@@ -34,7 +39,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class MainFragment extends Fragment {
+public class MainFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
     private FragmentMainBinding binding;
     private ArrayList<String> itemList;
     private MainItemAdapter  itemsAdapter;
@@ -65,6 +70,21 @@ public class MainFragment extends Fragment {
         itemsAdapter = new MainItemAdapter(itemList);
         binding.rvItems.setAdapter(itemsAdapter);
         setMainItem();
+
+        // Thiết lập NavigationItemSelectedListener cho NavigationView
+        binding.navView.setNavigationItemSelectedListener(this);
+
+        // Sự kiện nhấn nút Settings để mở/đóng Navigation Drawer
+        binding.listItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!binding.mainFragment.isDrawerOpen(GravityCompat.START)) {
+                    binding.mainFragment.openDrawer(GravityCompat.START);
+                } else {
+                    binding.mainFragment.closeDrawer(GravityCompat.START);
+                }
+            }
+        });
 
         binding.search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -188,6 +208,23 @@ public class MainFragment extends Fragment {
         for (WordObjectBox word: words) {
             Log.d("DEBUG", word.getWord());
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.nav_menu:
+//                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.nav_settings:
+//                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
+//                break;
+//            // Thêm các case khác nếu cần
+//        }
+//        // Đóng drawer sau khi chọn mục
+//        drawerLayout.closeDrawer(GravityCompat.START);
+//        return true;
+        return false;
     }
 
 //     Tạo và thêm SettingFragment đè lên MainFragment
