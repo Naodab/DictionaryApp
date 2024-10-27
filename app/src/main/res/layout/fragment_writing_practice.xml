@@ -51,7 +51,8 @@
                     android:textSize="36sp"
                     android:textColor="@color/t_p_vi_t_color"
                     android:fontFamily="@font/agbalumo"
-                    android:layout_marginLeft="137dp"
+                    android:layout_marginLeft="130dp"
+                    android:gravity="center"
                     android:layout_marginTop="28dp"
                     android:layout_width="150dp"
                     android:layout_height="53dp"
@@ -77,7 +78,7 @@
                     />
 
 
-
+<!--                Viết logic thêm FrameLayout phụ thuộc vào số từ của từ vựng-->
                 <GridLayout
                     android:id="@+id/wordGrid"
                     android:layout_width="wrap_content"
