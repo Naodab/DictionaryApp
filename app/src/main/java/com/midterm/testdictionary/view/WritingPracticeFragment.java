@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import io.objectbox.Box;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -46,7 +47,7 @@ public class WritingPracticeFragment extends Fragment {
     private WritingPracticeAdapter charsAdapter;
     private List<String> chars;
     private Box<WordObjectBox> wordBox;
-    private List<Word> words;
+    private List<WordObjectBox> wordObjectBoxes;
     private WordApiService apiService;
     private int currentIndex = 0;
 
@@ -65,7 +66,6 @@ public class WritingPracticeFragment extends Fragment {
         binding = FragmentWritingPracticeBinding.inflate(inflater, container, false);
         wordBox = ObjectBox.get().boxFor(WordObjectBox.class);
         apiService = new WordApiService();
-        words = new ArrayList<>();
         return binding.getRoot();
     }
 
@@ -73,13 +73,9 @@ public class WritingPracticeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.progressLine.setMax(NUMBER_QUESTIONS);
-        getRandom().forEach(object -> words.add(performSearch(object.getWord())));
-        if (words.size() == 0) {
-            Log.d("Writing Fragment", "No object in objectbox");
-            return;
-        }
-        word = words.get(currentIndex).getWord();
-        binding.setWord(words.get(currentIndex));
+        wordObjectBoxes = getRandom();
+        word = wordObjectBoxes.get(currentIndex).getWord();
+        performSearch(word);
 
         //TODO: back to main fragment
         binding.closeBtn.setOnClickListener(v -> {});
@@ -98,8 +94,7 @@ public class WritingPracticeFragment extends Fragment {
                             //TODO: congratulation
                         } else {
                             binding.progressLine.setProgress(currentIndex);
-                            binding.setWord(words.get(currentIndex));
-                            word = words.get(currentIndex).getWord();
+                            word = wordObjectBoxes.get(currentIndex).getWord();
                             chars = Arrays.asList(word.split(""));
                             Collections.shuffle(chars);
                             charsAdapter.setData(chars);
@@ -157,6 +152,7 @@ public class WritingPracticeFragment extends Fragment {
                     @Override
                     public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
                         result[0] = words.get(0);
+                        binding.setWord(result[0]);
                     }
 
                     @Override
