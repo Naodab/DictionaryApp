@@ -1,0 +1,141 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relearn_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle_1171_shape">
+
+    <View
+        android:layout_width="410dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="31dp"
+        android:background="@drawable/rectangle_1171_shape" />
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/agbalumo"
+        android:gravity="center"
+        android:text="@string/_n_t_p_string"
+        android:textColor="@color/t_p_vi_t_color"
+        android:textSize="36sp" />
+
+    <RelativeLayout
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="31dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/close_btn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:clickable="true"
+            android:contentDescription="vector_ek6"
+            android:src="@drawable/baseline_close_white_24" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/play_stop_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="775dp"
+        android:contentDescription="vector_ek2"
+        android:src="@drawable/baseline_play_arrow_24" />
+
+    <ProgressBar
+        android:id="@+id/progress_line"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="250dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="795dp"
+        android:max="100"
+        android:progress="50"
+        android:progressTint="@color/rectangle_1197_color" />
+
+    <ImageView
+        android:id="@+id/setting_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="345dp"
+        android:layout_marginTop="780dp"
+        android:contentDescription="vector_ek2"
+        android:src="@drawable/baseline_settings_40_white" />
+
+
+    <TextView
+        android:id="@+id/count_words"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="753dp"
+        android:gravity="center"
+        android:text="5/10"
+        android:textColor="@color/white"
+        android:textSize="25sp" />
+
+    <View
+        android:id="@+id/rectangle_1227"
+        android:layout_width="390dp"
+        android:layout_height="640dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rectangle_1227_shape" />
+
+    <TextView
+        android:id="@+id/word_name"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="105dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="Hello"
+        android:textColor="@color/_1_7_color"
+        android:textSize="30sp" />
+
+    <ImageView android:id="@+id/listen_btn"
+        android:src="@drawable/baseline_volume_up_24"
+        android:contentDescription="vector_ek2"
+        android:layout_marginTop="106dp"
+        android:layout_marginStart="340dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
+
+    <ImageView
+        android:layout_width="390dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="137dp"
+        android:layout_marginStart="10dp"
+        android:contentDescription="vector_4"
+        android:src="@drawable/vector_4" />
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="390dp"
+        android:layout_height="570dp"
+        android:layout_marginStart="10dp"
+        android:background="@color/white"
+        android:layout_marginTop="160dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_items"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </ScrollView>
+
+
+    </FrameLayout>
+
+</RelativeLayout>

@@ -1,14 +1,11 @@
 package com.midterm.testdictionary.view;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
-import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -17,6 +14,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.flexbox.AlignItems;
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
+import com.google.android.flexbox.FlexboxLayoutManager;
+import com.google.android.flexbox.JustifyContent;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentDetailBinding;
 import com.midterm.testdictionary.model.Meaning;
@@ -24,6 +26,7 @@ import com.midterm.testdictionary.model.Phonetic;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.viewmodel.AudioAdapter;
 import com.midterm.testdictionary.viewmodel.MeaningAdapter;
+import com.midterm.testdictionary.viewmodel.PhoneticAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,7 @@ public class DetailFragment extends Fragment {
     private MeaningAdapter meaningAdapter;
     private ArrayList<Phonetic>  phoneticList;
     private AudioAdapter audioAdapter;
+    private PhoneticAdapter phoneticAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,6 +70,14 @@ public class DetailFragment extends Fragment {
         audioAdapter = new AudioAdapter(phoneticList);
         binding.audioRv.setAdapter(audioAdapter);
 
+        phoneticAdapter = new PhoneticAdapter(phoneticList);
+        binding.rvPhonetics.setAdapter(phoneticAdapter);
+        FlexboxLayoutManager flexbox = new FlexboxLayoutManager(getContext());
+        flexbox.setFlexDirection(FlexDirection.ROW);
+        flexbox.setFlexWrap(FlexWrap.WRAP);
+        flexbox.setJustifyContent(JustifyContent.FLEX_START);
+        flexbox.setAlignItems(AlignItems.CENTER);
+        binding.rvPhonetics.setLayoutManager(flexbox);
         return viewRoot;
     }
 
