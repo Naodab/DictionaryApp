@@ -16,6 +16,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
@@ -174,6 +175,23 @@ public class MainFragment extends Fragment {
                     e.printStackTrace();
                 }
             });
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.nav_menu:
+//                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
+//                break;
+//            case R.id.nav_settings:
+//                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
+//                break;
+//            // Thêm các case khác nếu cần
+//        }
+//        // Đóng drawer sau khi chọn mục
+//        drawerLayout.closeDrawer(GravityCompat.START);
+//        return true;
+        return false;
     }
 
 //     Tạo và thêm SettingFragment đè lên MainFragment
