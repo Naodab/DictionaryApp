@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
-    app:startDestination="@id/writingPracticeFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -74,6 +74,12 @@
         android:name="com.midterm.testdictionary.view.WritingPracticeFragment"
         android:label="fragment_writing_practice"
         tools:layout="@layout/fragment_writing_practice" >
+        <action
+            android:id="@+id/action_writingPracticeFragment_self"
+            app:destination="@id/writingPracticeFragment" />
+        <action
+            android:id="@+id/action_writingPracticeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -95,6 +101,9 @@
         android:name="com.midterm.testdictionary.view.SearchedWordFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_searched_word" >
+        <action
+            android:id="@+id/action_searchedWordFragment_to_writingPracticeFragment"
+            app:destination="@id/writingPracticeFragment" />
     </fragment>
 
     <fragment

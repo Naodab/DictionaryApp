@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.flexbox.AlignItems;
@@ -25,16 +23,16 @@ import androidx.navigation.Navigation;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentWritingPracticeBinding;
 import com.midterm.testdictionary.model.ObjectBox;
+import com.midterm.testdictionary.model.Phonetic;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.viewmodel.AudioService;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 import com.midterm.testdictionary.viewmodel.WritingPracticeAdapter;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
 
 import io.objectbox.Box;
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
@@ -42,13 +40,15 @@ import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class WritingPracticeFragment extends Fragment {
-    private static final int NUMBER_QUESTIONS = 5;
+    public static final int NUMBER_QUESTIONS = 5;
     private FragmentWritingPracticeBinding binding;
     private WritingPracticeAdapter charsAdapter;
     private List<String> chars;
     private Box<WordObjectBox> wordBox;
     private List<WordObjectBox> wordObjectBoxes;
     private WordApiService apiService;
+    private Word currentWord;
+    private AudioService audioService = new AudioService();
     private int currentIndex = 0;
 
     private String word;
@@ -77,8 +77,17 @@ public class WritingPracticeFragment extends Fragment {
         word = wordObjectBoxes.get(currentIndex).getWord();
         performSearch(word);
 
-        //TODO: back to main fragment
-        binding.closeBtn.setOnClickListener(v -> {});
+        binding.closeBtn.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
+        });
+
+        binding.back.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
+        });
+
+        binding.retryButton.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_self);
+        });
 
         binding.inputText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -91,17 +100,17 @@ public class WritingPracticeFragment extends Fragment {
                     if (tmp.equals(word)) {
                         currentIndex++;
                         if (currentIndex == NUMBER_QUESTIONS) {
-                            //TODO: congratulation
+                            binding.write.setVisibility(View.GONE);
+                            binding.layoutCongratulation.setVisibility(View.VISIBLE);
                         } else {
+                            binding.tvResult.setVisibility(View.GONE);
+                            binding.inputText.setText("");
                             binding.progressLine.setProgress(currentIndex);
                             word = wordObjectBoxes.get(currentIndex).getWord();
-                            chars = Arrays.asList(word.split(""));
-                            Collections.shuffle(chars);
-                            charsAdapter.setData(chars);
+                            performSearch(word);
                         }
                     } else {
                         binding.inputText.setText("");
-                        Log.d("CHARS", "onTextChanged: " + chars.toString());
                         charsAdapter.setData(chars);
                     }
                 }
@@ -112,11 +121,22 @@ public class WritingPracticeFragment extends Fragment {
         });
 
         binding.volumnBtn.setOnClickListener(v ->{
-
+            String audio = "";
+            for (Phonetic phonetic : currentWord.getPhonetics()) {
+                if (!phonetic.getAudio().isEmpty()) {
+                    audio = phonetic.getAudio();
+                    break;
+                }
+            }
+            if (audio != null)
+                audioService.playAudio(audio);
+            else
+                Toast.makeText(getContext(), "Sorry, we've not updated audio of this word yet",
+                        Toast.LENGTH_SHORT).show();
         });
 
-        binding.nextBtn.setOnClickListener(v ->{
-
+        binding.resultBtn.setOnClickListener(v -> {
+            binding.tvResult.setVisibility(View.VISIBLE);
         });
 
         binding.clearBtn.setOnClickListener(v ->{
@@ -143,21 +163,26 @@ public class WritingPracticeFragment extends Fragment {
         return all.subList(0,  Math.min(NUMBER_QUESTIONS, all.size()));
     }
 
-    public Word performSearch(String word) {
-        final Word[] result = {null};
+    public void performSearch(String word) {
         DisposableSingleObserver<List<Word>> disposableSingleObserver = apiService.getWordDefinition(word)
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableSingleObserver<List<Word>>() {
-                    @Override
-                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
-                        result[0] = words.get(0);
-                        binding.setWord(result[0]);
-                    }
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(new DisposableSingleObserver<List<Word>>() {
+                @Override
+                public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
+                    currentWord = words.get(0);
+                    binding.tvResult.setText(currentWord.getWord().toUpperCase());
+                    chars = Arrays.asList(word.split(""));
+                    Collections.shuffle(chars);
+                    charsAdapter.setData(chars);
+                    binding.tvDefinition.setText(currentWord
+                            .getMeanings().get(0)
+                            .getDefinitions().get(0)
+                            .getDefinition());
+                }
 
-                    @Override
-                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {}
-                });
-        return result[0];
+                @Override
+                public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {}
+            });
     }
 }

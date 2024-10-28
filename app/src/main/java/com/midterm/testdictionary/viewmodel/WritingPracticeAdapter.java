@@ -62,9 +62,10 @@ public class WritingPracticeAdapter extends RecyclerView.Adapter<WritingPractice
             this.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String letter = chars.get(getAdapterPosition());
-                    chars.remove(letter);
-                    notifyItemRemoved(getAdapterPosition());
+                    int position = getAdapterPosition();
+                    String letter = chars.get(position);
+                    chars.remove(position);
+                    notifyItemRemoved(position);
                     input.setText(input.getText().toString() + letter);
                 }
             });

@@ -5,11 +5,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -85,7 +87,13 @@ public class SearchedWordFragment extends Fragment {
         });
 
         binding.writingPractice.setOnClickListener(v -> {
-
+            int leastWords = WritingPracticeFragment.NUMBER_QUESTIONS;
+            if (wordObjectBoxesList.size() >= leastWords)
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_searchedWordFragment_to_writingPracticeFragment);
+            else
+                Toast.makeText(getContext(), "You must search at least "
+                        + leastWords + " words.", Toast.LENGTH_SHORT).show();
         });
 
         binding.practice.setOnClickListener(v -> {
