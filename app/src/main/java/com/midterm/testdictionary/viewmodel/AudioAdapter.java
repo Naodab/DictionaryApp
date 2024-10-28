@@ -21,12 +21,13 @@ import com.squareup.picasso.Picasso;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder>  {
+public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> {
     private ArrayList<Phonetic> audiosList;
-    private MediaPlayer mediaPlayer;
+    private AudioService audioService;
 
     public AudioAdapter(ArrayList<Phonetic> audiosList){
         this.audiosList = audiosList;
+        audioService = new AudioService();
     }
     @NonNull
     @Override
@@ -43,7 +44,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
         holder.binding.setPhonetic(audiosList.get(position));
         holder.binding.executePendingBindings();
 
-        holder.binding.tvVolume.setText(getAudio(audiosList.get(position).getAudio()));
+        holder.binding.tvVolume.setText(audioService.getAudio(audiosList.get(position).getAudio()));
 
         holder.binding.btnVolume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,7 +54,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
                 if (holder.binding.btnVolume.getTag() != null) {
                     String tag = holder.binding.btnVolume.getTag().toString();
                     Log.d("DEBUG", tag);
-                    playAudio(tag);
+                    audioService.playAudio(tag);
                 }
             }
         });
@@ -69,43 +70,5 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.ViewHolder> 
             super(binding.getRoot());
             this.binding = binding;
         }
-    }
-    private void playAudio(String audioUrl) {
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource(audioUrl);
-            mediaPlayer.prepareAsync();
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    mp.start();
-                }
-            });
-
-            // Stop the audio automatically once it's completed
-            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopAudio();
-                }
-            });
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    private void stopAudio() {
-        if (mediaPlayer != null) {
-            mediaPlayer.stop();
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-    }
-    private String getAudio(String url){
-        String[] parts = url.split("-");
-
-        String result = parts[1].replace(".mp3", "");
-
-        return (!result.equals("")) ? result.toUpperCase() : "";
     }
 }

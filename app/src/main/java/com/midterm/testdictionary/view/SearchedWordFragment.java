@@ -1,34 +1,60 @@
 package com.midterm.testdictionary.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.bumptech.glide.Glide;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentSearchedWordBinding;
+import com.midterm.testdictionary.model.ObjectBox;
+import com.midterm.testdictionary.model.Word;
+import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.viewmodel.SearchedWordAdapter;
+import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import io.objectbox.Box;
 
 public class SearchedWordFragment extends Fragment {
     private FragmentSearchedWordBinding binding;
 
+    private ArrayList<WordObjectBox> wordObjectBoxesList;
+    private SearchedWordAdapter searchedWordAdapter;
+
+    private WordObjectBoxService wordObjectBoxService;
+
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
         }
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = FragmentSearchedWordBinding.inflate(inflater, container, false);
-        return binding.getRoot();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentSearchedWordBinding.inflate(getLayoutInflater());
+        View viewRoot = binding.getRoot();
+
+        wordObjectBoxService = new WordObjectBoxService();
+
+        binding.rvSearchedWord.setLayoutManager(new LinearLayoutManager(binding.getRoot().getContext()));
+        wordObjectBoxesList = new ArrayList<>(wordObjectBoxService.getWordBox());
+        searchedWordAdapter = new SearchedWordAdapter(wordObjectBoxesList);
+        binding.rvSearchedWord.setAdapter(searchedWordAdapter);
+
+        return viewRoot;
     }
 
     @Override
@@ -37,15 +63,17 @@ public class SearchedWordFragment extends Fragment {
 
 
         binding.backBtn.setOnClickListener(v -> {
+            int backStackCount = getFragmentManager().getBackStackEntryCount();
+            Log.d("BackStack", "BackStack count: " + backStackCount);
 
+            NavHostFragment.findNavController(getParentFragment()).popBackStack();
         });
 
-        binding.searchBtn.setOnClickListener(v -> {
+        binding.backArrow.setOnClickListener(v -> {
+            int backStackCount = getFragmentManager().getBackStackEntryCount();
+            Log.d("BackStack", "BackStack count: " + backStackCount);
 
-        });
-
-        binding.mic.setOnClickListener(v -> {
-
+            NavHostFragment.findNavController(getParentFragment()).popBackStack();
         });
 
         binding.relearn.setOnClickListener(v -> {
@@ -63,11 +91,5 @@ public class SearchedWordFragment extends Fragment {
         binding.practice.setOnClickListener(v -> {
 
         });
-
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
     }
-
-
-
 }
