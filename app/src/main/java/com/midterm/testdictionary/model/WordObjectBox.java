@@ -10,6 +10,7 @@ public class WordObjectBox {
     private String word;
     private String phonetic;
     private String audio;
+    private String definition;
 
     public WordObjectBox() {
     }
@@ -44,5 +45,13 @@ public class WordObjectBox {
 
     public void setAudio(String audio) {
         this.audio = audio;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
     }
 }
