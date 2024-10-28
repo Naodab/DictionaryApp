@@ -200,21 +200,6 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
             });
     }
 
-    public void insertWord(Word word){
-        WordObjectBox wordObjectBox = new WordObjectBox();
-        wordObjectBox.setWord(word.getWord());
-
-        wordBox.put(wordObjectBox);
-    }
-
-    public void getWordBox() {
-        List<WordObjectBox> words = wordBox.getAll();
-
-        for (WordObjectBox word : words) {
-            Log.d("DEBUG", word.getWord());
-        }
-    }
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //        switch (item.getItemId()) {
