@@ -6,10 +6,8 @@
 
 
     <View
-        android:layout_width="410dp"
+        android:layout_width="match_parent"
         android:layout_height="53dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="31dp"
         android:background="@drawable/rectangle_1171_shape" />
 
     <TextView
@@ -17,7 +15,6 @@
         android:layout_width="70dp"
         android:layout_height="53dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="31dp"
         android:clickable="true"
         android:gravity="center_vertical"
         android:text="@string/trang_ch__string"
@@ -28,7 +25,7 @@
         android:layout_width="12dp"
         android:layout_height="20dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="15dp"
         android:contentDescription="vector"
         android:src="@drawable/vectorback" />
 
@@ -37,7 +34,6 @@
         android:layout_width="220dp"
         android:layout_height="55dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="28dp"
         android:fontFamily="@font/agbalumo"
         android:gravity="center"
         android:text="@string/th_c_h_nh_string"
@@ -46,9 +42,9 @@
 
     <View
         android:layout_width="370dp"
-        android:layout_height="270dp"
+        android:layout_height="300dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:background="@drawable/call_video_image" />
 
     <ImageView

@@ -9,14 +9,13 @@
         android:layout_width="410dp"
         android:layout_height="53dp"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="31dp"
         android:background="@drawable/rectangle_1171_shape" />
 
     <TextView
         android:layout_width="150dp"
         android:layout_height="53dp"
         android:layout_marginLeft="130dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="3dp"
         android:fontFamily="@font/agbalumo"
         android:gravity="center"
         android:text="@string/_n_t_p_string"
@@ -27,7 +26,7 @@
         android:layout_width="53dp"
         android:layout_height="53dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="3dp"
         android:gravity="center">
 
         <ImageView
@@ -83,9 +82,9 @@
     <View
         android:id="@+id/rectangle_1227"
         android:layout_width="390dp"
-        android:layout_height="640dp"
+        android:layout_height="670dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:background="@drawable/rectangle_1227_shape" />
 
     <TextView
@@ -93,7 +92,7 @@
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginLeft="105dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:text="Hello"
         android:textColor="@color/_1_7_color"
@@ -102,7 +101,7 @@
     <ImageView android:id="@+id/listen_btn"
         android:src="@drawable/baseline_volume_up_24"
         android:contentDescription="vector_ek2"
-        android:layout_marginTop="106dp"
+        android:layout_marginTop="76dp"
         android:layout_marginStart="340dp"
         android:layout_width="40dp"
         android:layout_height="40dp" />
@@ -110,7 +109,7 @@
     <ImageView
         android:layout_width="390dp"
         android:layout_height="20dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginTop="107dp"
         android:layout_marginStart="10dp"
         android:contentDescription="vector_4"
         android:src="@drawable/vector_4" />
@@ -118,10 +117,10 @@
     <FrameLayout
         android:id="@+id/frame_container"
         android:layout_width="390dp"
-        android:layout_height="570dp"
+        android:layout_height="600dp"
         android:layout_marginStart="10dp"
         android:background="@color/white"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="130dp"
         android:layout_weight="1">
 
         <ScrollView

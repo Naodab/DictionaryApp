@@ -61,8 +61,9 @@
 
                 <Button
                     android:id="@+id/profile_btn"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="15dp"
                     android:gravity="center_vertical"
                     android:background="@drawable/ic_heart" />
             </LinearLayout>

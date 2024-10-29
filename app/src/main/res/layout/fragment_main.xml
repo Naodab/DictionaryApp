@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
+    android:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -12,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:background="@color/white"
         android:orientation="vertical">
 
@@ -125,7 +127,6 @@
                     android:background="@drawable/baseline_insert_photo_50"
                     android:clickable="true" />
             </LinearLayout>
-
         </LinearLayout>
 
         <FrameLayout
