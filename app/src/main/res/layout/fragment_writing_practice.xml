@@ -29,7 +29,6 @@
                         android:id="@+id/rectangle_1171"
                         android:layout_width="match_parent"
                         android:layout_height="53dp"
-                        android:layout_marginTop="31dp"
                         android:background="@drawable/rectangle_1171_shape" />
 
                     <TextView
@@ -38,7 +37,6 @@
                         android:fontFamily="@font/agbalumo"
                         android:layout_marginLeft="130dp"
                         android:gravity="center"
-                        android:layout_marginTop="28dp"
                         android:layout_width="150dp"
                         android:layout_height="53dp"
                         android:text="@string/t_p_vi_t_string" />
@@ -131,7 +129,6 @@
                     </LinearLayout>
 
                     <RelativeLayout
-                        android:layout_marginTop="31dp"
                         android:layout_marginStart="8dp"
                         android:layout_width="53dp"
                         android:layout_height="53dp"

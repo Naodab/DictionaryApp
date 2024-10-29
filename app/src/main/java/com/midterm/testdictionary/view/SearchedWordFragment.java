@@ -83,7 +83,13 @@ public class SearchedWordFragment extends Fragment {
         });
 
         binding.practice.setOnClickListener(v -> {
-
+            int leastWords = PracticeFragment.NUMBER_QUESTIONS;
+            if (wordObjectBoxesList.size() >= leastWords)
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_searchedWordFragment_to_practiceFragment);
+            else
+                Toast.makeText(getContext(), "You must search at least "
+                        + leastWords + " words.", Toast.LENGTH_SHORT).show();
         });
 
         binding.writingPractice.setOnClickListener(v -> {

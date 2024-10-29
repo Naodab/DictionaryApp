@@ -2,6 +2,9 @@ package com.midterm.testdictionary.view;
 
 import androidx.fragment.app.Fragment;
 
+import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -65,9 +68,7 @@ public class WritingPracticeFragment extends Fragment {
         wordObjectBoxes = getRandom();
         performSearch(wordObjectBoxes.get(currentIndex));
 
-        binding.closeBtn.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
-        });
+        binding.closeBtn.setOnClickListener(this::showConfirmDialog);
 
         binding.back.setOnClickListener(v -> {
             Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
@@ -97,6 +98,10 @@ public class WritingPracticeFragment extends Fragment {
                             performSearch(wordObjectBoxes.get(currentIndex));
                         }
                     } else {
+                        ObjectAnimator animator = ObjectAnimator.ofFloat(this, "translationX",
+                                0f, 10f, -10f, 10f, -10f, 5f, -5f, 0);
+                        animator.setDuration(500);
+                        animator.start();
                         binding.inputText.setText("");
                         charsAdapter.setData(chars);
                     }
@@ -152,5 +157,33 @@ public class WritingPracticeFragment extends Fragment {
         } else {
             charsAdapter.setData(chars);
         }
+    }
+
+    public void showConfirmDialog(View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Navigation.findNavController(view)
+                                .navigate(R.id.action_writingPracticeFragment_to_mainFragment);
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {}
+                });
+        AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources()
+                        .getColor(R.color.title_thame_color));
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources()
+                        .getColor(R.color.title_thame_color));
+            }
+        });
+        dialog.show();
     }
 }
