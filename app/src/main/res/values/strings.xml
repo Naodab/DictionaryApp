@@ -25,8 +25,11 @@
 
     <string name="password_string">Password</string>
     <string name="forgot_password__string">
-<u>Forgot Password?</u>
-</string>
+        <u>Forgot Password?</u>
+    </string>
+    <string name="skip">
+        <u>Skip</u>
+    </string>
     <string name="or_login_using__string">Or Login Using:</string>
 
     <string name="login_ek3_string">Login</string>

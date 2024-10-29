@@ -18,6 +18,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentMainBinding;
 import com.midterm.testdictionary.model.ObjectBox;
@@ -44,7 +48,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class MainFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
+public class MainFragment extends Fragment{
     private FragmentMainBinding binding;
     private ArrayList<String> itemList;
     private MainItemAdapter  itemsAdapter;
@@ -53,6 +57,8 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
     private Word searchedWord;
 
     private WordObjectBoxService wordObjectBoxService;
+
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +80,7 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
         setMainItem();
 
         // Thiết lập NavigationItemSelectedListener cho NavigationView
-        binding.navView.setNavigationItemSelectedListener(this);
+//        binding.navView.setNavigationItemSelectedListener(this);
 
         // Sự kiện nhấn nút Settings để mở/đóng Navigation Drawer
         binding.listItem.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +122,42 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
                 return false;
             }
         });
+
+        binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.nav_login){
+                    Menu menu = binding.navView.getMenu();
+                    MenuItem loginItem = menu.findItem(R.id.nav_login);
+
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                    if(currentUser != null && loginItem.getTitle().equals("Đăng xuất")){
+                        mAuth.signOut();
+                        Toast.makeText(getContext(), "Log out successfully", Toast.LENGTH_SHORT).show();
+                        loginItem.setTitle("Đăng nhập");
+                    }else if(currentUser == null && loginItem.getTitle().equals("Đăng nhập")){
+                        Navigation.findNavController(view).navigate(R.id.loginFragment);
+                    }else{
+                        Toast.makeText(getContext(), "Log out error", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                return true;
+            }
+        });
+
+        Menu menu = binding.navView.getMenu();
+        MenuItem loginItem = menu.findItem(R.id.nav_login);
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser != null){
+            loginItem.setTitle("Đăng xuất");
+        }else{
+            loginItem.setTitle("Đăng nhập");
+        }
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -124,6 +166,8 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
 //        return inflater.inflate(R.layout.fragment_main, container, false);
         binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+
+        mAuth = FirebaseAuth.getInstance();
 
         return view;
     }
@@ -192,8 +236,8 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
             });
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //        switch (item.getItemId()) {
 //            case R.id.nav_menu:
 //                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
@@ -206,16 +250,6 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
 //        // Đóng drawer sau khi chọn mục
 //        drawerLayout.closeDrawer(GravityCompat.START);
 //        return true;
-        return false;
-    }
-
-//     Tạo và thêm SettingFragment đè lên MainFragment
-//    private void showSettingFragment() {
-//        SettingFragment settingFragment = new SettingFragment();
-//        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-//
-//        transaction.replace(R.id.mainFragment, settingFragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
+//        return false;
 //    }
 }

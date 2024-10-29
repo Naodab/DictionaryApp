@@ -29,16 +29,13 @@ public class SignupFragment extends Fragment {
     private FragmentSignupBinding binding;
     private FirebaseAuth mAuth;
 
-
     @Override
     public void onStart() {
         super.onStart();
 
 //        FirebaseUser currentUser = mAuth.getCurrentUser();
 //        if(currentUser != null){
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//            finish();
+//            Navigation.findNavController(view).navigate(R.id.searchedWordFragment);
 //        }
     }
 
@@ -104,21 +101,23 @@ public class SignupFragment extends Fragment {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             binding.progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
-//                                Toast.makeText(Register.this, "Account created", Toast.LENGTH_LONG).show();
-//                                Intent intent = new Intent(getApplicationContext(), Login.class);
-//                                startActivity(intent);
-//                                finish();
+                                Toast.makeText(getContext(), "Account created", Toast.LENGTH_LONG).show();
+                                Navigation.findNavController(view).navigate(R.id.loginFragment);
 
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("DEBUG", "createUserWithEmail:failure", task.getException());
-//                                Toast.makeText(Register.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "Sign up failed", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
         });
+
+        binding.skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.action_signupFragment_to_mainFragment);
+            }
+        });
     }
-
-
-
 }

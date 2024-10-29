@@ -46,8 +46,8 @@
         android:layout_gravity="center_vertical|end"
         android:layout_marginLeft="226dp"
         android:layout_marginTop="444dp"
-        android:gravity="end"
         android:clickable="true"
+        android:gravity="end"
         android:text="@string/forgot_password__string"
         android:textColor="@color/sign_up_or_login_to_your_account_color"
         android:textSize="17sp" />
@@ -151,7 +151,8 @@
         android:layout_marginTop="377dp"
         android:hint="@string/enter_your_password_string"
         android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:inputType="textPassword"/>
 
     <EditText
         android:id="@+id/email"
@@ -212,6 +213,19 @@
         android:clickable="true"
         android:contentDescription="twitter_1"
         android:src="@drawable/twitter_2" />
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="34.5dp"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginLeft="330dp"
+        android:layout_marginTop="557dp"
+        android:gravity="end"
+        android:clickable="true"
+        android:text="@string/skip"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="20sp" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

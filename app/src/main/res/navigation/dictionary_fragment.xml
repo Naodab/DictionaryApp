@@ -94,6 +94,9 @@
         android:name="com.midterm.testdictionary.view.SignupFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
