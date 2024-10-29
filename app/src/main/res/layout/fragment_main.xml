@@ -3,21 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
+    android:layout_marginTop="0dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:openDrawer="start"
     tools:context=".view.MainFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="0dp"
         android:background="@color/white"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:background="@color/title_thame_color"
             android:gravity="center_vertical"
             android:orientation="horizontal">
@@ -125,7 +126,6 @@
                     android:background="@drawable/baseline_insert_photo_50"
                     android:clickable="true" />
             </LinearLayout>
-
         </LinearLayout>
 
         <FrameLayout

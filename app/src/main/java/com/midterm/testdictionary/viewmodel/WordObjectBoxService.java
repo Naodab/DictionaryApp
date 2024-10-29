@@ -3,6 +3,8 @@ package com.midterm.testdictionary.viewmodel;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.midterm.testdictionary.model.Definition;
+import com.midterm.testdictionary.model.Meaning;
 import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Phonetic;
 import com.midterm.testdictionary.model.Word;
@@ -44,6 +46,21 @@ public class WordObjectBoxService {
             }
         }
 
+        String definitionReal = "";
+        for (Meaning meaning : word.getMeanings()) {
+            boolean isNotEmpty = false;
+            for (Definition difinition : meaning.getDefinitions()) {
+                if (!difinition.getDefinition().isEmpty()) {
+                    isNotEmpty = true;
+                    definitionReal = difinition.getDefinition();
+                    break;
+                }
+            }
+            if (isNotEmpty)
+                break;
+        }
+
+        wordObjectBox.setDefinition(definitionReal);
         wordObjectBox.setAudio(audio);
 
         wordBox.put(wordObjectBox);
@@ -55,7 +72,6 @@ public class WordObjectBoxService {
 
         for (WordObjectBox word : words) {
             Log.d("DEBUG", word.getId() + " " + word.getWord());
-//            wordObjectBoxesList
         }
 
         return words;

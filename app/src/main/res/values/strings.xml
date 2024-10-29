@@ -118,8 +118,8 @@ quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string
     <string name="t___i_n_string">từ điển</string>
     <string name="tomorrow_ek3_string">lexicon; dictionary; glossary</string>
     <string name="_n_t_p_string">Ôn tập</string>
-    <string name="t_p_vi_t_string">Tập viết</string>
-    <string name="luy_n_t_p_string">Luyện tập</string>
+    <string name="t_p_vi_t_string">Writing</string>
+    <string name="luy_n_t_p_string">Review</string>
 
 
     <!--  your_word strings  -->
@@ -162,7 +162,7 @@ quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string
 
     <!--  callvideo strings  -->
 
-    <string name="th_c_h_nh_string">Thực hành</string>
+    <string name="th_c_h_nh_string">Practice</string>
     <string name="nh_p_t_n_c_a_b_n_string">Tạo cuộc hẹn</string>
     <string name="tham_gia_cu_c_h_n_string">Tham gia cuộc hẹn</string>
     <string name="nh_p_t_n_c_a_b_n_ek1_string">Nhập tên của bạn</string>

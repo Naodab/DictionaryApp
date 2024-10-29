@@ -116,10 +116,6 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
                 return false;
             }
         });
-
-        binding.listItem.setOnClickListener(v ->{
-
-        });
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

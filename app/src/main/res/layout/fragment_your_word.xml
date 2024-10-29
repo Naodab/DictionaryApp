@@ -8,7 +8,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="90dp">
+        android:layout_marginTop="60dp">
 
         <ImageView
             android:id="@+id/search_btn"
@@ -22,8 +22,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="528dp"
-        android:layout_marginTop="200dp">
+        android:layout_height="548dp"
+        android:layout_marginTop="170dp">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -41,7 +41,6 @@
     <View
         android:layout_width="420dp"
         android:layout_height="53dp"
-        android:layout_marginTop="31dp"
         android:background="@drawable/rectangle_1171_shape" />
 
     <TextView
@@ -49,7 +48,6 @@
         android:layout_width="97.5dp"
         android:layout_height="53dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="31dp"
         android:gravity="center_vertical"
         android:text="@string/trang_ch__string"
         android:textColor="@color/_bg__your_word_ek2_color"
@@ -59,7 +57,7 @@
         android:layout_width="12dp"
         android:layout_height="20dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="15dp"
         android:contentDescription="vector"
         android:src="@drawable/vectorback" />
 
@@ -67,18 +65,17 @@
         android:layout_width="199dp"
         android:layout_height="55dp"
         android:layout_marginLeft="121dp"
-        android:layout_marginTop="28dp"
         android:fontFamily="@font/agbalumo"
         android:text="@string/t__c_a_b_n_string"
         android:textColor="@color/luy_n_t_p_color"
-        android:textSize="36sp" />
+        android:textSize="35sp" />
 
     <EditText
         android:id="@+id/input_search"
         android:layout_width="280dp"
         android:layout_height="45dp"
         android:layout_marginLeft="70dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="60dp"
         android:gravity="center_vertical"
         android:hint="@string/tra_t___i_n_anh_vi_t_anh_string"
         android:textColor="@color/tra_t___i_n_anh_vi_t_anh_color"
@@ -89,7 +86,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_marginStart="360dp"
-        android:layout_marginTop="90dp">
+        android:layout_marginTop="60dp">
 
         <ImageView
             android:id="@+id/mic"
@@ -166,7 +163,7 @@
         android:layout_width="130dp"
         android:layout_height="39dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="139dp"
+        android:layout_marginTop="109dp"
         android:background="@drawable/rectangle_1205_shape" />
 
     <TextView
@@ -174,7 +171,7 @@
         android:layout_width="130dp"
         android:layout_height="39dp"
         android:layout_marginStart="31dp"
-        android:layout_marginTop="139dp"
+        android:layout_marginTop="109dp"
         android:gravity="center"
         android:text="@string/t_____l_u__4__string"
         android:textColor="@color/_bg__your_word_ek2_color"

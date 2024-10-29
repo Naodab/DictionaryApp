@@ -22,7 +22,7 @@
     <!--        quay lại và tìm kiếm thêm ở đây-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="53dp"
                 android:gravity="center_vertical"
                 android:background="@color/title_thame_color"
                 android:orientation="horizontal">
@@ -61,8 +61,9 @@
 
                 <Button
                     android:id="@+id/profile_btn"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="15dp"
                     android:gravity="center_vertical"
                     android:background="@drawable/ic_heart" />
             </LinearLayout>
