@@ -32,7 +32,7 @@
                         android:background="@drawable/rectangle_1171_shape" />
 
                     <TextView
-                        android:textSize="36sp"
+                        android:textSize="35sp"
                         android:textColor="@color/t_p_vi_t_color"
                         android:fontFamily="@font/agbalumo"
                         android:layout_marginLeft="130dp"
