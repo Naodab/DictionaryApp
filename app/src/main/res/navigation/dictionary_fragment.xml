@@ -107,6 +107,9 @@
         <action
             android:id="@+id/action_searchedWordFragment_to_practiceFragment"
             app:destination="@id/practiceFragment" />
+        <action
+            android:id="@+id/action_searchedWordFragment_to_relearnFragment"
+            app:destination="@id/relearnFragment" />
     </fragment>
 
     <fragment
@@ -134,6 +137,9 @@
         android:name="com.midterm.testdictionary.view.RelearnFragment"
         android:label="fragment_relearn"
         tools:layout="@layout/fragment_relearn" >
+        <action
+            android:id="@+id/action_relearnFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/intro1Fragment"

@@ -44,7 +44,6 @@ public class DetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            Log.d("DetailFragment", "Success");
             word = (Word)getArguments().getSerializable("word");
         }
     }

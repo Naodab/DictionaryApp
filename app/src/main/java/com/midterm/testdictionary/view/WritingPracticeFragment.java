@@ -71,7 +71,7 @@ public class WritingPracticeFragment extends Fragment {
         binding.closeBtn.setOnClickListener(this::showConfirmDialog);
 
         binding.back.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
+            Navigation.findNavController(getView()).navigate(R.id.action_writingPracticeFragment_to_mainFragment);
         });
 
         binding.retryButton.setOnClickListener(v -> {

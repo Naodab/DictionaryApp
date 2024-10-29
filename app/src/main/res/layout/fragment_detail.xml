@@ -95,7 +95,6 @@
                 android:id="@+id/meaning_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
