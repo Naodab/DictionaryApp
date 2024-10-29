@@ -41,29 +41,30 @@
         android:textColor="@color/sign_up_or_login_to_your_account_color"
         android:textSize="17sp" />
 
-    <TextView
-        android:layout_width="192.5dp"
-        android:layout_height="34.5dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="224dp"
-        android:text="@string/full_name_string"
-        android:textColor="@color/sign_up_or_login_to_your_account_color"
-        android:textSize="17sp" />
+<!--    <TextView-->
+<!--        android:layout_width="192.5dp"-->
+<!--        android:layout_height="34.5dp"-->
+<!--        android:layout_marginLeft="34dp"-->
+<!--        android:layout_marginTop="224dp"-->
+<!--        android:text="@string/full_name_string"-->
+<!--        android:textColor="@color/sign_up_or_login_to_your_account_color"-->
+<!--        android:textSize="17sp" />-->
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="192.5dp"
         android:layout_height="34.5dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="330dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="221dp"
         android:text="@string/email_address_string"
         android:textColor="@color/sign_up_or_login_to_your_account_color"
         android:textSize="17sp" />
 
     <TextView
-        android:layout_width="159.5dp"
+        android:layout_width="142.5dp"
         android:layout_height="34.5dp"
-        android:layout_marginLeft="21dp"
-        android:layout_marginTop="554dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="486dp"
         android:text="@string/or_sign_up_using__string"
         android:textColor="@color/sign_up_or_login_to_your_account_color"
         android:textSize="17sp" />
@@ -72,7 +73,7 @@
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginStart="157dp"
-        android:layout_marginTop="558dp"
+        android:layout_marginTop="490dp"
         android:contentDescription="vector_4"
         android:src="@drawable/vector_4" />
 
@@ -80,8 +81,8 @@
     <TextView
         android:layout_width="192.5dp"
         android:layout_height="34.5dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="437dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="332dp"
         android:text="@string/create_password_string"
         android:textColor="@color/sign_up_or_login_to_your_account_color"
         android:textSize="17sp" />
@@ -121,6 +122,7 @@
         android:textSize="17sp" />
 
     <TextView
+        android:id="@+id/btn_choose_register"
         android:layout_width="141dp"
         android:layout_height="39dp"
         android:layout_gravity="center_horizontal|center"
@@ -134,54 +136,55 @@
     <View
         android:layout_width="348dp"
         android:layout_height="55dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="373dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="258dp"
         android:background="@drawable/rectangle_1213_shape" />
 
     <EditText
         android:id="@+id/enter_email"
-        android:layout_width="336dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="373dp"
+        android:layout_width="324dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="266dp"
         android:clickable="true"
         android:hint="@string/enter_your_email_string"
-        android:textColor="@color/enter_your_email_color"
-        android:textSize="17sp" />
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:inputType="textPassword"/>
 
     <View
         android:layout_width="348dp"
         android:layout_height="55dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="473dp"
+        android:layout_marginTop="369dp"
         android:background="@drawable/rectangle_1215_shape" />
 
     <EditText
         android:id="@+id/enter_password"
-        android:layout_width="336dp"
+        android:layout_width="324dp"
         android:layout_height="55dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="473dp"
+        android:layout_marginTop="369dp"
         android:hint="@string/enter_your_password_string"
-        android:textColor="@color/enter_your_email_color"
+        android:textColor="@color/black"
         android:textSize="17sp" />
 
-    <View
-        android:layout_width="348dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="260dp"
-        android:background="@drawable/rectangle_1214_shape" />
+<!--    <View-->
+<!--        android:layout_width="348dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginStart="28dp"-->
+<!--        android:layout_marginTop="260dp"-->
+<!--        android:background="@drawable/rectangle_1214_shape" />-->
 
-    <EditText
-        android:id="@+id/enter_name"
-        android:layout_width="336dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="260dp"
-        android:hint="@string/enter_your_name_string"
-        android:textColor="@color/enter_your_email_color"
-        android:textSize="17sp" />
+<!--    <EditText-->
+<!--        android:id="@+id/enter_name"-->
+<!--        android:layout_width="336dp"-->
+<!--        android:layout_height="55dp"-->
+<!--        android:layout_marginStart="40dp"-->
+<!--        android:layout_marginTop="260dp"-->
+<!--        android:hint="@string/enter_your_name_string"-->
+<!--        android:textColor="@color/enter_your_email_color"-->
+<!--        android:textSize="17sp" />-->
 
     <View
         android:id="@+id/sign_up"
@@ -207,8 +210,8 @@
         android:id="@+id/google"
         android:layout_width="75.35dp"
         android:layout_height="71dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="597dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="537dp"
         android:clickable="true"
         android:contentDescription="google_2"
         android:src="@drawable/google_2" />
@@ -217,8 +220,8 @@
         android:id="@+id/facebook"
         android:layout_width="71dp"
         android:layout_height="71dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="597dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="537dp"
         android:contentDescription="fb_2"
         android:clickable="true"
         android:src="@drawable/fb_2" />
@@ -227,10 +230,18 @@
         android:id="@+id/twitter"
         android:layout_width="71dp"
         android:layout_height="71dp"
-        android:layout_marginStart="211dp"
-        android:layout_marginTop="597dp"
+        android:layout_marginStart="202dp"
+        android:layout_marginTop="537dp"
         android:clickable="true"
         android:contentDescription="twitter_2"
         android:src="@drawable/twitter_2" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="640dp"
+        android:layout_marginStart="180dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

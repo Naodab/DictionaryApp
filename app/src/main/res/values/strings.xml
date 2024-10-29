@@ -13,7 +13,7 @@
     <string name="sign_up_or_login_to_your_account_string">Sign up or Login to your Account</string>
     <string name="full_name_string">Full Name</string>
     <string name="email_address_string">Email Address</string>
-    <string name="or_sign_up_using__string">Or Sign Up Using:</string>
+    <string name="or_sign_up_using__string">Or Sign In Using:</string>
     <string name="create_password_string">Create Password</string>
     <string name="login_string">Login</string>
     <string name="sign_up_string">Sign up</string>

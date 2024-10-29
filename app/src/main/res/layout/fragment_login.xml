@@ -88,7 +88,7 @@
         android:background="@drawable/rectangle_1204_shape" />
 
     <View
-        android:id="@+id/rectangle_1205"
+        android:id="@+id/btn_choose_login"
         android:layout_width="141dp"
         android:layout_height="39dp"
         android:layout_marginStart="49dp"
@@ -96,7 +96,7 @@
         android:background="@drawable/rectangle_1205_shape" />
 
     <View
-        android:id="@+id/rectangle_1206"
+        android:id="@+id/btn_choose_register"
         android:layout_width="141dp"
         android:layout_height="39dp"
         android:layout_marginStart="221dp"
@@ -131,7 +131,7 @@
         android:id="@+id/rectangle_1207"
         android:layout_width="348dp"
         android:layout_height="55dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="258dp"
         android:background="@drawable/rectangle_1207_shape" />
 
@@ -139,7 +139,7 @@
         android:id="@+id/rectangle_1208"
         android:layout_width="348dp"
         android:layout_height="55dp"
-        android:layout_marginStart="19dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="369dp"
         android:background="@drawable/rectangle_1208_shape" />
 
@@ -147,17 +147,17 @@
         android:id="@+id/password"
         android:layout_width="324dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="377dp"
         android:hint="@string/enter_your_password_string"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="324dp"
         android:layout_height="45dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="266dp"
         android:hint="@string/enter_your_email_string"
         android:textColor="@color/black"
@@ -178,7 +178,7 @@
         android:layout_width="250dp"
         android:layout_height="53dp"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="737dp"
+        android:layout_marginTop="721dp"
         android:background="@drawable/rectangle_1209_shape"
         android:clickable="true" />
 
@@ -186,7 +186,7 @@
         android:layout_width="250dp"
         android:layout_height="53dp"
         android:layout_marginStart="76dp"
-        android:layout_marginTop="737dp"
+        android:layout_marginTop="721dp"
         android:gravity="center"
         android:text="@string/login_ek4_string"
         android:textColor="@color/white"
@@ -212,4 +212,12 @@
         android:clickable="true"
         android:contentDescription="twitter_1"
         android:src="@drawable/twitter_2" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="640dp"
+        android:layout_marginStart="180dp"
+        android:visibility="gone"/>
 </RelativeLayout>

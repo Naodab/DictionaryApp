@@ -20,8 +20,8 @@ import com.midterm.testdictionary.repository.CallRepository;
 import com.permissionx.guolindev.PermissionX;
 
 public class LoginFragment extends Fragment {
-    FragmentLoginBinding binding;
-    CallRepository callRepository;
+    private FragmentLoginBinding binding;
+    private CallRepository callRepository;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,8 @@ public class LoginFragment extends Fragment {
                     .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
                     .request((allGranted, grantedList, deniedList)  -> {
                         if (allGranted) {
-                            callRepository.login(binding.username.getText().toString(), this.getContext(),
+                            // sua tu username thanh email
+                            callRepository.login(binding.email.getText().toString(), this.getContext(),
                                     () -> {
                                         Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
                                     },
@@ -58,6 +59,13 @@ public class LoginFragment extends Fragment {
                             Log.e("Permissions", "Quyền truy cập bị từ chối.");
                         }
                     });
+        });
+
+        binding.btnChooseRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.signupFragment);
+            }
         });
     }
 
