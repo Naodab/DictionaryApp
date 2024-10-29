@@ -38,7 +38,7 @@
         android:layout_marginTop="200dp"
         android:gravity="center"
         android:textColor="@color/__ng___8_color"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:fontFamily="@font/abeezee"
         android:textStyle="italic|bold" />
 

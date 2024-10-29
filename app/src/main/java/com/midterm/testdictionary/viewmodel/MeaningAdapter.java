@@ -23,9 +23,15 @@ import java.util.List;
 
 public class MeaningAdapter extends RecyclerView.Adapter<MeaningAdapter.ViewHolder> {
     private List<Meaning> meaningList;
+    private boolean canPressAtSynonymOrAntonym = true;
 
     public MeaningAdapter(List<Meaning> meaningList) {
         this.meaningList = meaningList;
+    }
+
+    public MeaningAdapter(List<Meaning> meaningList, boolean canPressAtSynonymOrAntonym) {
+        this.meaningList = meaningList;
+        this.canPressAtSynonymOrAntonym = canPressAtSynonymOrAntonym;
     }
 
     @NonNull
@@ -72,7 +78,8 @@ public class MeaningAdapter extends RecyclerView.Adapter<MeaningAdapter.ViewHold
             binding.definitionList.setAdapter(definitionAdapter);
 
             if (meaning.getSynonyms() != null && meaning.getSynonyms().size() > 0) {
-                SynoAntonymAdapter synonymAdapter = new SynoAntonymAdapter(meaning.getSynonyms());
+                SynoAntonymAdapter synonymAdapter = new SynoAntonymAdapter(meaning.getSynonyms(),
+                        canPressAtSynonymOrAntonym);
                 binding.rvSynonym.setAdapter(synonymAdapter);
                 FlexboxLayoutManager flexbox = new FlexboxLayoutManager(this.itemView.getContext());
                 flexbox.setFlexDirection(FlexDirection.ROW);
@@ -86,7 +93,8 @@ public class MeaningAdapter extends RecyclerView.Adapter<MeaningAdapter.ViewHold
             }
 
             if (meaning.getAntonyms() != null && meaning.getAntonyms().size() > 0) {
-                SynoAntonymAdapter antonymAdapter = new SynoAntonymAdapter(meaning.getAntonyms());
+                SynoAntonymAdapter antonymAdapter = new SynoAntonymAdapter(meaning.getAntonyms(),
+                        canPressAtSynonymOrAntonym);
                 binding.rvAntonym.setAdapter(antonymAdapter);
                 FlexboxLayoutManager flexbox = new FlexboxLayoutManager(this.itemView.getContext());
                 flexbox.setFlexDirection(FlexDirection.ROW);
