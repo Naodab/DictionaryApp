@@ -50,7 +50,7 @@
         android:contentDescription="Circular image button"
         android:padding="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/avatar_profile" />
+        android:src="@drawable/icon_profile" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -63,14 +63,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:layout_marginRight="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
+                android:paddingLeft="16dp"
                 android:text="Số từ"
                 android:textColor="@color/black"
                 android:textSize="20dp" />
@@ -79,8 +79,8 @@
                 android:id="@+id/word_number"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="105dp"
-                android:text="3"
+                android:layout_marginLeft="103dp"
+                android:text="0"
                 android:textColor="@color/teal_200"
                 android:textSize="20dp" />
 
@@ -126,7 +126,8 @@
                 android:id="@+id/name_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="120dp"
+                android:layout_marginLeft="118dp"
+                android:layout_marginTop="2sp"
                 android:text="Nguyễn Văn A"
                 android:textColor="@color/teal_200"
                 android:textSize="18dp" />
@@ -155,6 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="102dp"
+                android:layout_marginTop="2sp"
                 android:text="nguyenvana@gmail.com"
                 android:textColor="@color/teal_200"
                 android:textSize="18dp" />
@@ -183,7 +185,8 @@
                 android:id="@+id/login_from_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="2sp"
                 android:text="Google"
                 android:textColor="@color/teal_200"
                 android:textSize="18dp" />

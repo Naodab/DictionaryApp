@@ -9,16 +9,16 @@
         android:layout_marginStart="0dp"
         android:background="@drawable/rectangle_1171_shape" />
 
-    <TextView
-        android:id="@+id/back_btn"
-        android:layout_width="97.5dp"
-        android:layout_height="53dp"
-        android:layout_marginLeft="26dp"
-        android:gravity="center_vertical"
-        android:text="@string/trang_ch__string"
-        android:clickable="true"
-        android:textColor="@color/_bg__your_word_ek2_color"
-        android:textSize="15sp" />
+<!--    <TextView-->
+<!--        android:id="@+id/back_btn"-->
+<!--        android:layout_width="97.5dp"-->
+<!--        android:layout_height="53dp"-->
+<!--        android:layout_marginLeft="26dp"-->
+<!--        android:gravity="center_vertical"-->
+<!--        android:text="@string/trang_ch__string"-->
+<!--        android:clickable="true"-->
+<!--        android:textColor="@color/_bg__your_word_ek2_color"-->
+<!--        android:textSize="15sp" />-->
 
     <ImageView
         android:id="@+id/back_arrow"
