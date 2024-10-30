@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1006784957575:android:94b6f7d35bfe354fb07c22",
         "android_client_info": {
-          "package_name": "com.example.testauthentication"
+          "package_name": "com.midterm.testdictionary"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "1006784957575-1b9mn8riq4r8pteh0mae3r0a3ddncpn4.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.firstwebrtc",
+            "package_name": "com.midterm.testdictionary",
             "certificate_hash": "df44d6bacd6a2b511e3c0b2c445372b92d7878ba"
           }
         },

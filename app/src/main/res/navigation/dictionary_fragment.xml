@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragment_to_callFragment"
             app:destination="@id/callFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_yourWordFragment"
+            app:destination="@id/yourWordFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -87,6 +90,12 @@
         android:name="com.midterm.testdictionary.view.YourWordFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_your_word" >
+        <action
+            android:id="@+id/action_yourWordFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_yourWordFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 
     <fragment

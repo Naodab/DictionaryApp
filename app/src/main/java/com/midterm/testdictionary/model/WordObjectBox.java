@@ -15,6 +15,13 @@ public class WordObjectBox {
     public WordObjectBox() {
     }
 
+    public WordObjectBox(String word, String phonetic, String audio, String definition) {
+        this.word = word;
+        this.phonetic = phonetic;
+        this.audio = audio;
+        this.definition = definition;
+    }
+
     public long getId() {
         return id;
     }
