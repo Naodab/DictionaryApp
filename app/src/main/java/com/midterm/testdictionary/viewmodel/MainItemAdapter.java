@@ -1,38 +1,34 @@
 package com.midterm.testdictionary.viewmodel;
 
-import android.os.Bundle;
+import android.Manifest;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.midterm.testdictionary.R;
-import com.midterm.testdictionary.model.ObjectBox;
-import com.midterm.testdictionary.model.Word;
-import com.midterm.testdictionary.model.WordObjectBox;
 import com.midterm.testdictionary.repository.CallRepository;
-import com.squareup.picasso.Picasso;
+import com.permissionx.guolindev.PermissionX;
 
 import java.util.ArrayList;
-import java.util.List;
-
-import io.objectbox.Box;
 
 public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHolder>{
     private ArrayList<String> itemsList;
-    private CallRepository callRepository = CallRepository.getInstance();
+    private CallRepository callRepository;
+    private Fragment fragment;
 
-    public MainItemAdapter(ArrayList<String> itemsList){
+    public MainItemAdapter(ArrayList<String> itemsList, Fragment fragment){
         this.itemsList = itemsList;
+        this.fragment = fragment;
     }
     @NonNull
     @Override
@@ -77,8 +73,7 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
                             return;
                         }
                         if (getAdapterPosition() == 3) {
-                            // TODO: login to call repository
-                            // Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                            callAssignment(currentUser.getEmail().split("\\.")[0]);
                         } else if (getAdapterPosition() == 1) {
 
                         }
@@ -87,6 +82,25 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
                     }
                 }
             });
+        }
+
+        private void callAssignment(String username) {
+            callRepository = CallRepository.getInstance();
+            PermissionX.init(fragment)
+                .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                .request((allGranted, grantedList, deniedList)  -> {
+                        if (allGranted) {
+                            // sua tu username thanh email
+                            callRepository.login(username, fragment.getContext(),
+                                    () -> {
+                                        Navigation.findNavController(fragment.getView()).navigate(R.id.action_mainFragment_to_callFragment);
+                                    }
+                            );
+                        } else {
+                            Log.e("Permissions", "Quyền truy cập bị từ chối.");
+                        }
+                    }
+                );
         }
     }
 }

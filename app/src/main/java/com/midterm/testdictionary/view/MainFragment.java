@@ -78,7 +78,7 @@ public class MainFragment extends Fragment{
 
         binding.rvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
         itemList = new ArrayList<>();
-        itemsAdapter = new MainItemAdapter(itemList);
+        itemsAdapter = new MainItemAdapter(itemList, this);
         binding.rvItems.setAdapter(itemsAdapter);
         setMainItem();
         configWordOfDay();
@@ -150,14 +150,6 @@ public class MainFragment extends Fragment{
 
                 return true;
             }
-        });
-
-        binding.wodLayout.setOnClickListener(v ->{
-            if (NetworkUtil.isNetworkAvailable(v.getContext()))
-                performSearch(wordObjectBox.getWord());
-            else
-                Toast.makeText(v.getContext(), "Please, connect to network.",
-                        Toast.LENGTH_SHORT).show();
         });
 
         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
@@ -258,11 +250,21 @@ public class MainFragment extends Fragment{
 
     private void configWordOfDay() {
         List<WordObjectBox> words = wordObjectBoxService.getWordBox();
-        int randomIndex = (int)(Math.random() * words.size());
-        wordObjectBox = words.get(randomIndex);
-        binding.wodWord.setText(wordObjectBox.getWord());
-        binding.wodDefinition.setText(wordObjectBox.getDefinition());
-        binding.wodPhonetic.setText(wordObjectBox.getPhonetic());
+        if (words.size() > 0) {
+            int randomIndex = (int)(Math.random() * words.size());
+            wordObjectBox = words.get(randomIndex);
+            binding.wodWord.setText(wordObjectBox.getWord());
+            binding.wodDefinition.setText(wordObjectBox.getDefinition());
+            binding.wodPhonetic.setText(wordObjectBox.getPhonetic());
+
+            binding.wodLayout.setOnClickListener(v ->{
+                if (NetworkUtil.isNetworkAvailable(v.getContext()))
+                    performSearch(wordObjectBox.getWord());
+                else
+                    Toast.makeText(v.getContext(), "Please, connect to network.",
+                            Toast.LENGTH_SHORT).show();
+            });
+        }
     }
 
 //    @Override

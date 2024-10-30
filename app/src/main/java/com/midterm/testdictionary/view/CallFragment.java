@@ -41,7 +41,9 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
     private void init() {
         callRepository = CallRepository.getInstance();
         binding.joinRoom.setOnClickListener(v->{
-            // TODO: send call request
+            callRepository.sendCallRequest(() -> {
+                Toast.makeText(getContext(), "couldnt find the target", Toast.LENGTH_SHORT).show();
+            });
         });
         callRepository.initLocalView(binding.localView);
         callRepository.initRemoteView(binding.remoteView);
@@ -50,7 +52,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
         callRepository.subscribeForLatestEvent(data->{
             if (data.getType() == DataModelType.StartCall) {
                 mHandler.post(()->{
-                    // TODO: accept call request
+                    callRepository.startCall(data.getSender());
                 });
             }
         });
@@ -101,6 +103,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
 
     @Override
     public void webrtcClosed() {
-        mHandler.post(() -> Navigation.findNavController(this.getView()).navigate(R.id.action_callFragment_to_mainFragment));
+        mHandler.post(() -> Navigation.findNavController(getView())
+                .navigate(R.id.action_callFragment_to_mainFragment));
     }
 }

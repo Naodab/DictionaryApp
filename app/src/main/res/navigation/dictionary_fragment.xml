@@ -160,7 +160,7 @@
         tools:layout="@layout/fragment_intro1" >
         <action
             android:id="@+id/action_intro1Fragment_to_intro2Fragment"
-            app:destination="@id/intro2Fragment" />
+            app:destination="@id/intro2Fragment"/>
     </fragment>
 
     <fragment
