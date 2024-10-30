@@ -176,8 +176,7 @@
         android:id="@+id/callMenuFragment"
         android:name="com.midterm.testdictionary.view.CallMenuFragment"
         android:label="fragment_call_menu"
-        tools:layout="@layout/fragment_call_menu" >
-    </fragment>
+        tools:layout="@layout/fragment_call_menu" />
 
     <fragment
         android:id="@+id/parasalSearchFragment"

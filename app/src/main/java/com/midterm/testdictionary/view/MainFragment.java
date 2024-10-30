@@ -35,6 +35,7 @@ import com.midterm.testdictionary.databinding.FragmentMainBinding;
 import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.utils.NetworkUtil;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
@@ -57,6 +58,7 @@ public class MainFragment extends Fragment{
     private Word searchedWord;
 
     private WordObjectBoxService wordObjectBoxService;
+    private WordObjectBox wordObjectBox;
 
     private FirebaseAuth mAuth;
 
@@ -78,6 +80,7 @@ public class MainFragment extends Fragment{
         itemsAdapter = new MainItemAdapter(itemList);
         binding.rvItems.setAdapter(itemsAdapter);
         setMainItem();
+        configWordOfDay();
 
         // Thiết lập NavigationItemSelectedListener cho NavigationView
 //        binding.navView.setNavigationItemSelectedListener(this);
@@ -148,6 +151,14 @@ public class MainFragment extends Fragment{
             }
         });
 
+        binding.wodLayout.setOnClickListener(v ->{
+            if (NetworkUtil.isNetworkAvailable(v.getContext()))
+                performSearch(wordObjectBox.getWord());
+            else
+                Toast.makeText(v.getContext(), "Please, connect to network.",
+                        Toast.LENGTH_SHORT).show();
+        });
+
         Menu menu = binding.navView.getMenu();
         MenuItem loginItem = menu.findItem(R.id.nav_login);
 
@@ -166,7 +177,6 @@ public class MainFragment extends Fragment{
 //        return inflater.inflate(R.layout.fragment_main, container, false);
         binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
         mAuth = FirebaseAuth.getInstance();
 
         return view;
@@ -233,6 +243,15 @@ public class MainFragment extends Fragment{
                     e.printStackTrace();
                 }
             });
+    }
+
+    private void configWordOfDay() {
+        List<WordObjectBox> words = wordObjectBoxService.getWordBox();
+        int randomIndex = (int)(Math.random() * words.size());
+        wordObjectBox = words.get(randomIndex);
+        binding.wodWord.setText(wordObjectBox.getWord());
+        binding.wodDefinition.setText(wordObjectBox.getDefinition());
+        binding.wodPhonetic.setText(wordObjectBox.getPhonetic());
     }
 
 //    @Override
