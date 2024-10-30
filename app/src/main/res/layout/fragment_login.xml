@@ -13,15 +13,6 @@
         android:background="@drawable/_bg__login_ek2_shape" />
 
     <TextView
-        android:layout_width="268.5dp"
-        android:layout_height="30sp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="65dp"
-        android:text="@string/sign_up_or_login_to_your_account_string"
-        android:textColor="@color/sign_up_or_login_to_your_account_color"
-        android:textSize="17sp" />
-
-    <TextView
         android:layout_width="192.5dp"
         android:layout_height="34.5dp"
         android:layout_marginLeft="19dp"
@@ -45,7 +36,7 @@
         android:layout_height="34.5dp"
         android:layout_gravity="center_vertical|end"
         android:layout_marginLeft="226dp"
-        android:layout_marginTop="444dp"
+        android:layout_marginTop="435dp"
         android:clickable="true"
         android:gravity="end"
         android:text="@string/forgot_password__string"
@@ -78,6 +69,15 @@
         android:text="@string/welcome_redflat__string"
         android:textColor="@color/welcome_redflat__color"
         android:textSize="36sp" />
+
+    <TextView
+        android:layout_width="268.5dp"
+        android:layout_height="30sp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="65dp"
+        android:text="@string/sign_up_or_login_to_your_account_string"
+        android:textColor="@color/sign_up_or_login_to_your_account_color"
+        android:textSize="17sp" />
 
     <View
         android:id="@+id/rectangle_1204"
@@ -167,36 +167,36 @@
         android:textColor="@color/black"
         android:textSize="17sp" />
 
+
     <ImageView
         android:id="@+id/google"
-        android:layout_width="65dp"
+        android:layout_width="75.35dp"
         android:layout_height="71dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="537dp"
-        android:contentDescription="google_1"
         android:clickable="true"
-        android:focusable="true"
+        android:contentDescription="google_1"
         android:src="@drawable/google_2" />
 
     <View
         android:id="@+id/enterBtn"
         android:layout_width="250dp"
         android:layout_height="53dp"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="721dp"
-        android:background="@drawable/rectangle_1209_shape"
-        android:clickable="true" />
+        android:clickable="true"
+        android:background="@drawable/rectangle_1213_ek1_shape" />
 
     <TextView
         android:layout_width="250dp"
         android:layout_height="53dp"
-        android:layout_marginStart="76dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="721dp"
         android:gravity="center"
         android:text="@string/login_ek4_string"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="italic|bold" />
+        android:textColor="@color/login_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
 
     <ImageView
         android:id="@+id/facebook"
@@ -223,7 +223,7 @@
         android:layout_width="wrap_content"
         android:layout_height="34.5dp"
         android:layout_gravity="center_vertical|end"
-        android:layout_marginLeft="330dp"
+        android:layout_marginLeft="320dp"
         android:layout_marginTop="557dp"
         android:gravity="end"
         android:clickable="true"
