@@ -196,25 +196,25 @@ public class LoginFragment extends Fragment {
     void init() {
         callRepository = CallRepository.getInstance();
         binding.enterBtn.setOnClickListener(view -> {
-            // login to firebase database
             PermissionX.init(this)
-                    .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
-                    .request((allGranted, grantedList, deniedList)  -> {
-                        if (allGranted) {
-                            // sua tu username thanh email
-                            callRepository.login(binding.email.getText().toString(), this.getContext(),
-                                    () -> {
-                                        Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
-                                    },
-                                    (errorMessage) -> {
-                                        Log.e("Login Error", errorMessage);
-                                        Toast.makeText(getContext(), "Đăng nhập thất bại: " + errorMessage, Toast.LENGTH_SHORT).show();
-                                    }
-                            );
-                        } else {
-                            Log.e("Permissions", "Quyền truy cập bị từ chối.");
-                        }
-                    });
+                .permissions(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
+                .request((allGranted, grantedList, deniedList)  -> {
+                    if (allGranted) {
+                        // sua tu username thanh email
+                        callRepository.login(binding.email.getText().toString(), this.getContext(),
+                            () -> {
+                                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
+                            },
+                            (errorMessage) -> {
+                                Log.e("Login Error", errorMessage);
+                                Toast.makeText(getContext(), "Đăng nhập thất bại: " + errorMessage, Toast.LENGTH_SHORT).show();
+                            }
+                        );
+                    } else {
+                        Log.e("Permissions", "Quyền truy cập bị từ chối.");
+                    }
+                }
+            );
         });
     }
 

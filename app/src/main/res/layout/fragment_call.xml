@@ -6,60 +6,95 @@
     android:layout_height="match_parent"
     tools:context=".view.CallFragment"
     android:keepScreenOn="true">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:id="@+id/incomingCallLayout"
-        android:visibility="gone"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="6"
-            android:textSize="20sp"
-            android:textColor="@color/black"
-            android:text="someone is calling"
-            android:id="@+id/incomingNameTV"/>
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:src="@drawable/phone_accept"
-            android:padding="15dp"
-            android:id="@+id/acceptButton"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1.5"
-            android:src="@drawable/phone_reject"
-            android:padding="15dp"
-            android:id="@+id/rejectButton"/>
-
-    </LinearLayout>
     <RelativeLayout
+        android:id="@+id/layout_who_to_call"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/incomingCallLayout"
-        android:id="@+id/whoToCallLayout">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:hint="who to call ?"
-            android:layout_margin="30dp"
-            android:id="@+id/targetUserNameEt"/>
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@drawable/rounded_button"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
 
-            android:layout_below="@id/targetUserNameEt"
-            android:layout_marginHorizontal="30dp"
-            android:text="call"
-            android:id="@+id/callBtn"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:background="@drawable/rectangle_1171_shape" />
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="15dp"
+            android:contentDescription="vector"
+            android:src="@drawable/vectorback" />
+
+
+        <TextView
+            android:layout_width="220dp"
+            android:layout_height="55dp"
+            android:layout_marginLeft="100dp"
+            android:fontFamily="@font/agbalumo"
+            android:gravity="center"
+            android:text="@string/th_c_h_nh_string"
+            android:textColor="@color/luy_n_t_p_color"
+            android:textSize="36sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/call_video_image" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_marginTop="435dp"
+            android:layout_marginHorizontal="16dp"
+            android:contentDescription="vector_4"
+            android:src="@drawable/vector_4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="460dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:text="@string/idiom_practice_1"
+                android:textColor="@color/title_thame_color"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:textSize="35sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:text="@string/idiom_practice_2"
+                android:textColor="@color/title_thame_color"
+                android:gravity="center"
+                android:textStyle="italic"
+                android:textSize="35sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/join_room"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="600dp"
+            android:background="@drawable/rectangle_1206_shape" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="600dp"
+            android:gravity="center"
+            android:fontFamily="@font/abeezee"
+            android:text="@string/tham_gia_cu_c_h_n_string"
+            android:textColor="@color/title_thame_color"
+            android:textSize="25sp"
+            android:textStyle="italic|bold" />
     </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -138,6 +173,5 @@
                 app:backgroundTint="@color/cardview_dark_background"
                 app:srcCompat="@drawable/switch_camera" />
         </LinearLayout>
-
     </RelativeLayout>
 </RelativeLayout>

@@ -59,20 +59,9 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
-
             mAuth = FirebaseAuth.getInstance();
-
             tvContent = (TextView) view.findViewById(R.id.tv_content);
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (tvContent.getText().toString().equals("Practice Speaking")) {
-                        Log.d("DEBUG", "practice speaking");
-//                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
-                    }
-                }
-            });
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -87,10 +76,12 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
 
                             return;
                         }
-
-                        // do sth
+                        if (getAdapterPosition() == 3) {
+                            // TODO: login to call repository
+                            Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                        }
                     }else if(getAdapterPosition() == 2){
-
+                        // TODO: text translate
                     }
                 }
             });
