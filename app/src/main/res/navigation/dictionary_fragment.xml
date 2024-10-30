@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
-    app:startDestination="@id/intro1Fragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -160,7 +160,7 @@
         tools:layout="@layout/fragment_intro1" >
         <action
             android:id="@+id/action_intro1Fragment_to_intro2Fragment"
-            app:destination="@id/intro2Fragment" />
+            app:destination="@id/intro2Fragment"/>
     </fragment>
 
     <fragment
