@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_bg__introduce3_ek2_shape">
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1177_shape" />
+
+    <View
+
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1177_shape" />
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1176_shape" />
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="370dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/dictionary" />
+
+
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="117dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="517dp"
+        android:text="@string/save_and_learn_at_your_own_pace_string"
+        android:textColor="@color/save_and_learn_at_your_own_pace_color"
+        android:textSize="36sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="370.5dp"
+        android:layout_height="103.5dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="622dp"
+        android:text="@string/bookmark_words_to_review_later__and_track_your_progress_with_personalized_word_lists__learning_has_never_been_this_easy__string"
+        android:textColor="@color/save_and_learn_at_your_own_pace_color"
+        android:textSize="17sp" />
+
+    <View
+        android:id="@+id/skip"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="750dp"
+        android:background="@drawable/rectangle_1204_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="750dp"
+        android:gravity="center"
+        android:text="@string/skip_string"
+        android:textColor="@color/skip_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/next"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="750dp"
+        android:background="@drawable/rectangle_1202_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="750dp"
+        android:gravity="center"
+        android:text="@string/next_string"
+        android:textColor="@color/skip_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+</RelativeLayout>

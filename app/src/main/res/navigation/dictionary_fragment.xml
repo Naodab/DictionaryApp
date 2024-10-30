@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_detailFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_detailFragment_self"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/callFragment"
@@ -71,6 +74,12 @@
         android:name="com.midterm.testdictionary.view.WritingPracticeFragment"
         android:label="fragment_writing_practice"
         tools:layout="@layout/fragment_writing_practice" >
+        <action
+            android:id="@+id/action_writingPracticeFragment_self"
+            app:destination="@id/writingPracticeFragment" />
+        <action
+            android:id="@+id/action_writingPracticeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -85,6 +94,9 @@
         android:name="com.midterm.testdictionary.view.SignupFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_signup" >
+        <action
+            android:id="@+id/action_signupFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +104,15 @@
         android:name="com.midterm.testdictionary.view.SearchedWordFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_searched_word" >
+        <action
+            android:id="@+id/action_searchedWordFragment_to_writingPracticeFragment"
+            app:destination="@id/writingPracticeFragment" />
+        <action
+            android:id="@+id/action_searchedWordFragment_to_practiceFragment"
+            app:destination="@id/practiceFragment" />
+        <action
+            android:id="@+id/action_searchedWordFragment_to_relearnFragment"
+            app:destination="@id/relearnFragment" />
     </fragment>
 
     <fragment
@@ -99,7 +120,76 @@
         android:name="com.midterm.testdictionary.view.PracticeFragment"
         android:label="fragment_your_word"
         tools:layout="@layout/fragment_practice" >
+        <action
+            android:id="@+id/action_practiceFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_practiceFragment_self"
+            app:destination="@id/practiceFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/wordOfTheDayFragment"
+        android:name="com.midterm.testdictionary.view.WordOfTheDayFragment"
+        android:label="fragment_word_of_the_day"
+        tools:layout="@layout/fragment_word_of_the_day" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/relearnFragment"
+        android:name="com.midterm.testdictionary.view.RelearnFragment"
+        android:label="fragment_relearn"
+        tools:layout="@layout/fragment_relearn" >
+        <action
+            android:id="@+id/action_relearnFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/intro1Fragment"
+        android:name="com.midterm.testdictionary.view.Intro1Fragment"
+        android:label="fragment_intro1"
+        tools:layout="@layout/fragment_intro1" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/intro2Fragment"
+        android:name="com.midterm.testdictionary.view.Intro2Fragment"
+        android:label="fragment_intro2"
+        tools:layout="@layout/fragment_intro2" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/intro3Fragment"
+        android:name="com.midterm.testdictionary.view.Intro3Fragment"
+        android:label="fragment_intro3"
+        tools:layout="@layout/fragment_intro3" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.midterm.testdictionary.view.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/callMenuFragment"
+        android:name="com.midterm.testdictionary.view.CallMenuFragment"
+        android:label="fragment_call_menu"
+        tools:layout="@layout/fragment_call_menu" >
+    </fragment>
+
+    <fragment
+        android:id="@+id/parasalSearchFragment"
+        android:name="com.midterm.testdictionary.view.ParasalSearchFragment"
+        android:label="fragment_parasal_search"
+        tools:layout="@layout/fragment_parasal_search" >
+    </fragment>
+
+
+
+
+
 
 
 </navigation>

@@ -1,0 +1,14 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="45dp"
+    android:background="@drawable/rounded_pink_button">
+
+    <TextView
+        android:id="@+id/word_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:textSize="19sp"
+        android:text="sufferance"/>
+</FrameLayout>

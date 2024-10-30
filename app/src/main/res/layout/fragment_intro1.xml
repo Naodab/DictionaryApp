@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/_bg__introduce1_ek2_shape">
+
+    <View
+        android:layout_width="350dp"
+        android:layout_height="370dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="72dp"
+        android:background="@drawable/dictionary" />
+
+    <TextView
+        android:layout_width="370.5dp"
+        android:layout_height="103.5dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="622dp"
+        android:text="@string/browse_through_an_extensive_collection_of_words__their_meanings__synonyms__and_antonyms__a_powerful_tool_to_enhance_your_vocabulary__string"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="117dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="517dp"
+        android:text="@string/explore_thousands_of_words___definitions_string"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="italic" />
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1176_shape" />
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1177_shape" />
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="469dp"
+        android:background="@drawable/rectangle_1178_shape" />
+
+    <View
+        android:id="@+id/skip"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="750dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1204_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="750dp"
+        android:gravity="center"
+        android:text="@string/skip_string"
+        android:textColor="@color/skip_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/next"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="750dp"
+        android:background="@drawable/rectangle_1202_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="230dp"
+        android:layout_marginTop="750dp"
+        android:gravity="center"
+        android:text="@string/next_string"
+        android:textColor="@color/skip_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+</RelativeLayout>

@@ -20,84 +20,74 @@
             android:orientation="vertical"
             tools:context=".view.DetailFragment">
     <!--        quay lại và tìm kiếm thêm ở đây-->
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/primary"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
+                android:layout_height="53dp"
+                android:gravity="center_vertical"
+                android:background="@color/title_thame_color"
                 android:orientation="horizontal">
 
-    <!--        TODO:    làm cái nút back-->
                 <Button
-                    android:id="@+id/back_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/baseline_arrow_back_24"
-                    />
+                android:id="@+id/back_btn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/baseline_arrow_back_ios_50"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <EditText
-                    android:id="@+id/search_input"
-                    android:layout_width="230dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_toRightOf="@id/back_btn"
-                    android:background="@drawable/search_border"
-                    android:hint="Search word here"
-                    android:padding="12dp" />
+                <!-- View tạo khoảng cách giữa Button và TextView -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
-                <Button
-                    android:id="@+id/search_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_toLeftOf="@id/save_btn"
-                    android:background="@drawable/baseline_search_24_white"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginRight="8dp" />
-                <Button
-                    android:id="@+id/save_btn"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="2dp"
-                    android:background="@drawable/baseline_star_outline_24"
-                    android:layout_alignParentEnd="true"/>
-                <ProgressBar
-                    android:id="@+id/progress_bar"
-                    android:layout_width="100dp"
-                    android:layout_height="24dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    android:indeterminateTint="@color/primary"
-                    android:visibility="gone"/>
-
-    <!--        TODO: làm thêm nút tìm kiếm thêm    -->
-            </RelativeLayout>
-            <!--@{word.word}-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp">
                 <TextView
-                    android:id="@+id/word_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="8dp"
-                    android:text="@{word.word}"
-                    android:textColor="@color/primary"
-                    android:textSize="40dp"
-                    android:textStyle="italic|bold" />
+                    android:fontFamily="@font/agbalumo"
+                    android:gravity="center"
+                    android:text="@string/title"
+                    android:textColor="@color/title_color"
+                    android:textSize="36dp"
+                    android:textStyle="bold" />
 
-            </RelativeLayout>
+                <!-- View tạo khoảng cách giữa Button và TextView -->
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
 
+                <Button
+                    android:id="@+id/profile_btn"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/ic_heart" />
+            </LinearLayout>
+
+            <!--@{word.word}-->
             <TextView
-                android:id="@+id/phonetic_textview"
-                android:layout_width="wrap_content"
+                android:id="@+id/word_name"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:textSize="20dp"
-                android:text="@{word.phonetic}"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="8dp"
+                android:text="@{word.word}"
+                android:textColor="@color/title_thame_color"
+                android:fontFamily="@font/abeezee"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_phonetics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
                 android:textColor="@color/grey"/>
 
             <androidx.recyclerview.widget.RecyclerView
@@ -105,13 +95,12 @@
                 android:id="@+id/meaning_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/audio_rv"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="73dp"
             android:layout_marginEnd="7sp"

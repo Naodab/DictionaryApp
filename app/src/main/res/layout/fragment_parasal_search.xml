@@ -1,0 +1,203 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="420dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="0dp"
+        android:background="@drawable/rectangle_1171_shape" />
+
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="105dp"
+        android:fontFamily="@font/agbalumo"
+        android:gravity="center"
+        android:text="@string/d_ch_v_n_b_n_string"
+        android:textColor="@color/luy_n_t_p_color"
+        android:textSize="35sp" />
+
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="320dp"
+        android:contentDescription="vector_ek16"
+        android:src="@drawable/baseline_compare_arrows_24" />
+
+
+    <ImageView
+        android:id="@+id/delete_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="560dp"
+        android:clickable="true"
+        android:contentDescription="vector_ek20"
+        android:src="@drawable/baseline_delete_24" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="560dp"
+        android:gravity="center"
+        android:text="Từ vựng đã tra"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="italic" />
+
+
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="7dp"
+        android:layout_marginTop="15dp"
+        android:contentDescription="vector"
+        android:src="@drawable/vectorback" />
+
+    <TextView
+        android:id="@+id/back_btn"
+        android:layout_width="70dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="26dp"
+        android:gravity="center_vertical"
+        android:text="@string/trang_ch__string"
+        android:clickable="true"
+        android:textColor="@color/_bg__your_word_ek2_color"
+        android:textSize="15sp" />
+
+
+    <ImageView
+        android:id="@+id/mic_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="273dp"
+        android:clickable="true"
+        android:contentDescription="vector_ek25"
+        android:src="@drawable/baseline_mic_none_40" />
+
+
+    <ImageView
+        android:id="@+id/camera_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="281dp"
+        android:layout_marginTop="273dp"
+        android:clickable="true"
+        android:contentDescription="vector_ek30"
+        android:src="@drawable/baseline_camera_50" />
+
+    <ImageView
+        android:id="@+id/paste_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="340dp"
+        android:layout_marginTop="273dp"
+        android:clickable="true"
+        android:contentDescription="vector_ek32"
+        android:src="@drawable/baseline_content_copy_24" />
+
+    <View
+        android:layout_width="390dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="77dp"
+        android:background="@drawable/rectangle_1226_shape" />
+
+    <EditText
+        android:id="@+id/input_parasal"
+        android:layout_width="375dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="77dp"
+        android:gravity="top"
+        android:hint="@string/nh_p_c_m_t___c_u_v_n__ho_c__o_n_v_n____d_ch_string"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        android:minLines="1"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <View
+        android:id="@+id/eng_to_viet"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="325dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1226_ek1_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="325dp"
+        android:gravity="center"
+        android:text="@string/anh___vi_t_string"
+        android:textColor="@color/_bg__parasal_search_ek2_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:id="@+id/viet_to_eng"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="325dp"
+        android:clickable="true"
+        android:background="@drawable/rectangle_1226_ek2_shape" />
+
+    <TextView
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="325dp"
+        android:gravity="center"
+        android:text="@string/vi_t___anh_string"
+        android:textColor="@color/_bg__parasal_search_ek2_color"
+        android:textSize="18sp"
+        android:textStyle="italic" />
+
+    <View
+        android:layout_width="390dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/rectangle_1226_shape" />
+
+    <EditText
+        android:id="@+id/result_tv"
+        android:layout_width="370dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="380dp"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:maxLines="10"
+        android:minLines="1"
+        android:scrollbars="vertical"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="390dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="605dp"
+        android:layout_height="250dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_items"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+    </FrameLayout>
+
+
+</RelativeLayout>
