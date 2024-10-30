@@ -154,9 +154,9 @@ public class MainFragment extends Fragment{
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser != null){
-            loginItem.setTitle("Đăng xuất");
+            loginItem.setTitle("Log in");
         }else{
-            loginItem.setTitle("Đăng nhập");
+            loginItem.setTitle("Log out");
         }
     }
     @Override
@@ -172,11 +172,10 @@ public class MainFragment extends Fragment{
         return view;
     }
     public void setMainItem(){
-        itemList.add("Từ đã tra");
-        itemList.add("Từ của bạn");
-        itemList.add("Dịch văn bản");
-        itemList.add("Thực hành Tiếng Anh");
-//        itemList.add("Cài đặt");
+        itemList.add("Searched word");
+        itemList.add("Favourite word");
+        itemList.add("Text translation");
+        itemList.add("Practice speaking");
         itemsAdapter.notifyDataSetChanged();
     }
 

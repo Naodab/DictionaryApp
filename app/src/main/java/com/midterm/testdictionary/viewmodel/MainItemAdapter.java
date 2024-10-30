@@ -67,8 +67,9 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (tvContent.getText().toString().equals("Thực hành Tiếng Anh")) {
-                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                    if (tvContent.getText().toString().equals("Practice Speaking")) {
+                        Log.d("DEBUG", "practice speaking");
+//                        Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
                     }
                 }
             });

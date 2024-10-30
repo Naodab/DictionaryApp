@@ -105,7 +105,7 @@ public class PracticeFragment extends Fragment {
             performQuestion();
         });
 
-        binding.back.setOnClickListener(v -> Navigation.findNavController(v)
+        binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
                 .navigate(R.id.action_writingPracticeFragment_to_mainFragment));
     }
 
