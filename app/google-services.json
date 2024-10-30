@@ -1,20 +1,20 @@
 {
   "project_info": {
-    "project_number": "1006784957575",
-    "project_id": "authenticationtest-8aeaa",
-    "storage_bucket": "authenticationtest-8aeaa.appspot.com"
+    "project_number": "372996716134",
+    "project_id": "appdictionary-c67bb",
+    "storage_bucket": "appdictionary-c67bb.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1006784957575:android:94b6f7d35bfe354fb07c22",
+        "mobilesdk_app_id": "1:372996716134:android:fa350edbd31a3985df9fa7",
         "android_client_info": {
           "package_name": "com.midterm.testdictionary"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1006784957575-1b9mn8riq4r8pteh0mae3r0a3ddncpn4.apps.googleusercontent.com",
+          "client_id": "372996716134-857esh9g90qbgdtjd63mvj2rtrlj358e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.midterm.testdictionary",
@@ -22,57 +22,20 @@
           }
         },
         {
-          "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+          "client_id": "372996716134-llfg6ghq1fkofi1091jdogg7avjvmqta.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDeah3hIaKncKW3UeTsYnbLs3lwWJ4hXp8"
+          "current_key": "AIzaSyCit9gmDtnoxFjGQfGZ8JWHbeU2vS0uuRU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1006784957575:android:fe6625be46c4f9d1b07c22",
-        "android_client_info": {
-          "package_name": "com.midterm.testdictionary"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1006784957575-neerg81uodbugtdr1pv9eab4hh3nqc5i.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.midterm.testdictionary",
-            "certificate_hash": "df44d6bacd6a2b511e3c0b2c445372b92d7878ba"
-          }
-        },
-        {
-          "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDeah3hIaKncKW3UeTsYnbLs3lwWJ4hXp8"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+              "client_id": "372996716134-llfg6ghq1fkofi1091jdogg7avjvmqta.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
