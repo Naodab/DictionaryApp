@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "372996716134",
+    "firebase_url": "https://appdictionary-c67bb-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "appdictionary-c67bb",
     "storage_bucket": "appdictionary-c67bb.appspot.com"
   },
@@ -19,6 +20,14 @@
           "android_info": {
             "package_name": "com.midterm.testdictionary",
             "certificate_hash": "df44d6bacd6a2b511e3c0b2c445372b92d7878ba"
+          }
+        },
+        {
+          "client_id": "372996716134-gh07mapaf6uoes6dc10tvfmn8i0mrm9m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.midterm.testdictionary",
+            "certificate_hash": "8508d614110ec946b45cc12343d65c308018fea8"
           }
         },
         {
