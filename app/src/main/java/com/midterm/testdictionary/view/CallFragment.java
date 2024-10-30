@@ -40,6 +40,9 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
 
     private void init() {
         callRepository = CallRepository.getInstance();
+        binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
+                .navigate(R.id.action_callFragment_to_mainFragment));
+
         binding.joinRoom.setOnClickListener(v->{
             callRepository.sendCallRequest(() -> {
                 Toast.makeText(getContext(), "couldnt find the target", Toast.LENGTH_SHORT).show();

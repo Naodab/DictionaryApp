@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FavouriteWordItemBinding;
+import com.midterm.testdictionary.model.FavouriteWord;
 import com.midterm.testdictionary.model.Word;
-import com.midterm.testdictionary.model.WordObjectBox;
 
 import java.util.List;
 
@@ -23,10 +23,10 @@ import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class FavouriteWordAdapter extends RecyclerView.Adapter<FavouriteWordAdapter.ViewHolder> {
-    List<WordObjectBox> data;
+    List<FavouriteWord> data;
     WordApiService apiService;
 
-    public FavouriteWordAdapter(List<WordObjectBox> data) {
+    public FavouriteWordAdapter(List<FavouriteWord> data) {
         this.data = data;
         apiService = new WordApiService();
     }
@@ -43,8 +43,13 @@ public class FavouriteWordAdapter extends RecyclerView.Adapter<FavouriteWordAdap
 
     @Override
     public void onBindViewHolder(@NonNull FavouriteWordAdapter.ViewHolder holder, int position) {
-        WordObjectBox word = data.get(position);
+        FavouriteWord word = data.get(position);
         holder.bind(word);
+    }
+
+    public void setData(List<FavouriteWord> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -64,7 +69,7 @@ public class FavouriteWordAdapter extends RecyclerView.Adapter<FavouriteWordAdap
             );
         }
 
-        public void bind(WordObjectBox word) {
+        public void bind(FavouriteWord word) {
             binding.setWord(word);
             binding.executePendingBindings();
         }

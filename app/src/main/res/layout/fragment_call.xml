@@ -18,10 +18,13 @@
             android:background="@drawable/rectangle_1171_shape" />
 
         <ImageView
+            android:id="@+id/back"
             android:layout_width="12dp"
             android:layout_height="20dp"
             android:layout_marginStart="7dp"
             android:layout_marginTop="15dp"
+            android:clickable="true"
+            android:focusable="true"
             android:contentDescription="vector"
             android:src="@drawable/vectorback" />
 

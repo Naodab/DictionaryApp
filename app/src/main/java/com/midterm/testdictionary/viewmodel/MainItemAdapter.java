@@ -75,10 +75,10 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
                         if (getAdapterPosition() == 3) {
                             callAssignment(currentUser.getEmail().split("\\.")[0]);
                         } else if (getAdapterPosition() == 1) {
-
+                            Navigation.findNavController(view)
+                                    .navigate(R.id.action_mainFragment_to_yourWordFragment);
                         }
                     }else if(getAdapterPosition() == 2){
-                        // TODO: text translate
                     }
                 }
             });
@@ -93,7 +93,7 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
                             // sua tu username thanh email
                             callRepository.login(username, fragment.getContext(),
                                     () -> {
-                                        Navigation.findNavController(fragment.getView()).navigate(R.id.action_mainFragment_to_callFragment);
+                                        Navigation.findNavController(this.itemView).navigate(R.id.action_mainFragment_to_callFragment);
                                     }
                             );
                         } else {

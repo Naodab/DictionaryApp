@@ -45,7 +45,4 @@ public class Intro2Fragment extends Fragment {
         binding.skip.setOnClickListener(v -> Navigation.findNavController(getView())
                 .navigate(R.id.action_intro2Fragment_to_mainFragment));
     }
-
-
-
 }

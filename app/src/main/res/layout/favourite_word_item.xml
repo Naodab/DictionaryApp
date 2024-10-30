@@ -3,7 +3,7 @@
     <data>
         <variable
             name="word"
-            type="com.midterm.testdictionary.model.WordObjectBox" />
+            type="com.midterm.testdictionary.model.FavouriteWord" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
