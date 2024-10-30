@@ -101,6 +101,7 @@ public class RelearnFragment extends Fragment {
         });
 
         binding.finishBtn.setOnClickListener(v -> {
+            binding.progressLine.setProgress(NUMBER_WORDS);
             binding.layoutCongratulation.setVisibility(View.VISIBLE);
         });
 

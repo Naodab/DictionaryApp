@@ -1,5 +1,4 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/_bg__practice_ek2_shape" >
@@ -31,16 +30,138 @@
         android:progress="0"
         android:progressTint="@color/rectangle_1197_color" />
 
-    <TextView
-        android:id="@+id/question"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="200dp"
-        android:gravity="center"
-        android:textColor="@color/__ng___8_color"
-        android:textSize="30sp"
-        android:fontFamily="@font/abeezee"
-        android:textStyle="italic|bold" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/question"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:gravity="center"
+            android:textColor="@color/__ng___8_color"
+            android:textSize="25sp"
+            android:fontFamily="@font/abeezee"
+            android:justificationMode="inter_word"
+            android:layout_marginHorizontal="30dp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/next_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="32dp"
+            android:text="next question..."
+            android:fontFamily="@font/abeezee"
+            android:gravity="right"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="@android:color/transparent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="32dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="122dp"
+                android:layout_weight="1"
+                android:layout_marginRight="16dp">
+                <View
+                    android:id="@+id/key_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/rectangle_1217_shape" />
+
+                <TextView
+                    android:id="@+id/tv_01"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/__ng___8_color"
+                    android:fontFamily="@font/abeezee"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="122dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp">
+                <View
+                    android:id="@+id/key_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/rectangle_1217_shape" />
+
+                <TextView
+                    android:id="@+id/tv_02"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/__ng___8_color"
+                    android:fontFamily="@font/abeezee"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="30dp">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="122dp"
+                android:layout_weight="1"
+                android:layout_marginRight="16dp">
+                <View
+                    android:id="@+id/key_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/rectangle_1217_shape" />
+
+                <TextView
+                    android:id="@+id/tv_03"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/__ng___8_color"
+                    android:fontFamily="@font/abeezee"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="122dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="16dp">
+                <View
+                    android:id="@+id/key_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@drawable/rectangle_1217_shape" />
+
+                <TextView
+                    android:id="@+id/tv_04"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/__ng___8_color"
+                    android:fontFamily="@font/abeezee"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="53dp"
@@ -56,99 +177,6 @@
             android:contentDescription="vector_ek6"
             android:src="@drawable/baseline_close_white_24" />
     </RelativeLayout>
-
-
-    <View
-        android:id="@+id/key_01"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="480dp"
-        android:clickable="true"
-        android:background="@drawable/rectangle_1217_shape" />
-
-
-    <TextView
-        android:id="@+id/tv_01"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="480dp"
-        android:gravity="center"
-        android:textColor="@color/__ng___8_color"
-        android:fontFamily="@font/abeezee"
-        android:textSize="20sp" />
-
-    <View
-        android:id="@+id/key_04"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="640dp"
-        android:background="@drawable/rectangle_1224_shape" />
-
-    <TextView
-        android:id="@+id/tv_04"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="640dp"
-        android:gravity="center"
-        android:textColor="@color/__ng___8_color"
-        android:textSize="20sp"
-        android:fontFamily="@font/abeezee"/>
-
-    <View
-        android:id="@+id/key_03"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="640dp"
-        android:background="@drawable/rectangle_1221_shape" />
-
-    <TextView
-        android:id="@+id/tv_03"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="640dp"
-        android:gravity="center"
-        android:textColor="@color/__ng___8_color"
-        android:textSize="20sp"
-        android:fontFamily="@font/abeezee"/>
-
-    <View
-        android:id="@+id/key_02"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="480dp"
-        android:background="@drawable/rectangle_1219_shape" />
-
-    <TextView
-        android:id="@+id/next_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="430dp"
-        android:layout_marginHorizontal="32dp"
-        android:text="next question..."
-        android:fontFamily="@font/abeezee"
-        android:gravity="right"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textColor="@color/__asdasd__color"
-        android:visibility="gone"/>
-
-    <TextView
-        android:id="@+id/tv_02"
-        android:layout_width="160dp"
-        android:layout_height="122dp"
-        android:layout_marginStart="220dp"
-        android:layout_marginTop="480dp"
-        android:gravity="center"
-        android:textColor="@color/__ng___8_color"
-        android:textSize="20sp"
-        android:fontFamily="@font/abeezee"/>
 
     <LinearLayout
         android:id="@+id/layout_congratulation"

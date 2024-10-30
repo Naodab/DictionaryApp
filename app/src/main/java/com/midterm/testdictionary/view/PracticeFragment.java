@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -79,7 +80,7 @@ public class PracticeFragment extends Fragment {
                 if (currentAnswer == finalI) {
                     options[finalI].setBackgroundResource(R.drawable.right_option);
                     binding.progressLine.setProgress(currentIndex);
-                    binding.nextBtn.setVisibility(View.VISIBLE);
+                    binding.nextBtn.setTextColor(Color.parseColor("#45B8E9"));
                 } else {
                     ObjectAnimator animator = ObjectAnimator.ofFloat(options[finalI], "translationX",
                             0f, 10f, -10f, 10f, -10f, 5f, -5f, 0);
@@ -92,7 +93,7 @@ public class PracticeFragment extends Fragment {
 
         binding.closeBtn.setOnClickListener(this::showConfirmDialog);
         binding.nextBtn.setOnClickListener(v -> {
-            binding.nextBtn.setVisibility(View.GONE);
+            binding.nextBtn.setTextColor(Color.TRANSPARENT);
             Arrays.stream(options).forEach(option ->
                     option.setBackgroundResource(R.drawable.rectangle_1219_shape));
             performQuestion();
@@ -106,7 +107,7 @@ public class PracticeFragment extends Fragment {
         });
 
         binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
-                .navigate(R.id.action_writingPracticeFragment_to_mainFragment));
+                .navigate(R.id.action_practiceFragment_to_mainFragment));
     }
 
     private void performQuestion() {
