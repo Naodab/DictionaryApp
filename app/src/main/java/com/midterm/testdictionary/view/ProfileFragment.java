@@ -61,23 +61,7 @@ public class ProfileFragment extends Fragment {
 
         });
 
-        binding.viewFolder.setOnClickListener(v -> {
-
-        });
-
         binding.backBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.backupBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.downloadBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.logoutBtn.setOnClickListener(v -> {
 
         });
 
@@ -90,7 +74,6 @@ public class ProfileFragment extends Fragment {
         binding.loginFromTv.setText("Google");
 
         binding.wordNumber.setText("3");
-        binding.folderNumber.setText("3");
     }
 
     // Cắt ảnh thành hình tròn
