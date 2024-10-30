@@ -1,27 +1,81 @@
 {
   "project_info": {
-    "project_number": "715338815454",
-    "firebase_url": "https://firstwebrtc-28e0c-default-rtdb.firebaseio.com",
-    "project_id": "firstwebrtc-28e0c",
-    "storage_bucket": "firstwebrtc-28e0c.appspot.com"
+    "project_number": "1006784957575",
+    "project_id": "authenticationtest-8aeaa",
+    "storage_bucket": "authenticationtest-8aeaa.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:715338815454:android:55753b028600d0466baf4f",
+        "mobilesdk_app_id": "1:1006784957575:android:94b6f7d35bfe354fb07c22",
         "android_client_info": {
-          "package_name": "com.midterm.testdictionary"
+          "package_name": "com.example.testauthentication"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1006784957575-1b9mn8riq4r8pteh0mae3r0a3ddncpn4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firstwebrtc",
+            "certificate_hash": "df44d6bacd6a2b511e3c0b2c445372b92d7878ba"
+          }
+        },
+        {
+          "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAzQqk1ay5hrOj-TdFXdGTJtOpd70EUkCc"
+          "current_key": "AIzaSyDeah3hIaKncKW3UeTsYnbLs3lwWJ4hXp8"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006784957575:android:fe6625be46c4f9d1b07c22",
+        "android_client_info": {
+          "package_name": "com.midterm.testdictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006784957575-neerg81uodbugtdr1pv9eab4hh3nqc5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.midterm.testdictionary",
+            "certificate_hash": "df44d6bacd6a2b511e3c0b2c445372b92d7878ba"
+          }
+        },
+        {
+          "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDeah3hIaKncKW3UeTsYnbLs3lwWJ4hXp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006784957575-djm3fudvo9rk75urkue5ibhfm5ubs42q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

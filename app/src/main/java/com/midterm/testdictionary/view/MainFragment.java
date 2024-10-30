@@ -27,6 +27,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -69,6 +70,10 @@ public class MainFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        if(mAuth.getCurrentUser() != null){
+            Toast.makeText(getContext(), mAuth.getCurrentUser().getDisplayName() + " " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
+        }
 
         apiService = new WordApiService();
         wordObjectBoxService = new WordObjectBoxService();
