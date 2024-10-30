@@ -65,7 +65,7 @@ public class SearchedWordFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.backBtn.setOnClickListener(v -> {
+        binding.backArrow.setOnClickListener(v -> {
             int backStackCount = getFragmentManager().getBackStackEntryCount();
             Log.d("BackStack", "BackStack count: " + backStackCount);
 

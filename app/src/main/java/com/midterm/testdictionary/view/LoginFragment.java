@@ -153,10 +153,14 @@ public class LoginFragment extends Fragment {
 
     private void firebaseAuth(String idToken){
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
+
+        binding.progressBar.setVisibility(View.VISIBLE);
+
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        binding.progressBar.setVisibility(View.GONE);
                         if(task.isSuccessful()){
                             Toast.makeText(getContext(), "Account logged in", Toast.LENGTH_LONG).show();
                             Navigation.findNavController(getView()).navigate(R.id.action_loginFragment_to_mainFragment);

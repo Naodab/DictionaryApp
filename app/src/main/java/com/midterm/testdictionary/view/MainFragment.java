@@ -162,9 +162,11 @@ public class MainFragment extends Fragment{
         binding.profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mAuth.getCurrentUser() != null){
-                    Toast.makeText(view.getContext(), mAuth.getCurrentUser().getDisplayName() + " " + mAuth.getCurrentUser().getEmail(),
-                            Toast.LENGTH_SHORT).show();
+                if(mAuth.getCurrentUser() == null){
+                    Toast.makeText(view.getContext(), "You must login", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.loginFragment);
+                }else{
+                    Navigation.findNavController(view).navigate(R.id.profileFragment);
                 }
             }
         });
