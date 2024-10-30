@@ -132,11 +132,11 @@ public class MainFragment extends Fragment{
 
                     FirebaseUser currentUser = mAuth.getCurrentUser();
 
-                    if(currentUser != null && loginItem.getTitle().equals("Đăng xuất")){
+                    if(currentUser != null && loginItem.getTitle().equals("Log out")) {
                         mAuth.signOut();
                         Toast.makeText(getContext(), "Log out successfully", Toast.LENGTH_SHORT).show();
-                        loginItem.setTitle("Đăng nhập");
-                    }else if(currentUser == null && loginItem.getTitle().equals("Đăng nhập")){
+                        loginItem.setTitle("Log in");
+                    }else if(currentUser == null && loginItem.getTitle().equals("Log in")){
                         Navigation.findNavController(view).navigate(R.id.loginFragment);
                     }else{
                         Toast.makeText(getContext(), "Log out error", Toast.LENGTH_SHORT).show();
@@ -154,9 +154,9 @@ public class MainFragment extends Fragment{
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser != null){
-            loginItem.setTitle("Log in");
-        }else{
             loginItem.setTitle("Log out");
+        }else{
+            loginItem.setTitle("Log in");
         }
     }
     @Override

@@ -8,19 +8,15 @@
         <item
             android:id="@+id/nav_trans"
             android:icon="@drawable/baseline_translate_40"
-            android:title="Dịch văn bản"/>
-        <item
-            android:id="@+id/nav_lib"
-            android:icon="@drawable/baseline_library_books_40"
-            android:title="Thành ngữ"/>
+            android:title="Text translate"/>
         <item
             android:id="@+id/nav_star"
             android:icon="@drawable/baseline_star_24_black"
-            android:title="Từ của bạn"/>
+            android:title="Favourite word"/>
         <item
             android:id="@+id/nav_time"
             android:icon="@drawable/baseline_access_time_40"
-            android:title="Gần đây"/>
+            android:title="Recent"/>
         <item
             android:id="@+id/nav_setting"
             android:icon="@drawable/baseline_settings_40"
@@ -35,7 +31,7 @@
             <item
                 android:id="@+id/nav_login"
                 android:icon="@drawable/baseline_login_40"
-                android:title="Đăng nhập"/>
+                android:title="Log in"/>
         </menu>
     </item>
 </menu>
