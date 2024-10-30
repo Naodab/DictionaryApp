@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package com.midterm.testdictionary.model;
+
+message UserLogin {
+    string username = 1;
+    bool isLoggedIn = 2;
+}

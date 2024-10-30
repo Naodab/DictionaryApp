@@ -18,6 +18,8 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,12 +27,16 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentMainBinding;
 import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.utils.NetworkUtil;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
@@ -44,7 +50,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-public class MainFragment extends Fragment implements NavigationView.OnNavigationItemSelectedListener{
+public class MainFragment extends Fragment{
     private FragmentMainBinding binding;
     private ArrayList<String> itemList;
     private MainItemAdapter  itemsAdapter;
@@ -53,6 +59,9 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
     private Word searchedWord;
 
     private WordObjectBoxService wordObjectBoxService;
+    private WordObjectBox wordObjectBox;
+
+    private FirebaseAuth mAuth;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,9 +81,10 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
         itemsAdapter = new MainItemAdapter(itemList);
         binding.rvItems.setAdapter(itemsAdapter);
         setMainItem();
+        configWordOfDay();
 
         // Thiết lập NavigationItemSelectedListener cho NavigationView
-        binding.navView.setNavigationItemSelectedListener(this);
+//        binding.navView.setNavigationItemSelectedListener(this);
 
         // Sự kiện nhấn nút Settings để mở/đóng Navigation Drawer
         binding.listItem.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +127,59 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
             }
         });
 
-        binding.listItem.setOnClickListener(v ->{
+        binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.nav_login){
+                    Menu menu = binding.navView.getMenu();
+                    MenuItem loginItem = menu.findItem(R.id.nav_login);
 
+                    FirebaseUser currentUser = mAuth.getCurrentUser();
+
+                    if(currentUser != null && loginItem.getTitle().equals("Log out")) {
+                        mAuth.signOut();
+                        Toast.makeText(getContext(), "Log out successfully", Toast.LENGTH_SHORT).show();
+                        loginItem.setTitle("Log in");
+                    }else if(currentUser == null && loginItem.getTitle().equals("Log in")){
+                        Navigation.findNavController(view).navigate(R.id.loginFragment);
+                    }else{
+                        Toast.makeText(getContext(), "Log out error", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+
+                return true;
+            }
         });
+
+        binding.wodLayout.setOnClickListener(v ->{
+            if (NetworkUtil.isNetworkAvailable(v.getContext()))
+                performSearch(wordObjectBox.getWord());
+            else
+                Toast.makeText(v.getContext(), "Please, connect to network.",
+                        Toast.LENGTH_SHORT).show();
+        });
+
+        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mAuth.getCurrentUser() != null){
+                    Toast.makeText(view.getContext(), mAuth.getCurrentUser().getDisplayName() + " " + mAuth.getCurrentUser().getEmail(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Menu menu = binding.navView.getMenu();
+        MenuItem loginItem = menu.findItem(R.id.nav_login);
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser != null){
+            loginItem.setTitle("Log out");
+        }else{
+            loginItem.setTitle("Log in");
+        }
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -128,15 +188,15 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
 //        return inflater.inflate(R.layout.fragment_main, container, false);
         binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
+        mAuth = FirebaseAuth.getInstance();
 
         return view;
     }
     public void setMainItem(){
-        itemList.add("Từ đã tra");
-        itemList.add("Từ của bạn");
-        itemList.add("Dịch văn bản");
-        itemList.add("Thực hành Tiếng Anh");
-//        itemList.add("Cài đặt");
+        itemList.add("Searched word");
+        itemList.add("Favourite word");
+        itemList.add("Text translation");
+        itemList.add("Practice speaking");
         itemsAdapter.notifyDataSetChanged();
     }
 
@@ -196,8 +256,17 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
             });
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    private void configWordOfDay() {
+        List<WordObjectBox> words = wordObjectBoxService.getWordBox();
+        int randomIndex = (int)(Math.random() * words.size());
+        wordObjectBox = words.get(randomIndex);
+        binding.wodWord.setText(wordObjectBox.getWord());
+        binding.wodDefinition.setText(wordObjectBox.getDefinition());
+        binding.wodPhonetic.setText(wordObjectBox.getPhonetic());
+    }
+
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 //        switch (item.getItemId()) {
 //            case R.id.nav_menu:
 //                Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show();
@@ -210,16 +279,6 @@ public class MainFragment extends Fragment implements NavigationView.OnNavigatio
 //        // Đóng drawer sau khi chọn mục
 //        drawerLayout.closeDrawer(GravityCompat.START);
 //        return true;
-        return false;
-    }
-
-//     Tạo và thêm SettingFragment đè lên MainFragment
-//    private void showSettingFragment() {
-//        SettingFragment settingFragment = new SettingFragment();
-//        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-//
-//        transaction.replace(R.id.mainFragment, settingFragment);
-//        transaction.addToBackStack(null);
-//        transaction.commit();
+//        return false;
 //    }
 }

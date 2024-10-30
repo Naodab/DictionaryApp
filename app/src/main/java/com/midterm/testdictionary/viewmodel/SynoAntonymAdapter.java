@@ -1,7 +1,6 @@
 package com.midterm.testdictionary.viewmodel;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,10 +23,12 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SynoAntonymAdapter extends RecyclerView.Adapter<SynoAntonymAdapter.ViewHolder> {
     private final List<String> words;
+    private boolean canPressable;
     private WordApiService apiService;
 
-    public SynoAntonymAdapter(List<String> words) {
+    public SynoAntonymAdapter(List<String> words, boolean canPressable) {
         this.words = words;
+        this.canPressable = canPressable;
         apiService = new WordApiService();
     }
 
@@ -59,14 +60,15 @@ public class SynoAntonymAdapter extends RecyclerView.Adapter<SynoAntonymAdapter.
             super(binding.getRoot());
             this.binding = binding;
 
-            // TODO: add event bundle to another detail word
-            binding.synonymAntonymLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String word = words.get(getAdapterPosition());
-                    performSearch(word, view);
-                }
-            });
+            if (canPressable) {
+                binding.synonymAntonymLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        String word = words.get(getAdapterPosition());
+                        performSearch(word, view);
+                    }
+                });
+            }
         }
 
         public void bind(String word) {
@@ -74,33 +76,31 @@ public class SynoAntonymAdapter extends RecyclerView.Adapter<SynoAntonymAdapter.
             binding.executePendingBindings();
         }
 
-        public Word performSearch(String word, View view) {
-            final Word[] result = {null};
+        public void performSearch(String word, View view) {
             DisposableSingleObserver<List<Word>> disposableSingleObserver = apiService.getWordDefinition(word)
-                    .subscribeOn(Schedulers.newThread())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribeWith(new DisposableSingleObserver<List<Word>>() {
-                        @Override
-                        public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
-                            Word searchedWord = words.get(0);
-                            Log.d("DEBUG", "Success " + searchedWord.getWord());
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeWith(new DisposableSingleObserver<List<Word>>() {
+                    @Override
+                    public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
+                        Word searchedWord = words.get(0);
 
-                            if (searchedWord != null) {
-                                Bundle bundle = new Bundle();
-                                bundle.putSerializable("word", searchedWord);
-                                if (view != null) {
-                                    Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
-                                }
+                        if (searchedWord != null) {
+                            Bundle bundle = new Bundle();
+                            bundle.putSerializable("word", searchedWord);
+                            if (view != null) {
+                                Navigation.findNavController(view).navigate(R.id.detailFragment, bundle);
                             }
                         }
+                    }
 
-                        @Override
-                        public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
-                            Log.d("DEBUG", "Fail" + e.getMessage());
-                            Toast.makeText(view.getContext(), "Sorry, we've not updated this word yet.", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-            return result[0];
+                    @Override
+                    public void onError(@io.reactivex.rxjava3.annotations.NonNull Throwable e) {
+                        Toast.makeText(view.getContext(), "Sorry, we've not updated this word yet.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                }
+            );
         }
     }
 }

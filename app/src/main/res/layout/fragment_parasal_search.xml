@@ -7,19 +7,17 @@
         android:layout_width="420dp"
         android:layout_height="53dp"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="31dp"
         android:background="@drawable/rectangle_1171_shape" />
 
     <TextView
         android:layout_width="220dp"
         android:layout_height="55dp"
         android:layout_marginLeft="105dp"
-        android:layout_marginTop="28dp"
         android:fontFamily="@font/agbalumo"
         android:gravity="center"
         android:text="@string/d_ch_v_n_b_n_string"
         android:textColor="@color/luy_n_t_p_color"
-        android:textSize="36sp" />
+        android:textSize="35sp" />
 
     <ImageView
         android:layout_width="70dp"
@@ -56,7 +54,7 @@
         android:layout_width="12dp"
         android:layout_height="20dp"
         android:layout_marginStart="7dp"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="15dp"
         android:contentDescription="vector"
         android:src="@drawable/vectorback" />
 
@@ -65,7 +63,6 @@
         android:layout_width="70dp"
         android:layout_height="53dp"
         android:layout_marginLeft="26dp"
-        android:layout_marginTop="31dp"
         android:gravity="center_vertical"
         android:text="@string/trang_ch__string"
         android:clickable="true"
@@ -108,15 +105,15 @@
         android:layout_width="390dp"
         android:layout_height="170dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="77dp"
         android:background="@drawable/rectangle_1226_shape" />
 
     <EditText
         android:id="@+id/input_parasal"
-        android:layout_width="370dp"
+        android:layout_width="375dp"
         android:layout_height="170dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="77dp"
         android:gravity="top"
         android:hint="@string/nh_p_c_m_t___c_u_v_n__ho_c__o_n_v_n____d_ch_string"
         android:inputType="textMultiLine"

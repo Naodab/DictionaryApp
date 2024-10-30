@@ -1,6 +1,7 @@
 package com.midterm.testdictionary.view;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import com.midterm.testdictionary.databinding.FragmentSearchedWordBinding;
 import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.utils.NetworkUtil;
 import com.midterm.testdictionary.viewmodel.SearchedWordAdapter;
 import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
 
@@ -40,8 +42,7 @@ public class SearchedWordFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
+        if (getArguments() != null) {}
     }
 
     @Override
@@ -79,11 +80,26 @@ public class SearchedWordFragment extends Fragment {
         });
 
         binding.relearn.setOnClickListener(v -> {
-
+            if (NetworkUtil.isNetworkAvailable(v.getContext())) {
+                int size = wordObjectBoxesList.size();
+                if (RelearnFragment.NUMBER_WORDS > size)
+                    RelearnFragment.NUMBER_WORDS = size;
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_searchedWordFragment_to_relearnFragment);
+            } else {
+                Toast.makeText(getContext(), "You've not connected to network yet.",
+                        Toast.LENGTH_SHORT).show();
+            }
         });
 
         binding.practice.setOnClickListener(v -> {
-
+            int leastWords = PracticeFragment.NUMBER_QUESTIONS;
+            if (wordObjectBoxesList.size() >= leastWords)
+                Navigation.findNavController(v)
+                        .navigate(R.id.action_searchedWordFragment_to_practiceFragment);
+            else
+                Toast.makeText(getContext(), "You must search at least "
+                        + leastWords + " words.", Toast.LENGTH_SHORT).show();
         });
 
         binding.writingPractice.setOnClickListener(v -> {
@@ -94,10 +110,6 @@ public class SearchedWordFragment extends Fragment {
             else
                 Toast.makeText(getContext(), "You must search at least "
                         + leastWords + " words.", Toast.LENGTH_SHORT).show();
-        });
-
-        binding.practice.setOnClickListener(v -> {
-
         });
     }
 }
