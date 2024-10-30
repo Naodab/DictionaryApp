@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.bumptech.glide.Glide;
 import com.midterm.testdictionary.R;
@@ -35,9 +36,8 @@ public class Intro1Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.next.setOnClickListener(v -> {
-
-        });
+        binding.next.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(R.id.action_intro1Fragment_to_intro2Fragment));
 
         binding.skip.setOnClickListener(v -> {
 

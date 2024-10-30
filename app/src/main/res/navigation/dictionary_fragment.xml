@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
-    app:startDestination="@id/intro1Fragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -161,6 +161,9 @@
         <action
             android:id="@+id/action_intro1Fragment_to_intro2Fragment"
             app:destination="@id/intro2Fragment"/>
+        <action
+            android:id="@+id/action_intro1Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -171,6 +174,9 @@
         <action
             android:id="@+id/action_intro2Fragment_to_intro3Fragment"
             app:destination="@id/intro3Fragment" />
+        <action
+            android:id="@+id/action_intro2Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
@@ -178,6 +184,9 @@
         android:name="com.midterm.testdictionary.view.Intro3Fragment"
         android:label="fragment_intro3"
         tools:layout="@layout/fragment_intro3" >
+        <action
+            android:id="@+id/action_intro3Fragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
     <fragment
