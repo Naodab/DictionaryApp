@@ -70,9 +70,9 @@
         android:src="@drawable/vector_4" />
 
     <TextView
-        android:layout_width="326dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="18dp"
+        android:layout_marginHorizontal="18dp"
         android:layout_marginTop="18dp"
         android:fontFamily="@font/agbalumo"
         android:text="@string/welcome_redflat__string"
@@ -81,9 +81,9 @@
 
     <View
         android:id="@+id/rectangle_1204"
-        android:layout_width="375dp"
+        android:layout_width="match_parent"
         android:layout_height="85dp"
-        android:layout_marginStart="18dp"
+        android:layout_marginHorizontal="18dp"
         android:layout_marginTop="116dp"
         android:background="@drawable/rectangle_1204_shape" />
 
@@ -112,7 +112,8 @@
         android:layout_marginTop="141dp"
         android:gravity="center"
         android:text="@string/login_ek3_string"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
         android:textSize="17sp" />
 
     <TextView
@@ -124,30 +125,32 @@
         android:layout_marginTop="141dp"
         android:gravity="center"
         android:text="@string/sign_up_string"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/abeezee"
         android:textSize="17sp" />
 
     <View
         android:id="@+id/rectangle_1207"
-        android:layout_width="348dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="258dp"
         android:background="@drawable/rectangle_1207_shape" />
 
     <View
         android:id="@+id/rectangle_1208"
-        android:layout_width="348dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginHorizontal="30dp"
         android:layout_marginTop="369dp"
         android:background="@drawable/rectangle_1208_shape" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="324dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="377dp"
         android:hint="@string/enter_your_password_string"
         android:textColor="@color/black"
@@ -156,9 +159,9 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="324dp"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginTop="266dp"
         android:hint="@string/enter_your_email_string"
         android:textColor="@color/black"
@@ -166,12 +169,13 @@
 
     <ImageView
         android:id="@+id/google"
-        android:layout_width="75.35dp"
+        android:layout_width="65dp"
         android:layout_height="71dp"
         android:layout_marginStart="19dp"
         android:layout_marginTop="537dp"
         android:contentDescription="google_1"
         android:clickable="true"
+        android:focusable="true"
         android:src="@drawable/google_2" />
 
     <View
@@ -190,9 +194,9 @@
         android:layout_marginTop="721dp"
         android:gravity="center"
         android:text="@string/login_ek4_string"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="italic|bold" />
 
     <ImageView
         android:id="@+id/facebook"

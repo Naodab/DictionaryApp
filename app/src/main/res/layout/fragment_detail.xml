@@ -60,12 +60,21 @@
                     android:layout_weight="1" />
 
                 <Button
-                    android:id="@+id/profile_btn"
+                    android:id="@+id/heart_btn"
                     android:layout_width="37dp"
                     android:layout_height="37dp"
                     android:layout_marginEnd="15dp"
                     android:gravity="center_vertical"
                     android:background="@drawable/ic_heart" />
+
+                <Button
+                    android:id="@+id/heart_clicked_btn"
+                    android:layout_width="37dp"
+                    android:layout_height="37dp"
+                    android:layout_marginEnd="15dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/ic_clicked_heart"
+                    android:visibility="gone"/>
             </LinearLayout>
 
             <!--@{word.word}-->

@@ -13,12 +13,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.flexbox.AlignItems;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentDetailBinding;
 import com.midterm.testdictionary.model.Meaning;
@@ -39,6 +42,7 @@ public class DetailFragment extends Fragment {
     private ArrayList<Phonetic>  phoneticList;
     private AudioAdapter audioAdapter;
     private PhoneticAdapter phoneticAdapter;
+    private FirebaseUser currentUser;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,7 @@ public class DetailFragment extends Fragment {
         }
         audioAdapter = new AudioAdapter(phoneticList);
         binding.audioRv.setAdapter(audioAdapter);
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         phoneticAdapter = new PhoneticAdapter(phoneticList);
         binding.rvPhonetics.setAdapter(phoneticAdapter);
@@ -84,9 +89,28 @@ public class DetailFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        binding.heartBtn.setOnClickListener(v -> {
+            if (currentUser == null) {
+                Toast.makeText(getContext(), "You must log in to use this feature",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                //TODO: save to firestore database
+                binding.heartBtn.setVisibility(View.GONE);
+                binding.heartClickedBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
+        binding.heartClickedBtn.setOnClickListener(v -> {
+            if (currentUser == null) {
+                binding.heartClickedBtn.setVisibility(View.GONE);
+                binding.heartBtn.setVisibility(View.VISIBLE);
+            }
+        });
+
         binding.backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // TODO: check if heart is clicked and existence of this word in firestore
                 int backStackCount = getFragmentManager().getBackStackEntryCount();
                 Log.d("BackStack", "BackStack count: " + backStackCount);
 

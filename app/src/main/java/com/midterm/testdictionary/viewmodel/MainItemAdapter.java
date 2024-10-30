@@ -78,7 +78,9 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
                         }
                         if (getAdapterPosition() == 3) {
                             // TODO: login to call repository
-                            Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                            // Navigation.findNavController(view).navigate(R.id.action_mainFragment_to_callFragment);
+                        } else if (getAdapterPosition() == 1) {
+
                         }
                     }else if(getAdapterPosition() == 2){
                         // TODO: text translate
