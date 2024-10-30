@@ -180,4 +180,8 @@ quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string
 
     <string name="client_id">715338815454-89eja5lf6sgsoep2cjojh6oiio0slm37.apps.googleusercontent.com</string>
 
+    <string name="facebook_app_id">840328494843090</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
+
 </resources>
