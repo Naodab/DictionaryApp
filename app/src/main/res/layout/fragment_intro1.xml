@@ -82,7 +82,6 @@
             android:clickable="true"
             android:background="@drawable/rectangle_1204_shape" />
 
-
         <View
             android:id="@+id/next"
             android:layout_width="0dp"

@@ -35,13 +35,11 @@ public class Intro1Fragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         binding.next.setOnClickListener(v -> Navigation.findNavController(v)
                 .navigate(R.id.action_intro1Fragment_to_intro2Fragment));
 
-        binding.skip.setOnClickListener(v -> {
-
-        });
+        binding.skip.setOnClickListener(v -> Navigation.findNavController(v)
+                .navigate(R.id.action_intro1Fragment_to_mainFragment));
     }
 
 

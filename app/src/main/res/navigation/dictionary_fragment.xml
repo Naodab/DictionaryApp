@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_fragment"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/intro1Fragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -160,10 +160,18 @@
         tools:layout="@layout/fragment_intro1" >
         <action
             android:id="@+id/action_intro1Fragment_to_intro2Fragment"
-            app:destination="@id/intro2Fragment"/>
+            app:destination="@id/intro2Fragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_intro1Fragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <fragment
@@ -173,10 +181,25 @@
         tools:layout="@layout/fragment_intro2" >
         <action
             android:id="@+id/action_intro2Fragment_to_intro3Fragment"
-            app:destination="@id/intro3Fragment" />
+            app:destination="@id/intro3Fragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
         <action
             android:id="@+id/action_intro2Fragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_intro2Fragment_to_intro1Fragment"
+            app:destination="@id/intro1Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment
@@ -186,7 +209,18 @@
         tools:layout="@layout/fragment_intro3" >
         <action
             android:id="@+id/action_intro3Fragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_intro3Fragment_to_intro2Fragment"
+            app:destination="@id/intro2Fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -208,11 +242,4 @@
         android:label="fragment_parasal_search"
         tools:layout="@layout/fragment_parasal_search" >
     </fragment>
-
-
-
-
-
-
-
 </navigation>
