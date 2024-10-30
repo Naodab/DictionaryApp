@@ -179,10 +179,6 @@ public class LoginFragment extends Fragment {
                         callRepository.login(binding.email.getText().toString(), this.getContext(),
                             () -> {
                                 Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_mainFragment);
-                            },
-                            (errorMessage) -> {
-                                Log.e("Login Error", errorMessage);
-                                Toast.makeText(getContext(), "Đăng nhập thất bại: " + errorMessage, Toast.LENGTH_SHORT).show();
                             }
                         );
                     } else {
