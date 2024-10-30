@@ -73,10 +73,6 @@ public class MainFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        if(mAuth.getCurrentUser() != null){
-            Toast.makeText(getContext(), mAuth.getCurrentUser().getDisplayName() + " " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_LONG).show();
-        }
-
         apiService = new WordApiService();
         wordObjectBoxService = new WordObjectBoxService();
 
@@ -162,6 +158,16 @@ public class MainFragment extends Fragment{
             else
                 Toast.makeText(v.getContext(), "Please, connect to network.",
                         Toast.LENGTH_SHORT).show();
+        });
+
+        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mAuth.getCurrentUser() != null){
+                    Toast.makeText(view.getContext(), mAuth.getCurrentUser().getDisplayName() + " " + mAuth.getCurrentUser().getEmail(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
         });
 
         Menu menu = binding.navView.getMenu();

@@ -1,10 +1,14 @@
 package com.midterm.testdictionary.view;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
@@ -42,7 +46,6 @@ public class LoginFragment extends Fragment {
 
     private FirebaseAuth mAuth;
 
-    private static final int RC_SIGN_IN = 9001;
     private GoogleSignInClient googleSignInClient;
 
     @Override
@@ -65,13 +68,6 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
         binding.btnChooseRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,48 +128,27 @@ public class LoginFragment extends Fragment {
 //        init();
     }
 
-//    private void signIn(){
-//        Intent signInIntent = googleSignInClient.getSignInIntent();
-////        startActivityForResult(signInIntent, RC_SIGN_IN);
-//        signInLauncher.launch(signInIntent);
-//    }
-//
-//    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-//            new ActivityResultContracts.StartActivityForResult(),
-//            result -> {
-//                if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null) {
-//                    Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
-//                    try {
-//                        GoogleSignInAccount account = task.getResult(ApiException.class);
-//                        firebaseAuth(account.getIdToken());
-//                    } catch (ApiException e) {
-//                        Toast.makeText(requireContext(), "API Exception: " + e, Toast.LENGTH_SHORT).show();
-//                        Log.d("DEBUG", e.toString());
-//                    }
-//                }
-//            }
-//    );
-
     private void signIn(){
         Intent signInIntent = googleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, RC_SIGN_IN);
+//        startActivityForResult(signInIntent, RC_SIGN_IN);
+        activityResultLauncher.launch(signInIntent);
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == RC_SIGN_IN){
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            try{
-                GoogleSignInAccount account = task.getResult(ApiException.class);
-                firebaseAuth(account.getIdToken());
-            }catch(ApiException ex){
-                Toast.makeText(getContext(), "api exception: " + ex, Toast.LENGTH_SHORT).show();
-                Log.d("DEBUG", ex.toString());
-                Log.e("GoogleSignInError", "signInResult:failed code=" + ex.getStatusCode());
+    private final ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if(result.getResultCode() == RESULT_OK){
+                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                try {
+                    GoogleSignInAccount account = task.getResult(ApiException.class);
+                    firebaseAuth(account.getIdToken());
+                } catch (ApiException e) {
+                    Toast.makeText(requireContext(), "API Exception: " + e, Toast.LENGTH_SHORT).show();
+                    e.printStackTrace();
+                }
             }
         }
-    }
+    });
 
     private void firebaseAuth(String idToken){
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
@@ -224,6 +199,13 @@ public class LoginFragment extends Fragment {
         binding = FragmentLoginBinding.inflate(inflater, container, false);
 
         mAuth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
         return binding.getRoot();
     }
