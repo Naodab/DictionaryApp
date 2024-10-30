@@ -131,6 +131,7 @@ public class LoginFragment extends Fragment {
     private void signIn(){
         Intent signInIntent = googleSignInClient.getSignInIntent();
 //        startActivityForResult(signInIntent, RC_SIGN_IN);
+        signInIntent.putExtra("prompt", "select_account");
         activityResultLauncher.launch(signInIntent);
     }
 

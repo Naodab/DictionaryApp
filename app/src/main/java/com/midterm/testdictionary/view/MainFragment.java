@@ -27,7 +27,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -62,6 +64,8 @@ public class MainFragment extends Fragment{
     private WordObjectBox wordObjectBox;
 
     private FirebaseAuth mAuth;
+
+    private GoogleSignInClient googleSignInClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -138,6 +142,9 @@ public class MainFragment extends Fragment{
 
                     if(currentUser != null && loginItem.getTitle().equals("Log out")) {
                         mAuth.signOut();
+
+                        googleSignInClient.signOut();
+
                         Toast.makeText(getContext(), "Log out successfully", Toast.LENGTH_SHORT).show();
                         loginItem.setTitle("Log in");
                     }else if(currentUser == null && loginItem.getTitle().equals("Log in")){
@@ -181,6 +188,13 @@ public class MainFragment extends Fragment{
         binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
         mAuth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
         return view;
     }
