@@ -33,11 +33,11 @@ public class FavouriteWordService {
 
     private FavouriteWordService() {
         mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser().getEmail().split("\\.")[0];
         db = FirebaseFirestore.getInstance();
     }
 
     public void getAll(FetchWordsCallback callback) {
+        currentUser = mAuth.getCurrentUser().getEmail().split("\\.")[0];
         db.collection(USER_FIELD).document(currentUser).collection(FAVOURITE_WORDS_FIELD)
             .get()
             .addOnCompleteListener(task -> {
@@ -55,6 +55,7 @@ public class FavouriteWordService {
     }
 
     public void insertFavouriteWord(FavouriteWord word, FetchWordsCallback callback) {
+        currentUser = mAuth.getCurrentUser().getEmail().split("\\.")[0];
         CollectionReference favouriteRef = db.collection(USER_FIELD)
                 .document(currentUser)
                 .collection(FAVOURITE_WORDS_FIELD);
@@ -67,6 +68,7 @@ public class FavouriteWordService {
 
     public void deleteFavouriteWord(String word, SuccessCallBack callback,
                                     ErrorCallBack errorCallBack) {
+        currentUser = mAuth.getCurrentUser().getEmail().split("\\.")[0];
         db.collection(USER_FIELD).document(currentUser).collection(FAVOURITE_WORDS_FIELD).document(word)
                 .delete()
                 .addOnCompleteListener(aVoid -> callback.onSuccess())
@@ -74,6 +76,7 @@ public class FavouriteWordService {
     }
 
     public void checkIfWordExists(String word, CheckWordCallBack callBack) {
+        currentUser = mAuth.getCurrentUser().getEmail().split("\\.")[0];
         db.collection(USER_FIELD).document(currentUser).collection(FAVOURITE_WORDS_FIELD)
             .document(word)
             .get()
