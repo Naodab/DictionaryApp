@@ -1,37 +1,34 @@
 package com.midterm.testdictionary.view;
 
-import android.Manifest;
-import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.EditorInfo;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.viewbinding.ViewBinding;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentProfileBinding;
-import com.midterm.testdictionary.model.ObjectBox;
-import com.midterm.testdictionary.model.WordObjectBox;
-import com.midterm.testdictionary.viewmodel.MainItemAdapter;
-import com.midterm.testdictionary.viewmodel.WordApiService;
-
-import java.util.ArrayList;
+import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
 
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
+
+    private FirebaseAuth mAuth;
+
+    private WordObjectBoxService wordObjectBoxService;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,6 +41,11 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentProfileBinding.inflate(inflater, container, false);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        wordObjectBoxService = new WordObjectBoxService();
+
         return binding.getRoot();
     }
 
@@ -51,56 +53,51 @@ public class ProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        loadAvatarImage();
-
-        binding.avatarImage.setOnClickListener(v -> {
-
-        });
+//        loadAvatarImage();
 
         binding.viewNumberWord.setOnClickListener(v -> {
-
-        });
-
-        binding.viewFolder.setOnClickListener(v -> {
-
+            Navigation.findNavController(view).navigate(R.id.searchedWordFragment);
         });
 
         binding.backBtn.setOnClickListener(v -> {
+            // TODO: check if heart is clicked and existence of this word in firestore
+            int backStackCount = getFragmentManager().getBackStackEntryCount();
+            Log.d("BackStack", "BackStack count: " + backStackCount);
 
-        });
-
-        binding.backupBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.downloadBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.logoutBtn.setOnClickListener(v -> {
-
+            NavHostFragment.findNavController(getParentFragment()).popBackStack();
         });
 
         updateUserInfo();
     }
 
     private void updateUserInfo() {
-        binding.nameTv.setText("Nguyễn Văn A");
-        binding.emailTv.setText("nguyenvana@gmail.com");
-        binding.loginFromTv.setText("Google");
+        String name = (mAuth.getCurrentUser().getDisplayName() != null && !mAuth.getCurrentUser().getDisplayName().equals("")) ? mAuth.getCurrentUser().getDisplayName() : "Anonymous";
 
-        binding.wordNumber.setText("3");
-        binding.folderNumber.setText("3");
+        binding.nameTv.setText(name);
+        binding.emailTv.setText(mAuth.getCurrentUser().getEmail());
+
+        FirebaseUser user = mAuth.getCurrentUser();
+
+        if (user != null) {
+            for (UserInfo info : user.getProviderData()) {
+                if (info.getProviderId().equals("google.com")) {
+                    binding.loginFromTv.setText("Google");
+                } else if (info.getProviderId().equals("password")) {
+                    binding.loginFromTv.setText("Username/password");
+                }
+            }
+        }
+
+        binding.wordNumber.setText(String.valueOf(wordObjectBoxService.getSize()));
     }
 
     // Cắt ảnh thành hình tròn
-    private void loadAvatarImage() {
-
-        Glide.with(this)
-                .load(R.drawable.avatar_profile)
-                .circleCrop()
-                .into(binding.avatarImage);
-    }
-
+//    private void loadAvatarImage() {
+//
+//        Glide.with(this)
+//                .load(R.drawable.icon_profile)
+//                .circleCrop()
+//                .into(binding.avatarImage);
+//    }
 }
 

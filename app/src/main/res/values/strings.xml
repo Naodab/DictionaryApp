@@ -66,8 +66,8 @@
     <!--  home strings  -->
 
     <string name="redflat_string">RedFlat</string>
-    <string name="tra_t___i_n_anh_vi_t_anh_string">Tra từ điển Anh Anh</string>
-    <string name="t__v_ng_trong_ng_y_string">Từ vựng trong ngày</string>
+    <string name="tra_t___i_n_anh_vi_t_anh_string">Search</string>
+    <string name="t__v_ng_trong_ng_y_string">Random vocabulary</string>
     <string name="endurance_string">Endurance</string>
     <string name="en_dur_ance_string">en-dur-ance </string>
     <string name="__asdasd__string">[asdasd]</string>
@@ -75,8 +75,8 @@
     <string name="m_t_tr_ng_th_i_s_ng_s_t__s_c_s_ng_string">một trạng thái sống sót; sức sống</string>
     <string name="v__d__string">Ví dụ</string>
     <string name="cu_c__ua_marathon_th__th_ch_s_c_b_n_c_a_v_n___ng_vi_n_string">Cuộc đua marathon thử thách sức bền của vận động viên</string>
-    <string name="chi_ti_t_string">Chi tiết</string>
-    <string name="t__c_a_b_n_string">Từ của bạn</string>
+    <string name="chi_ti_t_string">detail...</string>
+    <string name="t__c_a_b_n_string">Favourite word</string>
     <string name="th_c_h_nh_ti_ng_anh_string">Thực hành tiếng anh</string>
     <string name="d_ch_v_n_b_n_string">Dịch văn bản</string>
     <string name="t_____tra_string">Từ đã tra</string>
@@ -166,9 +166,9 @@ quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string
     <!--  callvideo strings  -->
 
     <string name="th_c_h_nh_string">Practice</string>
-    <string name="nh_p_t_n_c_a_b_n_string">Tạo cuộc hẹn</string>
-    <string name="tham_gia_cu_c_h_n_string">Tham gia cuộc hẹn</string>
-    <string name="nh_p_t_n_c_a_b_n_ek1_string">Nhập tên của bạn</string>
+    <string name="tham_gia_cu_c_h_n_string">Start</string>
+    <string name="idiom_practice_1">the more you practice</string>
+    <string name="idiom_practice_2">the better you get</string>
 
 
     <!--  callvideo1 strings  -->
@@ -177,5 +177,11 @@ quãng đường dài hoặc đòi hỏi sức bền thể chất lớn.</string
     <string name="nh_p_t_n_ng__i_li_n_h__string">Nhập tên người liên hệ</string>
     <string name="g_i_string">Gọi</string>
     <string name="nh_p_t_n_ng__i_c_n_li_n_h__string">Nhập tên người liên hệ</string>
+
+    <string name="client_id">715338815454-89eja5lf6sgsoep2cjojh6oiio0slm37.apps.googleusercontent.com</string>
+
+    <string name="facebook_app_id">840328494843090</string>
+    <string name="fb_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">56789</string>
 
 </resources>

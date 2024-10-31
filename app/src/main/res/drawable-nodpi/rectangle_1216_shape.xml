@@ -2,6 +2,7 @@
 <!-- rectangle_1216 from your XD file. -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
 	android:shape="rectangle" >
+	<corners android:radius="16dp" />
 	<solid android:color="@color/rectangle_1171_color" />
 </shape>
 

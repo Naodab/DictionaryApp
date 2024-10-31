@@ -27,6 +27,9 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +38,7 @@ import com.midterm.testdictionary.databinding.FragmentMainBinding;
 import com.midterm.testdictionary.model.ObjectBox;
 import com.midterm.testdictionary.model.Word;
 import com.midterm.testdictionary.model.WordObjectBox;
+import com.midterm.testdictionary.utils.NetworkUtil;
 import com.midterm.testdictionary.viewmodel.MainItemAdapter;
 import com.midterm.testdictionary.viewmodel.WordApiService;
 import com.midterm.testdictionary.viewmodel.WordObjectBoxService;
@@ -57,8 +61,11 @@ public class MainFragment extends Fragment{
     private Word searchedWord;
 
     private WordObjectBoxService wordObjectBoxService;
+    private WordObjectBox wordObjectBox;
 
     private FirebaseAuth mAuth;
+
+    private GoogleSignInClient googleSignInClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -75,9 +82,10 @@ public class MainFragment extends Fragment{
 
         binding.rvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
         itemList = new ArrayList<>();
-        itemsAdapter = new MainItemAdapter(itemList);
+        itemsAdapter = new MainItemAdapter(itemList, this);
         binding.rvItems.setAdapter(itemsAdapter);
         setMainItem();
+        configWordOfDay();
 
         // Thiết lập NavigationItemSelectedListener cho NavigationView
 //        binding.navView.setNavigationItemSelectedListener(this);
@@ -132,11 +140,14 @@ public class MainFragment extends Fragment{
 
                     FirebaseUser currentUser = mAuth.getCurrentUser();
 
-                    if(currentUser != null && loginItem.getTitle().equals("Đăng xuất")){
+                    if(currentUser != null && loginItem.getTitle().equals("Log out")) {
                         mAuth.signOut();
+
+                        googleSignInClient.signOut();
+
                         Toast.makeText(getContext(), "Log out successfully", Toast.LENGTH_SHORT).show();
-                        loginItem.setTitle("Đăng nhập");
-                    }else if(currentUser == null && loginItem.getTitle().equals("Đăng nhập")){
+                        loginItem.setTitle("Log in");
+                    }else if(currentUser == null && loginItem.getTitle().equals("Log in")){
                         Navigation.findNavController(view).navigate(R.id.loginFragment);
                     }else{
                         Toast.makeText(getContext(), "Log out error", Toast.LENGTH_SHORT).show();
@@ -148,15 +159,27 @@ public class MainFragment extends Fragment{
             }
         });
 
+        binding.profileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mAuth.getCurrentUser() == null){
+                    Toast.makeText(view.getContext(), "You must login", Toast.LENGTH_SHORT).show();
+                    Navigation.findNavController(view).navigate(R.id.loginFragment);
+                }else{
+                    Navigation.findNavController(view).navigate(R.id.profileFragment);
+                }
+            }
+        });
+
         Menu menu = binding.navView.getMenu();
         MenuItem loginItem = menu.findItem(R.id.nav_login);
 
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         if(currentUser != null){
-            loginItem.setTitle("Đăng xuất");
+            loginItem.setTitle("Log out");
         }else{
-            loginItem.setTitle("Đăng nhập");
+            loginItem.setTitle("Log in");
         }
     }
     @Override
@@ -166,17 +189,22 @@ public class MainFragment extends Fragment{
 //        return inflater.inflate(R.layout.fragment_main, container, false);
         binding = FragmentMainBinding.inflate(inflater, container, false);
         View view = binding.getRoot();
-
         mAuth = FirebaseAuth.getInstance();
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
         return view;
     }
     public void setMainItem(){
-        itemList.add("Từ đã tra");
-        itemList.add("Từ của bạn");
-        itemList.add("Dịch văn bản");
-        itemList.add("Thực hành Tiếng Anh");
-//        itemList.add("Cài đặt");
+        itemList.add("Searched word");
+        itemList.add("Favourite word");
+        itemList.add("Text translation");
+        itemList.add("Practice speaking");
         itemsAdapter.notifyDataSetChanged();
     }
 
@@ -234,6 +262,25 @@ public class MainFragment extends Fragment{
                     e.printStackTrace();
                 }
             });
+    }
+
+    private void configWordOfDay() {
+        List<WordObjectBox> words = wordObjectBoxService.getWordBox();
+        if (words.size() > 0) {
+            int randomIndex = (int)(Math.random() * words.size());
+            wordObjectBox = words.get(randomIndex);
+            binding.wodWord.setText(wordObjectBox.getWord());
+            binding.wodDefinition.setText(wordObjectBox.getDefinition());
+            binding.wodPhonetic.setText(wordObjectBox.getPhonetic());
+
+            binding.wodLayout.setOnClickListener(v ->{
+                if (NetworkUtil.isNetworkAvailable(v.getContext()))
+                    performSearch(wordObjectBox.getWord());
+                else
+                    Toast.makeText(v.getContext(), "Please, connect to network.",
+                            Toast.LENGTH_SHORT).show();
+            });
+        }
     }
 
 //    @Override

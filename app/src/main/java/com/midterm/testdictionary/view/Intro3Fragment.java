@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import com.midterm.testdictionary.R;
 import com.midterm.testdictionary.databinding.FragmentIntro3Binding;
 
 public class Intro3Fragment extends Fragment {
@@ -33,15 +35,12 @@ public class Intro3Fragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        binding.next.setOnClickListener(v -> {
+        binding.next.setOnClickListener(v -> Navigation.findNavController(getView())
+                .navigate(R.id.action_intro3Fragment_to_mainFragment)
+        );
 
-        });
-
-        binding.skip.setOnClickListener(v -> {
-
-        });
+        binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
+                .navigate(R.id.action_intro3Fragment_to_intro2Fragment)
+        );
     }
-
-
-
 }

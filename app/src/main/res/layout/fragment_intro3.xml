@@ -26,12 +26,15 @@
         android:layout_marginTop="469dp"
         android:background="@drawable/rectangle_1176_shape" />
 
-    <View
-        android:layout_width="350dp"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="370dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginHorizontal="28dp"
         android:layout_marginTop="72dp"
-        android:background="@drawable/dictionary" />
+        android:src="@drawable/dictionary"
+        android:scaleType="centerCrop"
+        android:clipToOutline="true"
+        android:background="@drawable/rectangle_1197_shape"/>
 
 
     <TextView
@@ -49,46 +52,64 @@
         android:layout_height="103.5dp"
         android:layout_marginLeft="21dp"
         android:layout_marginTop="622dp"
+        android:justificationMode="inter_word"
         android:text="@string/bookmark_words_to_review_later__and_track_your_progress_with_personalized_word_lists__learning_has_never_been_this_easy__string"
         android:textColor="@color/save_and_learn_at_your_own_pace_color"
         android:textSize="17sp" />
 
-    <View
-        android:id="@+id/skip"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="750dp"
-        android:background="@drawable/rectangle_1204_shape" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="21dp"
+        android:layout_marginTop="750dp">
+        <View
+            android:id="@+id/back"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:layout_marginRight="8dp"
+            android:clickable="true"
+            android:background="@drawable/rectangle_1204_shape" />
 
-    <TextView
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="750dp"
-        android:gravity="center"
-        android:text="@string/skip_string"
-        android:textColor="@color/skip_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        <View
+            android:id="@+id/next"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/rectangle_1202_shape" />
+    </LinearLayout>
 
-    <View
-        android:id="@+id/next"
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="750dp"
-        android:background="@drawable/rectangle_1202_shape" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="21dp"
+        android:layout_marginTop="750dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Back"
+            android:textColor="@color/skip_color"
+            android:layout_marginRight="8dp"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
-    <TextView
-        android:layout_width="130dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="230dp"
-        android:layout_marginTop="750dp"
-        android:gravity="center"
-        android:text="@string/next_string"
-        android:textColor="@color/skip_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
-
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Finish"
+            android:textColor="@color/skip_color"
+            android:layout_marginLeft="8dp"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
 </RelativeLayout>

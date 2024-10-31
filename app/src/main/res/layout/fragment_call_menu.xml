@@ -1,25 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white">
-
 
     <View
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:background="@drawable/rectangle_1171_shape" />
-
-    <TextView
-        android:id="@+id/back_btn"
-        android:layout_width="70dp"
-        android:layout_height="53dp"
-        android:layout_marginLeft="26dp"
-        android:clickable="true"
-        android:gravity="center_vertical"
-        android:text="@string/trang_ch__string"
-        android:textColor="@color/_bg__your_word_ek2_color"
-        android:textSize="15sp" />
 
     <ImageView
         android:layout_width="12dp"
@@ -41,67 +28,62 @@
         android:textSize="36sp" />
 
     <View
-        android:layout_width="370dp"
+        android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="100dp"
         android:background="@drawable/call_video_image" />
 
     <ImageView
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_marginTop="435dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginHorizontal="16dp"
         android:contentDescription="vector_4"
         android:src="@drawable/vector_4" />
 
-    <View
-        android:id="@+id/create_room"
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="590dp"
-        android:clickable="true"
-        android:background="@drawable/rectangle_1206_shape" />
-
-    <TextView
-        android:layout_width="340dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="590dp"
-        android:gravity="center"
-        android:text="@string/nh_p_t_n_c_a_b_n_string"
-        android:textColor="@color/_bg__callvideo_ek2_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="460dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:text="@string/idiom_practice_1"
+            android:textColor="@color/title_thame_color"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textSize="35sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="40dp"
+            android:text="@string/idiom_practice_2"
+            android:textColor="@color/title_thame_color"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:textSize="35sp"/>
+    </LinearLayout>
 
     <View
         android:id="@+id/join_room"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="600dp"
         android:background="@drawable/rectangle_1206_shape" />
 
     <TextView
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="680dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="600dp"
         android:gravity="center"
+        android:fontFamily="@font/abeezee"
         android:text="@string/tham_gia_cu_c_h_n_string"
-        android:textColor="@color/_bg__callvideo_ek2_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
-
-    <EditText
-        android:id="@+id/name_input"
-        android:layout_width="260dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="530dp"
-        android:hint="@string/nh_p_t_n_c_a_b_n_ek1_string"
-        android:textColor="@color/nh_p_t_n_c_a_b_n_ek1_color"
-        android:textSize="17sp" />
-
+        android:textColor="@color/title_thame_color"
+        android:textSize="25sp"
+        android:textStyle="italic|bold" />
 </RelativeLayout>

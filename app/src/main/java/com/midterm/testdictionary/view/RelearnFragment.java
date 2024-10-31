@@ -77,6 +77,7 @@ public class RelearnFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         binding.progressLine.setMax(NUMBER_WORDS);
         binding.progressLine.setProgress(0);
+        binding.countWords.setText(currentIndex + "/" + NUMBER_WORDS);
 
         meaningAdapter = new MeaningAdapter(new ArrayList<>(), false);
         binding.rvMeaning.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -92,6 +93,7 @@ public class RelearnFragment extends Fragment {
         binding.nextBtn.setOnClickListener(v -> {
             currentIndex++;
             binding.progressLine.setProgress(currentIndex);
+            binding.countWords.setText(currentIndex + "/" + NUMBER_WORDS);
             if (currentIndex == NUMBER_WORDS) {
                 binding.nextBtn.setVisibility(View.GONE);
                 binding.finishBtn.setVisibility(View.VISIBLE);
@@ -101,6 +103,7 @@ public class RelearnFragment extends Fragment {
         });
 
         binding.finishBtn.setOnClickListener(v -> {
+            binding.progressLine.setProgress(NUMBER_WORDS);
             binding.layoutCongratulation.setVisibility(View.VISIBLE);
         });
 
@@ -134,7 +137,6 @@ public class RelearnFragment extends Fragment {
                 @Override
                 public void onSuccess(@io.reactivex.rxjava3.annotations.NonNull List<Word> words) {
                     word = words.get(0);
-                    binding.countWords.setText(currentIndex + "/" + NUMBER_WORDS);
                     binding.setWord(word);
                     meaningList = word.getMeanings();
                     meaningAdapter.setData(meaningList);

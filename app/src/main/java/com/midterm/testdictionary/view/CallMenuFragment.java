@@ -37,21 +37,9 @@ public class CallMenuFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-        binding.backBtn.setOnClickListener(v -> {
-
-        });
-
-        binding.createRoom.setOnClickListener(v -> {
-
-        });
-
         binding.joinRoom.setOnClickListener(v -> {
 
         });
 
     }
-
-
-
 }

@@ -33,10 +33,10 @@ public class SignupFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){
-//            Navigation.findNavController(view).navigate(R.id.searchedWordFragment);
-//        }
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            Navigation.findNavController(getView()).navigate(R.id.action_signupFragment_to_mainFragment);
+        }
     }
 
     @Override

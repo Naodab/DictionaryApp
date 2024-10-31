@@ -29,8 +29,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
+        if (getArguments() != null) {}
     }
 
     @Override
@@ -41,30 +40,22 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
 
     private void init() {
         callRepository = CallRepository.getInstance();
-        binding.callBtn.setOnClickListener(v->{
-            //start a call request here
-            callRepository.sendCallRequest(binding.targetUserNameEt.getText().toString(),()->{
-                Toast.makeText(this.getContext(), "couldnt find the target", Toast.LENGTH_SHORT).show();
-            });
+        binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
+                .navigate(R.id.action_callFragment_to_mainFragment));
 
+        binding.joinRoom.setOnClickListener(v->{
+            callRepository.sendCallRequest(() -> {
+                Toast.makeText(getContext(), "couldnt find the target", Toast.LENGTH_SHORT).show();
+            });
         });
         callRepository.initLocalView(binding.localView);
         callRepository.initRemoteView(binding.remoteView);
         callRepository.listener = this;
 
         callRepository.subscribeForLatestEvent(data->{
-            if (data.getType()== DataModelType.StartCall) {
+            if (data.getType() == DataModelType.StartCall) {
                 mHandler.post(()->{
-                    binding.incomingNameTV.setText(data.getSender()+" is Calling you");
-                    binding.incomingCallLayout.setVisibility(View.VISIBLE);
-                    binding.acceptButton.setOnClickListener(v->{
-                        //star the call here
-                        callRepository.startCall(data.getSender());
-                        binding.incomingCallLayout.setVisibility(View.GONE);
-                    });
-                    binding.rejectButton.setOnClickListener(v->{
-                        binding.incomingCallLayout.setVisibility(View.GONE);
-                    });
+                    callRepository.startCall(data.getSender());
                 });
             }
         });
@@ -95,7 +86,6 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
 
         binding.endCallButton.setOnClickListener(v->{
             callRepository.endCall();
-//            finish();
         });
     }
 
@@ -109,14 +99,14 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
     @Override
     public void webrtcConnected() {
         mHandler.post(()->{
-            binding.incomingCallLayout.setVisibility(View.GONE);
-            binding.whoToCallLayout.setVisibility(View.GONE);
+            binding.layoutWhoToCall.setVisibility(View.GONE);
             binding.callLayout.setVisibility(View.VISIBLE);
         });
     }
 
     @Override
     public void webrtcClosed() {
-        mHandler.post(() -> Navigation.findNavController(this.getView()).navigate(R.id.action_callFragment_to_mainFragment));
+        mHandler.post(() -> Navigation.findNavController(getView())
+                .navigate(R.id.action_callFragment_to_mainFragment));
     }
 }
