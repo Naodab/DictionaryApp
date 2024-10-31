@@ -31,6 +31,14 @@
           }
         },
         {
+          "client_id": "372996716134-diakms9eq42dekau4vpgnajs75sbgv62.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.midterm.testdictionary",
+            "certificate_hash": "d45dfb127cdb34757006d5c32cf9f304ebbb141a"
+          }
+        },
+        {
           "client_id": "372996716134-gh07mapaf6uoes6dc10tvfmn8i0mrm9m.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
