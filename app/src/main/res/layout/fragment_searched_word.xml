@@ -30,32 +30,37 @@
         android:src="@drawable/vectorback" />
 
     <TextView
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="55dp"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="55dp"
         android:gravity="center"
         android:fontFamily="@font/agbalumo"
         android:text="@string/t_____tra_string"
         android:textColor="@color/luy_n_t_p_color"
         android:textSize="35sp" />
 
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="558dp"
-        android:layout_marginTop="120dp">
+        android:layout_width="390dp"
+        android:layout_height="600dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/recyclev_view_background">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="380dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_searched_word"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="580dp" />
 
         </LinearLayout>
     </ScrollView>
-
 
     <View
         android:id="@+id/relearn"

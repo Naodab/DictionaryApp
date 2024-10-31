@@ -8,8 +8,8 @@
     </data>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_width="380dp"
+        android:layout_height="90dp"
         android:orientation="horizontal"
         android:background="@drawable/round_border_1"
         android:gravity="center_vertical">
@@ -18,28 +18,28 @@
             android:id="@+id/checkbox"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="20dp"
+            android:layout_marginStart="10dp"
             android:background="@drawable/vector_ek17"/>
-       <LinearLayout
-           android:layout_width="250dp"
-           android:layout_height="match_parent"
-           android:orientation="vertical"
-           android:gravity="center_vertical">
-           <TextView
-               android:id="@+id/meaning_word"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginStart="20dp"
-               android:textSize="32sp"
-               android:text="@{word.word}"/>
-           <TextView
-               android:id="@+id/eng_word"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_marginStart="22dp"
-               android:text="@{word.phonetic}"/>
+        <LinearLayout
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/meaning_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:textSize="32sp"
+                android:text="@{word.word}"/>
+            <TextView
+                android:id="@+id/eng_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="22dp"
+                android:text="@{word.phonetic}"/>
 
-       </LinearLayout>
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/listen"

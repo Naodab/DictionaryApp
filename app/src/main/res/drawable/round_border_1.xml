@@ -5,7 +5,4 @@
 
     <!-- Màu nền của LinearLayout -->
     <solid android:color="#FFFFFF" />
-    <stroke
-        android:width="2dp"
-        android:color="@color/grey" />
 </shape>
