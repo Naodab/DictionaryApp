@@ -1,0 +1,13 @@
+<!-- res/drawable/recyclerview_item_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu nền cho item -->
+    <solid android:color="#FFFFFF" /> <!-- Đặt màu nền ở đây -->
+
+    <!-- Bo tròn cho các góc -->
+    <corners android:radius="14dp" />
+
+    <!-- Vẽ viền -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" />
+</shape>
