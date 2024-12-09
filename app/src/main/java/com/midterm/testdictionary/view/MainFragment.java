@@ -134,11 +134,11 @@ public class MainFragment extends Fragment{
         binding.navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FirebaseUser currentUser = mAuth.getCurrentUser();
                 if(item.getItemId() == R.id.nav_login){
                     Menu menu = binding.navView.getMenu();
                     MenuItem loginItem = menu.findItem(R.id.nav_login);
 
-                    FirebaseUser currentUser = mAuth.getCurrentUser();
 
                     if(currentUser != null && loginItem.getTitle().equals("Log out")) {
                         mAuth.signOut();
@@ -153,6 +153,20 @@ public class MainFragment extends Fragment{
                         Toast.makeText(getContext(), "Log out error", Toast.LENGTH_SHORT).show();
                     }
 
+                }else if(item.getItemId() == R.id.nav_favorite_word){
+                    if(currentUser == null){
+                        Toast.makeText(view.getContext(), "You must login", Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(view).navigate(R.id.loginFragment);
+                    }else{
+                        Navigation.findNavController(view).navigate(R.id.yourWordFragment);
+                    }
+                }else if(item.getItemId() == R.id.nav_search_word){
+                    if(currentUser == null){
+                        Toast.makeText(view.getContext(), "You must login", Toast.LENGTH_SHORT).show();
+                        Navigation.findNavController(view).navigate(R.id.loginFragment);
+                    }else{
+                        Navigation.findNavController(view).navigate(R.id.searchedWordFragment);
+                    }
                 }
 
                 return true;

@@ -6,21 +6,13 @@
     <group
         android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_trans"
-            android:icon="@drawable/baseline_translate_40"
-            android:title="Text translate"/>
-        <item
-            android:id="@+id/nav_star"
+            android:id="@+id/nav_favorite_word"
             android:icon="@drawable/baseline_star_24_black"
             android:title="Favourite word"/>
         <item
-            android:id="@+id/nav_time"
+            android:id="@+id/nav_search_word"
             android:icon="@drawable/baseline_access_time_40"
             android:title="Recent"/>
-        <item
-            android:id="@+id/nav_setting"
-            android:icon="@drawable/baseline_settings_40"
-            android:title="Setting"/>
 
     </group>
     <item
