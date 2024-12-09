@@ -1,24 +1,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <View
-        android:layout_width="420dp"
+        android:layout_width="match_parent"
         android:layout_height="53dp"
         android:layout_marginStart="0dp"
         android:background="@drawable/rectangle_1171_shape" />
-
-<!--    <TextView-->
-<!--        android:id="@+id/back_btn"-->
-<!--        android:layout_width="97.5dp"-->
-<!--        android:layout_height="53dp"-->
-<!--        android:layout_marginLeft="26dp"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:text="@string/trang_ch__string"-->
-<!--        android:clickable="true"-->
-<!--        android:textColor="@color/_bg__your_word_ek2_color"-->
-<!--        android:textSize="15sp" />-->
 
     <ImageView
         android:id="@+id/back_arrow"
@@ -30,15 +18,14 @@
         android:src="@drawable/vectorback" />
 
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_marginLeft="55dp"
-        android:gravity="center"
+        android:layout_marginLeft="26dp"
         android:fontFamily="@font/agbalumo"
+        android:gravity="center"
         android:text="@string/t_____tra_string"
         android:textColor="@color/luy_n_t_p_color"
         android:textSize="35sp" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -62,65 +49,49 @@
         </LinearLayout>
     </ScrollView>
 
-    <View
-        android:id="@+id/relearn"
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="13dp"
-        android:clickable="true"
-        android:layout_marginTop="733dp"
-        android:clipToOutline="true"
-        android:background="@drawable/rectangle_1202_shape" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp">
+        <TextView
+            android:id="@+id/relearn"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/rectangle_1202_shape"
+            android:gravity="center"
+            android:text="@string/_n_t_p_string"
+            android:textColor="@color/_bg__search_word_ek2_color"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="733dp"
-        android:gravity="center"
-        android:text="@string/_n_t_p_string"
-        android:textColor="@color/_bg__search_word_ek2_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
+        <TextView
+            android:id="@+id/writing_practice"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginHorizontal="6dp"
+            android:background="@drawable/rectangle_1202_shape"
+            android:text="@string/t_p_vi_t_string"
+            android:textColor="@color/_bg__search_word_ek2_color"
+            android:textSize="18sp"
+            android:textStyle="italic" />
 
-    <View
-        android:id="@+id/writing_practice"
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="279dp"
-        android:layout_marginTop="733dp"
-        android:clickable="true"
-        android:background="@drawable/rectangle_1202_shape" />
-
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="279dp"
-        android:layout_marginTop="733dp"
-        android:gravity="center"
-        android:text="@string/t_p_vi_t_string"
-        android:textColor="@color/_bg__search_word_ek2_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
-
-    <View
-        android:id="@+id/practice"
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="734dp"
-        android:clickable="true"
-        android:background="@drawable/rectangle_1202_shape" />
-
-    <TextView
-        android:layout_width="120dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="734dp"
-        android:gravity="center"
-        android:text="@string/luy_n_t_p_string"
-        android:textColor="@color/_bg__search_word_ek2_color"
-        android:textSize="18sp"
-        android:textStyle="italic" />
-
+        <TextView
+            android:id="@+id/practice"
+            android:layout_width="0dp"
+            android:layout_height="39dp"
+            android:layout_weight="1"
+            android:layout_marginHorizontal="6dp"
+            android:gravity="center"
+            android:background="@drawable/rectangle_1202_shape"
+            android:text="@string/luy_n_t_p_string"
+            android:textColor="@color/_bg__search_word_ek2_color"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+    </LinearLayout>
 </RelativeLayout>

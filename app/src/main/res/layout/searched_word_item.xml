@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
-
     <data>
         <variable
             name="word"
             type="com.midterm.testdictionary.model.WordObjectBox" />
     </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="90dp"
@@ -21,8 +19,10 @@
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:background="@drawable/vector_ek17"/>
+
         <LinearLayout
-            android:layout_width="210dp"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center_vertical">
@@ -39,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
                 android:text="@{word.phonetic}"/>
-
         </LinearLayout>
 
         <ImageView

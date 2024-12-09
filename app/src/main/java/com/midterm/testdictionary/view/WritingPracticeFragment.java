@@ -11,6 +11,8 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 
 import com.google.android.flexbox.AlignItems;
@@ -43,6 +45,7 @@ public class WritingPracticeFragment extends Fragment {
     private AudioService audioService = new AudioService();
     private int currentIndex = 0;
     private boolean isNew = true;
+    private boolean isResultVisisble = false;
 
     private String word;
 
@@ -89,8 +92,9 @@ public class WritingPracticeFragment extends Fragment {
                     if (tmp.equals(word)) {
                         currentIndex++;
                         if (currentIndex == NUMBER_QUESTIONS) {
-                            binding.write.setVisibility(View.GONE);
                             binding.layoutCongratulation.setVisibility(View.VISIBLE);
+                            Animation slideOutRight = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
+                            binding.layoutCongratulation.startAnimation(slideOutRight);
                         } else {
                             binding.tvResult.setVisibility(View.GONE);
                             binding.inputText.setText("");
@@ -117,12 +121,16 @@ public class WritingPracticeFragment extends Fragment {
             if (audio != null)
                 audioService.playAudio(audio);
             else
-                Toast.makeText(getContext(), "Sorry, we've not updated audio of this word yet",
+                Toast.makeText(getContext(), "Sorry, we've not updated audio of this word yet.",
                         Toast.LENGTH_SHORT).show();
         });
 
         binding.resultBtn.setOnClickListener(v -> {
-            binding.tvResult.setVisibility(View.VISIBLE);
+            if (!isResultVisisble)
+                binding.tvResult.setVisibility(View.VISIBLE);
+            else
+                binding.tvResult.setVisibility(View.GONE);
+            isResultVisisble = !isResultVisisble;
         });
 
         binding.clearBtn.setOnClickListener(v ->{

@@ -25,7 +25,7 @@
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:hint="@string/tra_t___i_n_anh_vi_t_anh_string"
-            android:textColor="@color/tra_t___i_n_anh_vi_t_anh_color"
+            android:textColor="@color/title_thame_color"
             android:textSize="17sp"
             android:fontFamily="@font/abeezee"
             android:imeOptions="actionSearch"
