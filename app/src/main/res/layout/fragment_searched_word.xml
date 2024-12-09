@@ -41,13 +41,13 @@
 
 
     <ScrollView
-        android:layout_width="390dp"
+        android:layout_width="match_parent"
         android:layout_height="600dp"
         android:layout_marginTop="95dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginHorizontal="10dp"
         android:background="@drawable/recyclev_view_background">
         <LinearLayout
-            android:layout_width="380dp"
+            android:layout_width="match_parent"
             android:layout_height="580dp"
             android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
