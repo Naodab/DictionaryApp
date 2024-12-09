@@ -76,8 +76,8 @@ public class RelearnFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         binding.progressLine.setMax(NUMBER_WORDS);
-        binding.progressLine.setProgress(0);
-        binding.countWords.setText(currentIndex + "/" + NUMBER_WORDS);
+        binding.progressLine.setProgress(currentIndex + 1);
+        binding.countWords.setText((currentIndex + 1) + "/" + NUMBER_WORDS);
 
         meaningAdapter = new MeaningAdapter(new ArrayList<>(), false);
         binding.rvMeaning.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -92,28 +92,30 @@ public class RelearnFragment extends Fragment {
 
         binding.nextBtn.setOnClickListener(v -> {
             currentIndex++;
-            binding.progressLine.setProgress(currentIndex);
-            binding.countWords.setText(currentIndex + "/" + NUMBER_WORDS);
-            if (currentIndex == NUMBER_WORDS) {
+            binding.progressLine.setProgress(currentIndex + 1);
+            binding.countWords.setText((currentIndex + 1) + "/" + NUMBER_WORDS);
+            if (currentIndex == NUMBER_WORDS - 1) {
                 binding.nextBtn.setVisibility(View.GONE);
                 binding.finishBtn.setVisibility(View.VISIBLE);
-            } else {
-                performWord(wordObjectBoxes.get(currentIndex).getWord());
+                binding.progressLine.setProgress(NUMBER_WORDS);
             }
+            performWord(wordObjectBoxes.get(currentIndex).getWord());
         });
 
         binding.finishBtn.setOnClickListener(v -> {
-            binding.progressLine.setProgress(NUMBER_WORDS);
+            binding.layoutMain.setVisibility(View.GONE);
             binding.layoutCongratulation.setVisibility(View.VISIBLE);
         });
 
         binding.retryButton.setOnClickListener(v -> {
             binding.layoutCongratulation.setVisibility(View.GONE);
+            binding.layoutMain.setVisibility(View.VISIBLE);
             binding.finishBtn.setVisibility(View.GONE);
             binding.nextBtn.setVisibility(View.VISIBLE);
             wordObjectBoxes = getRandom();
             currentIndex = 0;
-            binding.progressLine.setProgress(0);
+            binding.progressLine.setProgress(1);
+            binding.countWords.setText("1/" + NUMBER_WORDS);
             performWord(wordObjectBoxes.get(currentIndex).getWord());
         });
 

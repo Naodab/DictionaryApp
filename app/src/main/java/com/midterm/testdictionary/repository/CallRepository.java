@@ -111,6 +111,10 @@ public class CallRepository implements WebRTCClient.Listener {
         firebaseClient.scanRoomAndJoin(() -> {}, errorCallBack);
     }
 
+    public void leaveRoom(SuccessCallBack successCallBack) {
+        firebaseClient.leaveRoom(successCallBack);
+    }
+
     public void endCall(){
         webRTCClient.closeConnection();
     }

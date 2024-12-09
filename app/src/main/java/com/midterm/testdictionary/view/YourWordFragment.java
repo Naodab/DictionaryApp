@@ -64,6 +64,7 @@ public class YourWordFragment extends Fragment {
                 adapter = new FavouriteWordAdapter(tmp);
                 binding.rvFavouriteWords.setAdapter(adapter);
                 binding.savedWord.setText("Size: " + data.size());
+                binding.progressLayout.setVisibility(View.GONE);
             }
 
             @Override

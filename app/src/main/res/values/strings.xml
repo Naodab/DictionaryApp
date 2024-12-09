@@ -7,7 +7,7 @@
 
     <!-- sign_up_ strings -->
 
-    <string name="app_name">Login App UI Kit</string>
+    <string name="app_name">RedFlat</string>
     <string name="ek_img_content">ExportKit Image</string>
     <string name="welcome_redflat__string">Welcome RedFlat!</string>
     <string name="sign_up_or_login_to_your_account_string">Sign up or Login to your Account</string>
@@ -79,7 +79,7 @@
     <string name="t__c_a_b_n_string">Favourite word</string>
     <string name="th_c_h_nh_ti_ng_anh_string">Thực hành tiếng anh</string>
     <string name="d_ch_v_n_b_n_string">Dịch văn bản</string>
-    <string name="t_____tra_string">Từ đã tra</string>
+    <string name="t_____tra_string">Searched word</string>
 
 
     <!--  word_of_the_day strings  -->

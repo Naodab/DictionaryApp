@@ -65,20 +65,19 @@ public class MainItemAdapter extends RecyclerView.Adapter<MainItemAdapter.ViewHo
 
                     if(getAdapterPosition() == 0){
                         Navigation.findNavController(view).navigate(R.id.searchedWordFragment);
-                    }else if(getAdapterPosition() == 1 || getAdapterPosition() == 3){
+                    } else if(getAdapterPosition() == 1 || getAdapterPosition() == 2){
                         if(currentUser == null){
                             Toast.makeText(view.getContext(), "You must login", Toast.LENGTH_SHORT).show();
                             Navigation.findNavController(view).navigate(R.id.loginFragment);
 
                             return;
                         }
-                        if (getAdapterPosition() == 3) {
+                        if (getAdapterPosition() == 2) {
                             callAssignment(currentUser.getEmail().split("\\.")[0]);
                         } else if (getAdapterPosition() == 1) {
                             Navigation.findNavController(view)
                                     .navigate(R.id.action_mainFragment_to_yourWordFragment);
                         }
-                    }else if(getAdapterPosition() == 2){
                     }
                 }
             });

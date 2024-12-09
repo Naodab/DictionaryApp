@@ -2,10 +2,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background">
         <ScrollView android:id="@+id/write"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <RelativeLayout android:id="@+id/content_container"
                 android:layout_width="wrap_content"
@@ -16,14 +17,6 @@
                     android:layout_marginStart="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" >
-
-                    <View
-                        android:id="@+id/_bg__write_ek2"
-                        android:layout_width="420dp"
-                        android:layout_height="900dp"
-                        android:layout_marginStart="0dp"
-                        android:layout_marginTop="0dp"
-                        android:background="@drawable/_bg__write_ek2_shape" />
 
                     <View
                         android:id="@+id/rectangle_1171"
@@ -46,6 +39,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="150dp"
                         android:orientation="vertical"
+                        android:background="@android:color/transparent"
                         android:paddingHorizontal="32dp">
                         <TextView
                             android:id="@+id/tv_definition"
@@ -73,6 +67,7 @@
                                 android:layout_height="wrap_content"
                                 android:focusable="false"
                                 android:maxLines="1"
+                                android:gravity="center"
                                 android:paddingHorizontal="8dp"
                                 android:textColor="@color/hello_color"
                                 android:textSize="32sp" />
@@ -86,7 +81,8 @@
                             android:gravity="center"
                             android:textStyle="bold"
                             android:textSize="30sp"
-                            android:layout_marginBottom="8dp"/>
+                            android:layout_marginBottom="8dp"
+                            android:visibility="gone"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -101,7 +97,7 @@
                                 android:layout_marginEnd="16dp"
                                 android:paddingVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@color/title_color"/>
+                                android:background="@drawable/rectangle_1202_shape"/>
 
                             <ImageView
                                 android:id="@+id/result_btn"
@@ -111,7 +107,7 @@
                                 android:layout_marginEnd="16dp"
                                 android:paddingVertical="4dp"
                                 android:src="@drawable/baseline_result"
-                                android:background="@color/title_color"/>
+                                android:background="@drawable/rectangle_1202_shape"/>
 
                             <ImageView android:id="@+id/clear_btn"
                                 android:src="@drawable/baseline_close_black_24"
@@ -119,7 +115,7 @@
                                 android:layout_height="40dp"
                                 android:paddingVertical="4dp"
                                 android:layout_weight="1"
-                                android:background="@color/title_color"/>
+                                android:background="@drawable/rectangle_1202_shape"/>
                         </LinearLayout>
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -163,7 +159,7 @@
             android:gravity="center"
             android:orientation="vertical"
             android:padding="24dp"
-            android:background="#FFFFFF"
+            android:background="@drawable/main_background"
             android:visibility="gone">
 
             <TextView
@@ -173,7 +169,7 @@
                 android:text="Congratulations! You've already finished the test!"
                 android:textSize="30sp"
                 android:fontFamily="@font/abeezee"
-                android:textColor="@color/title_color"
+                android:textColor="@color/title_thame_color"
                 android:layout_marginTop="20dp"
                 android:textStyle="bold"
                 android:gravity="center" />

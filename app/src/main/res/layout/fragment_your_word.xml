@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/your_word"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -24,7 +25,7 @@
             android:layout_height="45dp"
             android:gravity="center_vertical"
             android:hint="@string/tra_t___i_n_anh_vi_t_anh_string"
-            android:textColor="@color/tra_t___i_n_anh_vi_t_anh_color"
+            android:textColor="@color/title_thame_color"
             android:textSize="17sp"
             android:fontFamily="@font/abeezee"
             android:imeOptions="actionSearch"
@@ -79,4 +80,21 @@
         android:textSize="20sp"
         android:textStyle="bold|italic" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/overlay"
+        android:visibility="visible">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

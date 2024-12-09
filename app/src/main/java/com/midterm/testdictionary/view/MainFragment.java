@@ -80,7 +80,7 @@ public class MainFragment extends Fragment{
         apiService = new WordApiService();
         wordObjectBoxService = new WordObjectBoxService();
 
-        binding.rvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        binding.rvItems.setLayoutManager(new LinearLayoutManager(getContext()));
         itemList = new ArrayList<>();
         itemsAdapter = new MainItemAdapter(itemList, this);
         binding.rvItems.setAdapter(itemsAdapter);
@@ -203,7 +203,6 @@ public class MainFragment extends Fragment{
     public void setMainItem(){
         itemList.add("Searched word");
         itemList.add("Favourite word");
-        itemList.add("Text translation");
         itemList.add("Practice speaking");
         itemsAdapter.notifyDataSetChanged();
     }

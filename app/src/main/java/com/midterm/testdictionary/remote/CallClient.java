@@ -88,6 +88,15 @@ public class CallClient {
         roomsRef.child(currentRoomId).child("offer").setValue(currentUsername);
     }
 
+    public void leaveRoom(SuccessCallBack successCallBack) {
+
+        roomsRef.child(currentRoomId).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                successCallBack.onSuccess();
+            }
+        });
+    }
+
     public void sendMessageToOtherUser(DataModel dataModel, ErrorCallBack errorCallBack){
         usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

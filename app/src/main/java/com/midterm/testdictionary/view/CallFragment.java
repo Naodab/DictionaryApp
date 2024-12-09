@@ -43,11 +43,19 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
         binding.back.setOnClickListener(v -> Navigation.findNavController(getView())
                 .navigate(R.id.action_callFragment_to_mainFragment));
 
-        binding.joinRoom.setOnClickListener(v->{
+        binding.joinRoom.setOnClickListener(v -> {
+            binding.progressLayout.setVisibility(View.VISIBLE);
             callRepository.sendCallRequest(() -> {
-                Toast.makeText(getContext(), "couldnt find the target", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "couldn't find the target", Toast.LENGTH_SHORT).show();
             });
         });
+
+        binding.cancel.setOnClickListener(v -> {
+            callRepository.leaveRoom(() -> {
+                binding.progressLayout.setVisibility(View.GONE);
+            });
+        });
+
         callRepository.initLocalView(binding.localView);
         callRepository.initRemoteView(binding.remoteView);
         callRepository.listener = this;
@@ -100,6 +108,7 @@ public class CallFragment extends Fragment implements CallRepository.Listener {
     public void webrtcConnected() {
         mHandler.post(()->{
             binding.layoutWhoToCall.setVisibility(View.GONE);
+            binding.progressLayout.setVisibility(View.GONE);
             binding.callLayout.setVisibility(View.VISIBLE);
         });
     }

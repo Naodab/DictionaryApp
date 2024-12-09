@@ -2,14 +2,18 @@ package com.midterm.testdictionary.view;
 
 import androidx.fragment.app.Fragment;
 
+import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -78,9 +82,19 @@ public class PracticeFragment extends Fragment {
             int finalI = i;
             options[i].setOnClickListener(v -> {
                 if (currentAnswer == finalI) {
+                    int startColor = android.graphics.Color.TRANSPARENT;
+                    int endColor = Color.parseColor("#161B58");
                     options[finalI].setBackgroundResource(R.drawable.right_option);
                     binding.progressLine.setProgress(currentIndex);
-                    binding.nextBtn.setTextColor(Color.parseColor("#45B8E9"));
+                    ObjectAnimator colorAnimator = ObjectAnimator.ofArgb(
+                            binding.nextBtn,
+                            "textColor",
+                            startColor,
+                            endColor
+                    );
+                    colorAnimator.setDuration(200);
+                    colorAnimator.setEvaluator(new ArgbEvaluator());
+                    colorAnimator.start();
                 } else {
                     ObjectAnimator animator = ObjectAnimator.ofFloat(options[finalI], "translationX",
                             0f, 10f, -10f, 10f, -10f, 5f, -5f, 0);
@@ -94,13 +108,14 @@ public class PracticeFragment extends Fragment {
         binding.closeBtn.setOnClickListener(this::showConfirmDialog);
         binding.nextBtn.setOnClickListener(v -> {
             binding.nextBtn.setTextColor(Color.TRANSPARENT);
-            Arrays.stream(options).forEach(option ->
-                    option.setBackgroundResource(R.drawable.rectangle_1219_shape));
             performQuestion();
         });
 
         binding.retryButton.setOnClickListener(v -> {
+            Animation slideOutRight = AnimationUtils.loadAnimation(getContext(), R.anim.slide_out_left);
+            binding.layoutCongratulation.startAnimation(slideOutRight);
             binding.layoutCongratulation.setVisibility(View.GONE);
+            binding.progressLine.setProgress(0);
             Collections.shuffle(wordObjectBoxes);
             currentIndex = 0;
             performQuestion();
@@ -113,6 +128,8 @@ public class PracticeFragment extends Fragment {
     private void performQuestion() {
         if (currentIndex == NUMBER_QUESTIONS) {
             binding.layoutCongratulation.setVisibility(View.VISIBLE);
+            Animation slideInRight = AnimationUtils.loadAnimation(getContext(), R.anim.slide_in_left);
+            binding.layoutCongratulation.startAnimation(slideInRight);
         } else {
             Arrays.stream(index).forEach(i -> i = -1);
             calculateOptions();
@@ -142,9 +159,28 @@ public class PracticeFragment extends Fragment {
         i = 0;
         for (i = 0; i < 4; i++) {
             labels[i].setText(wordObjectBoxes.get(index[i]).getWord());
+            labels[i].setVisibility(View.GONE);
+            options[i].setVisibility(View.GONE);
+            options[i].setBackgroundResource(R.drawable.rectangle_1217_shape);
             if (index[i] == currentIndex) {
+                Animation zoomIn = zoomIn = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
                 binding.question.setText(wordObjectBoxes.get(index[i]).getDefinition());
+                binding.question.startAnimation(zoomIn);
             }
+        }
+        Handler handler = new Handler();
+        for ( i = 0; i < 4; i++) {
+            final int index = i;
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Animation zoomIn = AnimationUtils.loadAnimation(getContext(), R.anim.zoom_in);
+                    options[index].setVisibility(View.VISIBLE);
+                    labels[index].setVisibility(View.VISIBLE);
+                    options[index].startAnimation(zoomIn);
+                    labels[index].startAnimation(zoomIn);
+                }
+            }, 250 + (index * 250L));
         }
     }
 
